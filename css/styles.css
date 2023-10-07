@@ -1,0 +1,34 @@
+.mainContainer{
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-image: url('https://digital.ihg.com/is/image/ihg/ihg-lp-refresh-hero-imea-gben-lvp-1440x617');
+}
+.mainText{
+    text-align: center;
+    color: white;
+    font-size: 8rem;
+    font-family: 'Tilt Warp', cursive;
+
+}
+#subText{
+    font-size: 4rem;
+}
+
+#packageSelector {
+    position: relative;
+    left: 50%;
+    margin-top: 3rem;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    font-family: 'Tilt Warp', cursive;
+}
+#packageSelector:hover{
+    background-color: black;
+    color: white;
+}

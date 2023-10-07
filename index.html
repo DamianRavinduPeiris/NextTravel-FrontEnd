@@ -5,7 +5,7 @@
     <title>NextTravel.</title>
 
     <!--Icon.-->
-    <link href="https://img.icons8.com/external-others-inmotus-design/512/external-D-keyboard-others-inmotus-design-2.svg"
+    <link href="https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-1/305665009_507401131389745_3620587329270147401_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=754033&_nc_eui2=AeHmp4mrxo5AeZY5_vO75y1cWtwozwOFYUJa3CjPA4VhQrSoNOLbrxd5rJs6svH34fv_Z0LIzPM88JgcHqfXbJAt&_nc_ohc=xV3-CM-ZzNwAX841dJs&_nc_oc=AQkOk_mPmQi-xAffuB00MViMAUqouQGsN03pn6cUVJLox2rgIUOTcNkGzKeOci7Q3RU&_nc_ht=scontent-sin6-4.xx&oh=00_AfAyBVEVfQ3RloRULOLUd_eUcgoKbo80RxRN9WH3EKXTTA&oe=6527614B"
           rel="icon" type="image/x-icon">
     <!--Description.-->
     <meta content="Website for the NextTravel PVT LTD." property="og:description">
@@ -33,10 +33,33 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!--Normalize css.-->
     <link href="css/Normalize.css" rel="stylesheet">
+    <!--SweetAlert.-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--Google fonts.-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
-<script src="js/script.js"></script>
+<header>
 
+<div class="mainContainer">
+    <h1 class="animate__animated animate__bounce mainText">Next Travel.</h1>
+    <h2 class="mainText" id="subText">Your ultimate travel partner!</h2>
+    <button type="button" class="btn btn-light" id="packageSelector">Explore Packages.</button>
+
+
+
+</div>
+
+
+</header>
+
+<script src="js/script.js"></script>
+<!--AOS.-->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>
