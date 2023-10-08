@@ -9,18 +9,72 @@
     overflow-x: hidden;
     background-image: url('https://ychef.files.bbci.co.uk/1280x720/p0b7n6dm.jpg');
 }
-.navbar{
-    height: 40px;
-}
-.nav-item>a{
-    position: relative;
-    left: 850px;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-#navbarText{
-    font-size: 2rem;
 
+#offcanvasNavbar {
+    background-color: black;
+}
+
+
+.footerText {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'popins', sans-serif;
+    margin-top: 5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-size: 1rem;
+}
+
+.logo {
+    position: relative;
+    left: 50%;
+    /*Getting 50% back to the left from its own width.*/
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5rem;
+    transition: width 0.5s, height 0.5s;
+}
+
+.logo:hover {
+    width: 200px;
+    height: 200px;
+}
+
+/*NavBar - Start.*/
+.navbar {
+    font-family: 'Tilt Warp', cursive;
+}
+
+ul > li > a {
+    margin-top: 5rem;
+    margin-left: 2.5rem;
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+
+}
+
+ul {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    list-style: none;
+}
+
+li:hover a {
+    color: black;
+    background-color: white;
+
+}
+
+.cInfo {
+    color: white;
+}
+
+.navbar-toggler {
+    margin-left: 1rem;
+    margin-top: 1rem;
 }
 
 
@@ -31,10 +85,17 @@
     font-family: 'Tilt Warp', cursive;
 
 }
+#t1{
+    border-bottom: 10px solid lightblue;
+    font-size: 3rem;
+    color: black;
+
+}
 
 #subText {
     font-size: 4rem;
 }
+
 
 #loginButton {
     font-size: 1rem;
@@ -83,10 +144,28 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80vw;
-    height: 50vh;
-    border: 1px solid black;
-}
+    height: auto;
 
+}
+.stepsImages{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 30px;
+    height: 200px;
+    width: 200px;
+}
+.fcRow{
+    margin-top: 120px;
+    margin-bottom: 120px;
+    flex-direction: column;
+}
+.dText{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2rem;
+
+
+}
 @media screen  and (max-width: 1098px) {
     .mainText {
         font-size: 6rem;
@@ -127,6 +206,13 @@
         left: 0;
         margin-right: 10px;
         margin-left: 10px;
+    }
+    .dText{
+        font-size: 1.5rem;
+    }
+    .stepsImages{
+        height: 150px;
+        width: 150px;
     }
 }
 
