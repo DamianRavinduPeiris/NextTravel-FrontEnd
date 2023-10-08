@@ -86,7 +86,13 @@ li:hover a {
 
 }
 #t1{
-    border-bottom: 10px solid lightblue;
+    border-bottom: 10px solid black;
+    font-size: 3rem;
+    color: black;
+
+}
+#t2{
+    border-bottom: 10px solid black;
     font-size: 3rem;
     color: black;
 
@@ -163,8 +169,23 @@ li:hover a {
 .dText{
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 2rem;
+    padding: 50px;
 
-
+}
+.aboutUsContainer{
+    background-color: lightyellow;
+    border-radius: 50px;
+    position: relative;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: auto;
+    margin-bottom: 100px;
+}
+#footerText{
+    font-size: 1.5rem;
+    padding: 50px;
 }
 @media screen  and (max-width: 1098px) {
     .mainText {

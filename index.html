@@ -31,16 +31,20 @@
 
     <!--JQuery.-->
     <script crossorigin="anonymous"
-            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <!--Normalize css.-->
     <link href="css/Normalize.css" rel="stylesheet">
     <!--SweetAlert.-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--FontAwesome.-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Google fonts.-->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Tilt+Warp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Tilt+Warp&display=swap"
+          rel="stylesheet">
 
 
 </head>
@@ -49,7 +53,8 @@
     <!--NavBar - Start.-->
     <nav class="navbar bg-body-light fixed-top">
         <div class="container-fluid">
-            <button aria-controls="offcanvasNavbar" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#offcanvasNavbar"
+            <button aria-controls="offcanvasNavbar" aria-label="Toggle navigation" class="navbar-toggler"
+                    data-bs-target="#offcanvasNavbar"
                     data-bs-toggle="offcanvas" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -60,15 +65,18 @@
                     <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <img src="https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-1/305665009_507401131389745_3620587329270147401_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=754033&_nc_eui2=AeHmp4mrxo5AeZY5_vO75y1cWtwozwOFYUJa3CjPA4VhQrSoNOLbrxd5rJs6svH34fv_Z0LIzPM88JgcHqfXbJAt&_nc_ohc=xV3-CM-ZzNwAX841dJs&_nc_oc=AQkOk_mPmQi-xAffuB00MViMAUqouQGsN03pn6cUVJLox2rgIUOTcNkGzKeOci7Q3RU&_nc_ht=scontent-sin6-4.xx&oh=00_AfAyBVEVfQ3RloRULOLUd_eUcgoKbo80RxRN9WH3EKXTTA&oe=6527614B" alt="" class="logo">
+                    <img alt=""
+                         class="logo" src="https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-1/305665009_507401131389745_3620587329270147401_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=754033&_nc_eui2=AeHmp4mrxo5AeZY5_vO75y1cWtwozwOFYUJa3CjPA4VhQrSoNOLbrxd5rJs6svH34fv_Z0LIzPM88JgcHqfXbJAt&_nc_ohc=xV3-CM-ZzNwAX841dJs&_nc_oc=AQkOk_mPmQi-xAffuB00MViMAUqouQGsN03pn6cUVJLox2rgIUOTcNkGzKeOci7Q3RU&_nc_ht=scontent-sin6-4.xx&oh=00_AfAyBVEVfQ3RloRULOLUd_eUcgoKbo80RxRN9WH3EKXTTA&oe=6527614B">
                     <ul>
 
                         <li id="home"><a href="#" onclick=changeTitle("Home.")>Home.</a></li>
                         <br><br>
                         <li id="skillMenu"><a href="#steps" onclick=changeTitle("Plan.")>How to.</a></li>
                         <br id="s1"><br id="s2">
-                        <li><a href="#" onclick=changeTitle("AboutUs.")>About us.</a></li><br><br>
-                        <li><a href="#" onclick=changeTitle("ContactUs.")>Contact us.</a></li><br><br>
+                        <li><a href="#aboutUs" onclick=changeTitle("AboutUs.")>About us.</a></li>
+                        <br><br>
+                        <li><a href="#" onclick=changeTitle("ContactUs.")>Contact us.</a></li>
+                        <br><br>
                         <br><br>
 
                     </ul>
@@ -93,25 +101,90 @@
     </div>
     <!--MainContainer - End.-->
 </header>
-<section class="stepsContainer" id="steps" >
+<section class="stepsContainer borderBottomCreate" id="steps">
     <div class="flexContainer">
-    <h1 class="mainText" id="t1" data-aos="zoom-in">3 Steps for a perfect trip!</h1>
+        <h1 class="mainText" data-aos="zoom-in" id="t1">3 Steps for a perfect trip!</h1>
     </div>
     <div class="flexContainer fcRow" data-aos="zoom-in">
-    <img src="assets/ctree.svg" alt="" class="stepsImages" >
-        <p data-aos="zoom-in-left" class="dText">Empower your next adventure with NextTravel. Select from bustling cityscapes, serene beaches, or cultural retreats. Our platform offers a variety of tailored options. Your journey starts with your choice. Where will you go next?</p>
+        <img alt="" class="stepsImages" src="assets/ctree.svg">
+        <p class="dText" data-aos="zoom-in-left">Empower your next adventure with NextTravel. Select from bustling
+            cityscapes, serene beaches, or cultural retreats. Our platform offers a variety of tailored options. Your
+            journey starts with your choice. Where will you go next?</p>
     </div>
     <div class="flexContainer fcRow" data-aos="zoom-in">
-    <img src="assets/package.svg" alt="" class="stepsImages" >
-    <p data-aos="zoom-in-left" class="dText">"Discover a journey personalized just for you. Our diverse packages cater to all tastes, offering options for tranquil retreats or adventure-packed expeditions. Browse our offerings and we'll help bring your travel dreams to life. Tailor every detail to align with your vision.</p>
+        <img alt="" class="stepsImages" src="assets/package.svg">
+        <p class="dText" data-aos="zoom-in-right">"Discover a journey personalized just for you. Our diverse packages
+            cater to all tastes, offering options for tranquil retreats or adventure-packed expeditions. Browse our
+            offerings and we'll help bring your travel dreams to life. Tailor every detail to align with your
+            vision.</p>
     </div>
     <div class="flexContainer fcRow" data-aos="zoom-in">
-        <img src="assets/final.svg" alt="" class="stepsImages" >
-        <p data-aos="zoom-in-left" class="dText">And once you've made your choice, rest easy knowing that we'll take care of the rest. From accommodations to activities, we'll handle all the details, leaving you free to simply enjoy the journey!</p>
+        <img alt="" class="stepsImages" src="assets/final.svg">
+        <p class="dText" data-aos="zoom-in-left">And once you've made your choice, rest easy knowing that we'll take
+            care of the rest. From accommodations to activities, we'll handle all the details, leaving you free to
+            simply enjoy the journey!</p>
+    </div>
+
+<!--About Us - Start.-->
+</section>
+<section class="aboutUsContainer" id="aboutUs">
+    <div class="flexContainer">
+        <h1 class="mainText" data-aos="zoom-in" id="t2">About Us.</h1>
+    </div>
+    <div class="flexContainer fcRow">
+        <p class="dText" data-aos="zoom-in-right">Your Gateway to Unforgettable Journeys
+
+            At Next Travel, we're not just a travel agency; we're your personal guide to extraordinary adventures. Based
+            in Kalutara, Sri Lanka, our curated selection of top-tier hotels and reliable vehicles ensures every detail
+            of your journey is of the highest quality. Let's embark on your next adventure together.</p>
     </div>
 
 
 </section>
+<!--About Us - End.-->
+
+<div class="myFooter" data-aos="zoom-in">
+    <footer class="bg-dark text-center text-white">
+
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!--FaceBook.-->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com" target=_blank role="button"
+                ><i class="fa fa-facebook"></i
+                ></a>
+                <!-- LinkedIn. -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" target=_blank role="button"
+                ><i class="fa fa-linkedin"></i
+                ></a>
+
+
+
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://instagram.com/" role="button"
+                ><i class="fa fa-instagram"></i
+                ></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" target=_blank role="button"
+                ><i class="fa fa-twitter"></i
+                ></a>
+
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 mainText" id="footerText" style="background-color: rgba(0, 0, 0, 0.2);">
+            NextTravel PVT LTD,<br><br>
+            N0 10B,Kaluthara,Sri Lanka.<br> <br>
+            Damian Peiris. © 2023 All Rights Reserved.
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
 
 
 <script src="js/script.js"></script>
