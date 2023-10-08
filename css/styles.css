@@ -236,4 +236,19 @@ li:hover a {
         width: 150px;
     }
 }
+@media screen and(max-width: 392px) {
+    .mainText {
+        font-size: 2rem;
+    }
+    .mainText {
+        font-size: 2rem;
+    }
+    .stepsImages{
+        height: 100px;
+        width: 100px;
+    }
+    #steps{
+        font-size: 2rem;
+    }
+}
 
