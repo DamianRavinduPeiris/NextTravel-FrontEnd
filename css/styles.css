@@ -1,4 +1,4 @@
-.mainContainer{
+.mainContainer {
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -7,27 +7,66 @@
     background-attachment: fixed;
     overflow-y: hidden;
     overflow-x: hidden;
-    background-image: url('https://digital.ihg.com/is/image/ihg/ihg-lp-refresh-hero-imea-gben-lvp-1440x617');
+    background-image: url('https://ychef.files.bbci.co.uk/1280x720/p0b7n6dm.jpg');
 }
-.mainText{
+.navbar{
+    height: 40px;
+}
+.nav-item>a{
+    position: relative;
+    left: 850px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#navbarText{
+    font-size: 2rem;
+
+}
+
+
+.mainText {
     text-align: center;
     color: white;
     font-size: 8rem;
     font-family: 'Tilt Warp', cursive;
 
 }
-#subText{
+
+#subText {
     font-size: 4rem;
 }
 
-#packageSelector {
+#loginButton {
+    font-size: 1rem;
+    margin-right: 4px;
+    border-radius: 10px;
+    font-family: 'Tilt Warp', cursive;
+}
 
+#loginButton:hover {
+    background-color: black;
+    color: white;
+}
+
+#signUpButton {
+    font-size: 1rem;
+    border-radius: 10px;
+    font-family: 'Tilt Warp', cursive;
+}
+
+#signUpButton:hover {
+    background-color: black;
+    color: white;
+}
+
+#packageSelector {
     font-size: 2rem;
     margin-top: 3rem;
     border-radius: 10px;
     font-family: 'Tilt Warp', cursive;
 }
-#packageSelector:hover{
+
+#packageSelector:hover {
     background-color: black;
     color: white;
 }
@@ -38,28 +77,56 @@
     align-content: center;
     justify-content: center;
 }
-@media screen  and (max-width: 1098px){
-    .mainText{
+.stepsContainer {
+    position: relative;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 50vh;
+    border: 1px solid black;
+}
+
+@media screen  and (max-width: 1098px) {
+    .mainText {
         font-size: 6rem;
     }
-    #subText{
+
+    #subText {
         font-size: 3rem;
     }
-    #packageSelector{
+
+    #packageSelector {
         font-size: 1.5rem;
     }
 
 }
-@media screen  and (max-width: 420px){
-    .mainText{
+
+@media screen  and (max-width: 420px) {
+    .mainText {
         font-size: 5rem;
     }
-    #subText{
+
+    #subText {
         margin-top: 3rem;
         font-size: 3rem;
     }
-    #packageSelector{
+
+    #packageSelector {
         font-size: 1.5rem;
     }
 
 }
+
+@media screen and (max-width: 988px) {
+    .navbar{
+        height: auto;
+    }
+    .nav-item>a{
+        position: relative;
+        left: 0;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
