@@ -85,9 +85,9 @@ li:hover a {
     font-family: 'Tilt Warp', cursive;
 
 }
-#t1{
-    border-bottom: 10px solid black;
-    font-size: 3rem;
+.underLiner{
+    border-bottom: 5px solid black;
+    font-size: 2rem;
     color: black;
 
 }
@@ -145,6 +145,8 @@ li:hover a {
     justify-content: center;
 }
 .stepsContainer {
+    background-color: #f4f4f4;;
+    border-radius: 50px;
     position: relative;
     top: 10vh;
     left: 50%;
@@ -177,7 +179,7 @@ li:hover a {
 
 }
 .aboutUsContainer{
-    background-color: lightyellow;
+    background-color: #f4f4f4;
     border-radius: 50px;
     position: relative;
     top: 10vh;
@@ -190,6 +192,15 @@ li:hover a {
 #footerText{
     font-size: 1.5rem;
     padding: 50px;
+}
+.detailsButton{
+    height: 10vh;
+    width: 10vw;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    font-family: 'Tilt Warp', cursive;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 @media screen  and (max-width: 1098px) {
     .mainText {
