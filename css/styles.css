@@ -174,8 +174,8 @@ li:hover a {
 }
 .dText{
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 2rem;
-    padding: 50px;
+    font-size: 1.5rem;
+    padding: 40px;
 
 }
 .aboutUsContainer{
@@ -189,6 +189,12 @@ li:hover a {
     height: auto;
     margin-bottom: 100px;
 }
+#aboutUsText{
+    margin-bottom: 4rem;
+    font-size: 2rem;
+
+}
+
 #footerText{
     font-size: 1.5rem;
     padding: 50px;
@@ -265,5 +271,11 @@ li:hover a {
     #steps{
         font-size: 2rem;
     }
+}
+@media screen and (max-width: 1310px) {
+    #stepsContainer{
+        flex-direction: column;
+    }
+
 }
 
