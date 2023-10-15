@@ -23,33 +23,75 @@ $("#packageSelector").on("click", () => {
 
 
 });
+$("#tViewer").on("click",()=>{
+    let srcArray = ["https://avatars.githubusercontent.com/u/115478137?v=4","https://avatars.githubusercontent.com/u/50785933?v=4","https://avatars.githubusercontent.com/u/71526158?v=4","https://avatars.githubusercontent.com/u/101160534?v=4","https://avatars.githubusercontent.com/u/121995696?v=4","https://avatars.githubusercontent.com/u/106425954?v=4"]
+    let nameArray = ["Damian Peiris.","Ishan Lahiru.","Danuja Greru.","Janitha Rasanjana.","Sayantha Hansaka.","Prabash Wijerathne."]
+
+
+
+    var testimonials = [
+        "NextTravel turned my dream vacation into a reality! Their seamless planning and personalized recommendations made every moment unforgettable. From hidden gems to iconic landmarks, they curated an experience that exceeded my expectations. I can't wait to embark on my next adventure with NextTravel!",
+
+        "Embarking on a journey with NextTravel was nothing short of magical! Their meticulous planning and tailored suggestions transformed every moment into a cherished memory. From discovering hidden treasures to exploring iconic landmarks, they curated an experience that surpassed all my hopes. I'm already counting down the days until my next adventure with NextTravel!",
+
+        "NextTravel is the epitome of travel excellence! Their attention to detail and customized itinerary made my trip an absolute delight. From secret spots to renowned attractions, they crafted an adventure that went above and beyond. I'm already looking forward to my next voyage with NextTravel!",
+
+        "My experience with NextTravel was beyond incredible! Their flawless planning and personalized suggestions made every second unforgettable. From hidden gems to iconic landmarks, they orchestrated an adventure that went above and beyond. I'm eagerly anticipating my next escapade with NextTravel!",
+
+        "NextTravel exceeded all my travel expectations! Their seamless planning and tailored recommendations turned each moment into a cherished memory. From uncovering hidden treasures to exploring famous landmarks, they curated an experience that was beyond my wildest dreams. I'm already planning my next adventure with NextTravel!"
+    ];
+
+    var randomIndex = Math.floor(Math.random() * 6);
+    $(".tCard>img").attr("src",srcArray[randomIndex]);
+    $(".tCard>p").text(testimonials[randomIndex]);
+    $(".tCard>h3").text(nameArray[randomIndex]);
+
+
+
+
+
+
+});
+
+$("#i1").on("click",()=>{
+    var randomIndex = Math.floor(Math.random() * 3);
+   let src = ["https://island.lk/wp-content/uploads/2021/07/lotus-tower.jpg","https://nexttravelsrilanka.com/wp-content/uploads/2023/02/Galle-Fort.jpg","https://ychef.files.bbci.co.uk/1280x720/p0b7n6dm.jpg","https://www.orienthotelsl.com/wp-content/uploads/2023/01/Nine-Arch-Bridge-Ella-1200x630-1.jpg"]
+    $("#i1").attr("src",src[randomIndex]);
+
+
+
+
+
+
+});
+
 $(document).ready(()=>{
-$(document).on("click",".detailsButton",()=>{
-    $.ajax({
-       url :"http://localhost:8080/api/v1/auth/demo",
-       type : "GET",
-       async : true,
-       headers : {
-           "Authorization" : "Bearer "+"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYW1pYW4iLCJpYXQiOjE2OTY3ODE0NTUsImV4cCI6MTY5NjgxNzQ1NX0.PSco2Fc9CmYs4i4KIMUPVtI08jnRhDKSMGw-Nj8F5wY"
+    $(document).on("click",".detailsButton",()=>{
+        $.ajax({
+            url :"http://localhost:8080/api/v1/auth/demo",
+            type : "GET",
+            async : true,
+            headers : {
+                "Authorization" : "Bearer "+"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYW1pYW4iLCJpYXQiOjE2OTY3ODE0NTUsImV4cCI6MTY5NjgxNzQ1NX0.PSco2Fc9CmYs4i4KIMUPVtI08jnRhDKSMGw-Nj8F5wY"
 
-       } ,
-        success : ((res)=>{
-            console.log(res);
-
-
-        }),
-        error : ((err)=>{
-            swal("Error!", "Something went wrong!"+err, "error");
-
-        })
+            } ,
+            success : ((res)=>{
+                console.log(res);
 
 
+            }),
+            error : ((err)=>{
+                swal("Error!", "Something went wrong!"+err, "error");
+
+            })
 
 
 
-    });
 
-})
+
+        });
+
+    })
 
 
 });

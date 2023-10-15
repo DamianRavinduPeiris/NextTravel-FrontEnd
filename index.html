@@ -5,7 +5,7 @@
     <title>NextTravel.</title>
 
     <!--Icon.-->
-    <link href="https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-1/305665009_507401131389745_3620587329270147401_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=754033&_nc_eui2=AeHmp4mrxo5AeZY5_vO75y1cWtwozwOFYUJa3CjPA4VhQrSoNOLbrxd5rJs6svH34fv_Z0LIzPM88JgcHqfXbJAt&_nc_ohc=xV3-CM-ZzNwAX841dJs&_nc_oc=AQkOk_mPmQi-xAffuB00MViMAUqouQGsN03pn6cUVJLox2rgIUOTcNkGzKeOci7Q3RU&_nc_ht=scontent-sin6-4.xx&oh=00_AfAyBVEVfQ3RloRULOLUd_eUcgoKbo80RxRN9WH3EKXTTA&oe=6527614B"
+    <link href="./assets/logo.svg"
           rel="icon" type="image/x-icon">
     <!--Description.-->
     <meta content="Website for the NextTravel PVT LTD." property="og:description">
@@ -38,8 +38,10 @@
     <!--SweetAlert.-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--FontAwesome.-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/97aeb16116.js" crossorigin="anonymous"></script>
     <!--Google fonts.-->
+
+
 
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
@@ -50,6 +52,7 @@
 </head>
 <body>
 <header>
+
     <!--NavBar - Start.-->
     <nav class="navbar bg-body-light fixed-top">
         <div class="container-fluid">
@@ -67,13 +70,15 @@
                 <div class="offcanvas-body">
                     <img alt=""
                          class="logo"
-                         src="https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-1/305665009_507401131389745_3620587329270147401_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=754033&_nc_eui2=AeHmp4mrxo5AeZY5_vO75y1cWtwozwOFYUJa3CjPA4VhQrSoNOLbrxd5rJs6svH34fv_Z0LIzPM88JgcHqfXbJAt&_nc_ohc=xV3-CM-ZzNwAX841dJs&_nc_oc=AQkOk_mPmQi-xAffuB00MViMAUqouQGsN03pn6cUVJLox2rgIUOTcNkGzKeOci7Q3RU&_nc_ht=scontent-sin6-4.xx&oh=00_AfAyBVEVfQ3RloRULOLUd_eUcgoKbo80RxRN9WH3EKXTTA&oe=6527614B">
+                         src="assets/logo.svg" id="logo">
                     <ul>
 
                         <li id="home"><a href="#" onclick=changeTitle("Home.")>Home.</a></li>
                         <br><br>
-                        <li id="skillMenu"><a href="#steps" onclick=changeTitle("Plan.")>How to.</a></li>
-                        <br id="s1"><br id="s2">
+                        <li id=""><a href="#services" onclick=changeTitle("Services.")>Our Services.</a></li>
+                        <br ><br >
+                        <li><a href="#destinations" onclick=changeTitle("Destinations.")>Destinations.</a></li>
+                        <br ><br>
                         <li><a href="#aboutUs" onclick=changeTitle("AboutUs.")>About us.</a></li>
                         <br><br>
                         <li><a href="#footer" onclick=changeTitle("ContactUs.")>Contact us.</a></li>
@@ -102,38 +107,106 @@
     </div>
     <!--MainContainer - End.-->
 </header>
-<!--Steps - Start.-->
-<h1 class="mainText specialText">3 steps for a perfect trip!</h1>
-<section class="flexContainer" id="stepsContainer">
-    <div class="flexContainer fcRow">
-    <img alt="" class="stepsImages" src="assets/map.svg">
-    <p class="dText" data-aos="zoom-in-left">Empower your next adventure with NextTravel. Select from bustling
-        cityscapes, serene beaches, or cultural retreats. Our platform offers a variety of tailored options. Your
-        journey starts with your choice. Where will you go next?</p>
-    </div>
-    <div class="flexContainer fcRow">
+<!--Our Services - Start.-->
+<div class="untree_co-section" id="services">
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-lg-6 text-center">
+                <div class="flexContainer">
+                <h2 class="section-title text-center mb-3 specialText topic">Our Services.</h2>
+                </div>
 
-    <img alt="" class="stepsImages" src="assets/plans.svg">
-    <p class="dText" data-aos="zoom-in-right">Discover a journey personalized just for you. Our diverse packages
-        cater to all tastes, offering options for tranquil retreats or adventure-packed expeditions. Browse our
-        offerings and we'll help bring your travel dreams to life. Tailor every detail to align with your
-        vision.</p>
+            </div>
+        </div>
+        <div class="row align-items-stretch" data-aos="zoom-in-right">
+            <div class="col-lg-4 order-lg-1" >
+                <div class="h-100">
+                    <div class="frame h-100">
+                        <div class="feature-img-bg h-100" style="background-image: url('https://i.pinimg.com/736x/e9/b3/64/e9b364afe71bbe62e55d87ceacb49f54.jpg');"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-6 col-lg-4 feature-1-wrap d-md-flex flex-md-column order-lg-1">
+
+                <div class="feature-1 d-md-flex"  data-aos="zoom-in-right">
+                    <div class="align-self-center">
+                        <h3 class="headings sText">🛎️</h3>
+                        <h3 class="sText headings">Exquisite Accommodations.</h3>
+                        <p class="mb-0 sText">Experience the allure of our carefully curated selection of accommodations, each one promising a unique and unforgettable stay.</p>
+                    </div>
+                </div>
+
+                <div class="feature-1" id="card" data-aos="zoom-in-right">
+                    <div class="align-self-center">
+                        <h3 class="headings sText">🍉</h3>
+                        <h3 class="sText headings">Gourmet Delights.</h3>
+                        <p class="mb-0 sText">Savor culinary delights at our partner restaurants and cafes, where every dish tells a story of local flavors and culinary expertise.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-6 col-sm-6 col-lg-4 feature-1-wrap d-md-flex flex-md-column order-lg-3">
+
+                <div class="feature-1 d-md-flex" data-aos="zoom-in-left">
+                    <div class="align-self-center">
+                        <h3 class="headings sText">🔖</h3>
+                        <h3 class="sText headings">Effortless Planning.</h3>
+                        <p class="mb-0 sText">Our seamless booking process ensures a hassle-free experience, allowing you to focus on creating lasting memories.</p>
+                    </div>
+                </div>
+
+                <div class="feature-1 d-md-flex" id="sContainer" data-aos="zoom-in-left">
+                    <div class="align-self-center">
+                        <h3 class="headings sText">🎧</h3>
+                        <h3 class="sText headings">Round-the-Clock Assistance.</h3>
+                        <p class="mb-0 sText">Rest easy knowing our dedicated support team is always at your service, ready to assist you at any time of the day or night.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
-    <div class="flexContainer fcRow">
-    <img alt="" class="stepsImages" src="assets/final.svg">
-    <p class="dText" data-aos="zoom-in-left">And once you've made your choice, rest easy knowing that we'll take
-        care of the rest. From accommodations to activities, we'll handle all the details, leaving you free to
-        simply enjoy the journey!</p>
-    </div>
+</div>
+
+<!--Our Services - End.-->
+<!--Testimonials - Start.-->
+<div class="flexContainer" >
+    <h1  data-aos="zoom-in" class="topic specialText">Our Testimonials.</h1>
+
+</div>
+<div class="flexContainer tCard fcRow">
+    <img src="https://avatars.githubusercontent.com/u/115478137?v=4" alt="" data-aos="zoom-in">
+    <p class="dText" data-aos="zoom-in">NextTravel turned my dream vacation into a reality! Their seamless planning and personalized recommendations made every moment unforgettable. From hidden gems to iconic landmarks, they curated an experience that exceeded my expectations. I can't wait to embark on my next adventure with NextTravel!</p>
+    <h3 class="dText" data-aos="zoom-in">- Damian Peiris.</h3>
+    <h2 data-aos="zoom-in" style="color: black; text-align: center; border-radius: 40px" id="tViewer"> . . . </h2>
 
 
-</section>
-<!--Steps - End.-->
-    <!--About Us - Start.-->
+</div>
+<!--Testimonials - End.-->
+<!--Destinations -Start.-->
+<div class="flexContainer" id="destinations">
+    <h1  data-aos="zoom-in" class="topic specialText">Our Top Destinations.</h1>
+</div>
+<div class="flexContainer">
+<div class="imgCard" data-aos="zoom-in">
+    <img id="i1" src="https://ychef.files.bbci.co.uk/1280x720/p0b7n6dm.jpg" alt="">
+</div>
+
+    
+
+
+
+</div>
+
+
+<!--Destinations - End.-->
 
 <section class="aboutUsContainer" id="aboutUs">
     <div class="flexContainer">
-        <h1 class="mainText" data-aos="zoom-in" id="t2">About Us.</h1>
+        <h1  data-aos="zoom-in" id="t2">About Us.</h1>
 
     </div>
     <div class="flexContainer fcRow">
@@ -185,7 +258,8 @@
         <!-- Copyright -->
         <div class="text-center p-3 mainText" id="footerText" style="background-color: rgba(0, 0, 0, 0.2);">
             contact@nexttravel.com.<br> <br>
-            Damian Peiris. © 2023 All Rights Reserved.
+            Crafted with 🤍 by <a href="https://ig.me/damian.peiris" target="_blank">Damian.</a><br><br>
+            Damian Peiris © 2023 All Rights Reserved.
         </div>
         <!-- Copyright -->
     </footer>

@@ -1,3 +1,49 @@
+body {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+::-webkit-scrollbar {
+    width: 0 !important; /* Safari and Chrome */
+}
+
+.col-lg-4.order-lg-1 {
+    height: 600px;
+
+
+}
+
+#card {
+    border-radius: 10px;
+    border: none;
+    margin-top: 3rem;
+}
+
+.sText {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+.headings {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#sText1 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#sContainer {
+    margin-top: 3.5rem;
+}
+
+.align-self-center {
+    margin: 2rem;
+}
+
 .mainContainer {
     width: 100vw;
     height: 100vh;
@@ -30,8 +76,8 @@
     left: 50%;
     /*Getting 50% back to the left from its own width.*/
     transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     margin-bottom: 5rem;
     transition: width 0.5s, height 0.5s;
 }
@@ -82,16 +128,18 @@ li:hover a {
     text-align: center;
     color: white;
     font-size: 8rem;
-    font-family: 'Tilt Warp', cursive;
+
 
 }
-.underLiner{
+
+.underLiner {
     border-bottom: 5px solid black;
     font-size: 2rem;
     color: black;
 
 }
-#t2{
+
+#t2 {
     border-bottom: 10px solid black;
     font-size: 3rem;
     color: black;
@@ -138,47 +186,109 @@ li:hover a {
     color: white;
 }
 
+.tCard {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 3rem;
+    border-radius: 40px;
+    width: 80vw;
+    height: auto;
+    background-color: lightyellow;
+}
+
+.tCard > img {
+    position: relative;
+    left: 50%;
+    border-radius: 100px;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    margin-top: 2rem;
+
+}
+
+.imgCard > img {
+    border-radius: 40px;
+    width: 70vw;
+    margin-right: 2rem;
+    height: auto;
+}
+
+#arrow {
+    width: 50px;
+    height: 50px;
+    margin-top: 8rem;
+    margin-left: 2rem;
+
+}
+
+.topic {
+    border-bottom: 2px solid black;
+    margin-top: 3rem;
+}
+
 
 .flexContainer {
     display: flex;
     align-content: center;
     justify-content: center;
 }
-.stepsContainer {
-    background-color: #f4f4f4;;
-    border-radius: 50px;
-    position: relative;
-    top: 10vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80vw;
-    height: auto;
 
-}
-.stepsImages{
+.stepsImages {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 30px;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 }
-.fcRow{
+
+.fcRow {
     margin-top: 120px;
     margin-bottom: 120px;
     flex-direction: column;
+
 }
-.specialText{
+
+#card1 {
+    background-color: #fefeec;
+    margin: 50px;
+    width: 500px;
+    border: none;
+    border-radius: 50px;
+}
+
+#card2 {
+    background-color: #fefeec;
+    margin: 50px;
+    width: 500px;
+    border: none;
+    border-radius: 50px;
+}
+
+#card3 {
+    background-color: #fefeec;
+    width: 500px;
+    margin: 50px;
+    border: none;
+    border-radius: 50px;
+}
+
+.specialText {
+    font-family: "Tilt Warp", serif;
     color: black;
     font-size: 3rem;
 }
-.dText{
+
+.dText {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.5rem;
     padding: 40px;
 
 }
-.aboutUsContainer{
+
+.aboutUsContainer {
     background-color: #f4f4f4;
     border-radius: 50px;
     position: relative;
@@ -189,17 +299,18 @@ li:hover a {
     height: auto;
     margin-bottom: 100px;
 }
-#aboutUsText{
-    margin-bottom: 4rem;
+
+#aboutUsText {
     font-size: 2rem;
 
 }
 
-#footerText{
+#footerText {
     font-size: 1.5rem;
     padding: 50px;
 }
-.detailsButton{
+
+.detailsButton {
     height: 10vh;
     width: 10vw;
     font-size: 1.5rem;
@@ -208,6 +319,7 @@ li:hover a {
     margin-left: 50px;
     margin-right: 50px;
 }
+
 @media screen  and (max-width: 1098px) {
     .mainText {
         font-size: 6rem;
@@ -240,42 +352,68 @@ li:hover a {
 }
 
 @media screen and (max-width: 988px) {
-    .navbar{
+    .navbar {
         height: auto;
     }
-    .nav-item>a{
+
+    .nav-item > a {
         position: relative;
         left: 0;
         margin-right: 10px;
         margin-left: 10px;
     }
-    .dText{
+
+    .dText {
         font-size: 1.5rem;
     }
-    .stepsImages{
+
+    .stepsImages {
         height: 150px;
         width: 150px;
     }
 }
+
 @media screen and(max-width: 392px) {
     .mainText {
         font-size: 2rem;
     }
+
     .mainText {
         font-size: 2rem;
     }
-    .stepsImages{
+
+    .stepsImages {
         height: 100px;
         width: 100px;
     }
-    #steps{
+
+    #steps {
         font-size: 2rem;
     }
 }
+
 @media screen and (max-width: 1310px) {
-    #stepsContainer{
+    #stepsContainer {
         flex-direction: column;
+
     }
 
-}
+    #steps {
+        font-size: 2rem;
+    }
 
+    .mainText {
+        font-size: 4rem;
+    }
+
+    #card1, #card2, #card3 {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        border: none;
+        border-radius: 0;
+    }
+
+
+}
