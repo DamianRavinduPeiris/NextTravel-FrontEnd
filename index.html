@@ -78,8 +78,6 @@
                         <li id=""><a href="#services" onclick=changeTitle("Services.")>Our Services.</a></li>
                         <br ><br >
                         <li><a href="#destinations" onclick=changeTitle("Destinations.")>Destinations.</a></li>
-                        <br ><br>
-                        <li><a href="#aboutUs" onclick=changeTitle("AboutUs.")>About us.</a></li>
                         <br><br>
                         <li><a href="#footer" onclick=changeTitle("ContactUs.")>Contact us.</a></li>
                         <br><br>
@@ -204,16 +202,22 @@
 
 <!--Destinations - End.-->
 
-<section class="aboutUsContainer" id="aboutUs">
+<section class="aboutUsContainer" id="contactUs" >
     <div class="flexContainer">
-        <h1  data-aos="zoom-in" id="t2">About Us.</h1>
+        <h1  data-aos="zoom-in" class="topic specialText">Let's get in touch!</h1>
 
     </div>
-    <div class="flexContainer fcRow">
-        <p class="dText" data-aos="zoom-in-right" id="aboutUsText">Your Gateway to Unforgettable Journeys
-            At Next Travel, we're not just a travel agency; we're your personal guide to extraordinary adventures. Based
-            in Kalutara, Sri Lanka, our curated selection of top-tier hotels and reliable vehicles ensures every detail
-            of your journey is of the highest quality. Let's embark on your next adventure together.</p>
+    <div class="flexContainer">
+    <div class="flexContainer fcRow" data-aos="zoom-in">
+        <div class="mb-3">
+            <input id="nameField" type="text" class="form-control"  placeholder="Enter your name here.">
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" id="msgField" placeholder="Enter your message here." rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="sButton">Submit.</button>
+
+    </div>
     </div>
 
 
