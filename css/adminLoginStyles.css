@@ -1,5 +1,5 @@
 .flexBox{
-    background-color: #f5f5f5;
+    background-color: #353333;
     border-radius: 50px;
     margin: 2rem 4rem 4rem;
     display: flex;
@@ -14,7 +14,11 @@ img{
 .fdc{
     flex-direction: column;
 }
+.specialText{
+    color: white;
+}
 .text{
+
     margin-bottom: 5rem;
     text-align: center;
     font-family: "Tilt Warp", serif;
@@ -36,6 +40,7 @@ img{
 
 }
 #loginButton{
+    border-radius: 10px;
     margin-top: 2rem;
 }
 @media screen and  (max-width: 848px){
