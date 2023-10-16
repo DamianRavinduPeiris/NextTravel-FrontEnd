@@ -22,10 +22,12 @@ img{
 }
 
 #username{
+    border-radius: 30px;
     width: 30vw;
 
 }
 #password{
+    border-radius: 30px;
     width: 30vw;
     margin-top: 2rem;
 }
