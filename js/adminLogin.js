@@ -1,7 +1,15 @@
+var selectedService = '';
 $(document).ready(function(){
     $('#roleMenu .dropdown-item').click(function(){
-        let selectedService = $(this).text();
+        $("#loginButton").css("display","none")
+        selectedService = $(this).text();
         $('#roleMenu .btn').text(selectedService);
+        $("#loginButton").css("display","block")
+        console.log(selectedService);
+        switch (selectedService) {
+            case "Guide Service." : window.location.href = "GuideManager.html";
+                break;
+        }
 
     });
 });
@@ -20,7 +28,11 @@ $("#loginButton").on("click",()=>{
         },
         success : (res)=>{
             if(res.data.authenticated){
-                return swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
+                 swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
+                 switch (selectedService) {
+                     case "Guide Service" : window.location.href = "GuideManager.html";
+                     break;
+                 }
 
             }
             return swal("Bad Credentials!","OOPS!","error")

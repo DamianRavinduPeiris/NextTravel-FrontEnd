@@ -26,13 +26,13 @@ img{
 }
 
 #username{
-    border-radius: 30px;
-    width: 30vw;
+    border-radius: 20px;
+    width: 20vw;
 
 }
 #password{
-    border-radius: 30px;
-    width: 30vw;
+    border-radius: 20px;
+    width: 20vw;
     margin-top: 2rem;
 }
 .btn-group{
@@ -43,6 +43,11 @@ img{
     border-radius: 10px;
     margin-top: 2rem;
 }
+#loginButton:hover{
+    background-color: white;
+    color: black;
+}
+
 @media screen and  (max-width: 848px){
     .flexBox{
         flex-direction: column;
