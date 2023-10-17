@@ -1,3 +1,4 @@
+
 function changeTitle(title) {
     if (title === 'Home.') {
         return window.location.reload();
@@ -41,18 +42,90 @@ $("#guideManager").on("click", () => {
         "</div>\n" + "<div class=\"mb-3\">\n" +
         "  <label for=\"guideRemarks\" class=\"form-label\">Remarks.</label>\n" +
         "  <input type=\"text\" class=\"form-control\" id=\"guideRemarks\" placeholder=\"\">\n" +
-        "</div>\n" + "<button type=\"button\" class=\"btn btn-success\">Save Guide.</button>\n" +
-        "<button type=\"button\" id='updateGuide' class=\"btn btn-primary\">Update Guide.</button>\n" +
-        "<button type=\"button\" class=\"btn btn-danger\">Clear.</button>\n" +
+        "</div>\n" + "<button type=\"button\" id='saveGuide' class=\"btn btn-success\">Save Guide.</button>\n" +
+        "<button type=\"button\" id='updateGuide' class=\"btn btn-primary\">Update Guide.</button>\n" +"" +
+        "<button type=\"button\" id='deleteGuide' class=\"btn btn-danger\">Delete Guide.</button>\n"+
+        "<button type=\"button\" id='clearButton'class=\"btn btn-info\">Clear.</button>\n" +
 
 
         "</div>")
 });
+var guideImageLocation = '';
 $(document).ready(() => {
 
-    $(document).on("click", "#updateGuide", () => {
+    $(document).on("click", "#saveGuide", () => {
+
+        saveImage();
+        setTimeout(()=>{
+            let guide = {
+                guideId :$("#guideID").val(),
+                guideName :$("#guideName").val(),
+                guideAddress :$("#guideAddress").val(),
+                guideAge :$("#guideAge").val(),
+                guideGender :$("#guideGender").val(),
+                guideContact :$("#guideContact").val(),
+                guideImageLocation :guideImageLocation,
+                guideNICImageLocation : "",
+                guideIDImageLocation:"",
+                guideExperience :$("#guideExperience").val(),
+                guideManDayValue :$("#guideManDayValue").val(),
+                guideRemarks :$("#guideRemarks").val()
+
+            }
+            console.log(guide)
+            $.ajax({
+                url : "http://localhost:8080/api/v1/guide/saveGuide",
+                method : "POST",
+                headers : {
+                    "content-type" : "application/json",
+                    "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
+                },
+                data: JSON.stringify(guide),
+                success : (response)=>{
+                    console.log(response)
+
+                },
+                error : (response)=>{
+                    console.log(response)
+
+                },
+
+
+
+
+
+            })
+
+        },5000)
+
 
 
     })
 
 });
+
+function saveImage(){
+    var formData = new FormData();
+    var file = $("#guideImage")[0].files[0];
+    formData.append('imageFile', file);
+
+    $.ajax({
+        url: 'http://localhost:8090/upload',
+        type: 'POST',
+        data: formData,
+        headers : {
+            "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            guideImageLocation = data;
+            swal("Operation success!","Done!","success")
+        },
+        error: function() {
+            console.error('Error uploading file');
+        }
+    });
+
+}
