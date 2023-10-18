@@ -1,0 +1,121 @@
+/*NavBar Styles - Start.*/
+#offcanvasNavbar {
+    background-color: black;
+}
+
+.logo {
+    position: relative;
+    left: 50%;
+    /*Getting 50% back to the left from its own width.*/
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    margin-bottom: 5rem;
+    transition: width 0.5s, height 0.5s;
+}
+
+.footerText {
+    font-size: 1rem;
+    padding: 50px;
+}
+
+.cInfo {
+    color: white;
+}
+
+.logo:hover {
+    width: 200px;
+    height: 200px;
+}
+
+.navbar {
+    font-family: 'Tilt Warp', cursive;
+}
+
+ul > li > a {
+    margin-top: 5rem;
+    margin-left: 2.5rem;
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+
+}
+
+ul {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    list-style: none;
+}
+
+li:hover a {
+    color: black;
+    background-color: white;
+
+}
+
+.cInfo {
+    color: white;
+}
+
+.navbar-toggler {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+
+.mainText {
+    text-align: center;
+    color: white;
+    font-size: 8rem;
+
+
+}
+
+/*NavBar Styles - End.*/
+.flexBox {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.fdc {
+    flex-direction: column;
+}
+
+.infoCards {
+    width: 300px;
+    height: 200px;
+    margin: 1rem 5rem 1rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.5s;
+}
+
+.commonText {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "Tilt Warp", cursive;
+}
+
+.topics {
+    font-size: 4rem;
+}
+
+#forms {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#hotelId, #packageId, #hotelName, #hotelCategory, #hotelLocation, #hotelLocationWithCoordinates, #hotelImageLocation, #hotelEmail, #hotelContact1, #hotelContact2,#fullBoardWithACLuxuryRoomDouble,#halfBoardWithACLuxuryRoomDouble,#fullBoardWithACLuxuryRoomTriple,#halfBoardWithACLuxuryRoomTriple ,#isPetsAllowed,#hotelFee,#cancellationCriteria,#remarks{
+    width: 30vw;
+}
+
+.marginAdder {
+    margin: 5rem;
+}
+

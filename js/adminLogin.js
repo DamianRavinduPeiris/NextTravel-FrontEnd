@@ -32,6 +32,8 @@ $("#loginButton").on("click",()=>{
                  switch (selectedService) {
                      case "Guide Service" : window.location.href = "GuideManager.html";
                      break;
+                     case "Hotel Service" : window.location.href = "HotelManager.html";
+                         break;
                  }
 
             }
