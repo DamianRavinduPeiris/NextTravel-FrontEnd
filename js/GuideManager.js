@@ -12,7 +12,13 @@ $("#logout").on("click", () => {
     window.location.href = "adminLogin.html";
 });
 $("#guideManager").on("click", () => {
-    $(".flexBox").css("display", "none");
+
+    $(".mainContent").css("display", "none");
+
+
+    $("#hotelTable").css("display", "none");
+
+
     $("body").append("<div id='forms' class='flexContainer  marginAdder'>" + "<div class=\"mb-3\">\n" + "  <label for=\"guideID\" class=\"form-label\">Guide ID.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideID\" placeholder=\"G001\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideName\" class=\"form-label\">Guide Name.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideName\" placeholder=\"John Doe.  [Type name and press enter to search.]\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideAddress\" class=\"form-label\">Guide Address.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideAddress\" placeholder=\"Colombo.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideAge\" class=\"form-label\">Age.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideAge\" placeholder=\"30\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideGender\" class=\"form-label\">Gender.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideGender\" placeholder=\"MALE / FEMALE.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideContact.\" class=\"form-label\">Guide Contact.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideContact\" placeholder=\"0774519629\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideImage\" class=\"form-label\">Guide Image.</label>\n" + "  <input type=\"file\" class=\"form-control\" id=\"guideImage\" placeholder=\"\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideExperience\" class=\"form-label\">Guide Experience.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideExperience\" placeholder=\"\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideManDayValue\" class=\"form-label\">Man Day Value.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideManDayValue\" placeholder=\"Enter amount in LKR.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideRemarks\" class=\"form-label\">Remarks.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideRemarks\" placeholder=\"\">\n" + "</div>\n" + "<button type=\"button\" id='saveGuide' class=\"btn btn-success\">Save Guide.</button>\n" + "<button type=\"button\" id='updateGuide' class=\"btn btn-primary\">Update Guide.</button>\n" + "" + "<button type=\"button\" id='deleteGuide' class=\"btn btn-danger\">Delete Guide.</button>\n" + "<button type=\"button\" id='clearButton' class=\"btn btn-info\">Clear.</button>\n" +
 
 
@@ -256,24 +262,17 @@ $(document).ready(() => {
 });
 
 $("#tableView").on("click", () => {
-    if ($("#forms").length) {
-        $("#forms").css("display", "none");
-        $("body").append("<table data-aos='zoom-in' id='guideTable' class=\"table table-dark\">\n" + "  <thead>\n" + "    <tr>\n" + "      <th scope=\"col\">Guide ID.</th>\n" + "      <th scope=\"col\">Guide Name.</th>\n" + "      <th scope=\"col\">Guide Address.</th>\n" + "      <th scope=\"col\">Guide Age.</th>\n" + "      <th scope=\"col\">Guide Gender.</th>\n" + "      <th scope=\"col\">Guide Contact.</th>\n" + "      <th scope=\"col\">Guide Image Location.</th>\n" + "      <th scope=\"col\">Guide Experience.</th>\n" + "      <th scope=\"col\">Guide Man Day Value.</th>\n" + "      <th scope=\"col\">Guide Remarks.</th>\n" +
+
+    $("#forms").css("display", "none");
 
 
-            "    </tr>\n" + "  </thead>\n" + "+<tbody>" + "</tbody>" +
+    $(".mainContent").css("display", "none");
 
-            "</table>")
 
-    } else {
-        $(".mainContent").css("display", "none");
-        $("body").append("<table data-aos='zoom-in' id='guideTable' class=\"table table-dark\">\n" + "  <thead>\n" + "    <tr>\n" + "      <th scope=\"col\">Guide ID.</th>\n" + "      <th scope=\"col\">Guide Name.</th>\n" + "      <th scope=\"col\">Guide Address.</th>\n" + "      <th scope=\"col\">Guide Age.</th>\n" + "      <th scope=\"col\">Guide Gender.</th>\n" + "      <th scope=\"col\">Guide Contact.</th>\n" + "      <th scope=\"col\">Guide Image Location.</th>\n" + "      <th scope=\"col\">Guide Experience.</th>\n" + "      <th scope=\"col\">Guide Man Day Value.</th>\n" + "      <th scope=\"col\">Guide Remarks.</th>\n" +
+    $("body").append("<table data-aos='zoom-in' id='guideTable' class=\"table table-dark\">\n" + "  <thead>\n" + "    <tr>\n" + "      <th scope=\"col\">Guide ID.</th>\n" + "      <th scope=\"col\">Guide Name.</th>\n" + "      <th scope=\"col\">Guide Address.</th>\n" + "      <th scope=\"col\">Guide Age.</th>\n" + "      <th scope=\"col\">Guide Gender.</th>\n" + "      <th scope=\"col\">Guide Contact.</th>\n" + "      <th scope=\"col\">Guide Image Location.</th>\n" + "      <th scope=\"col\">Guide Experience.</th>\n" + "      <th scope=\"col\">Guide Man Day Value.</th>\n" + "      <th scope=\"col\">Guide Remarks.</th>\n" + "    </tr>\n" + "  </thead>\n" +
 
-            "    </tr>\n" + "  </thead>\n" + "+<tbody>" + "</tbody>" +
+        "  <tbody></tbody>" + "</table>");
 
-            "</table>")
-
-    }
 
     $.ajax({
         url: "http://localhost:8080/api/v1/guide/getAllGuides", method: "GET", headers: {
