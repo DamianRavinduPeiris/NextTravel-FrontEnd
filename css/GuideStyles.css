@@ -104,15 +104,18 @@ li:hover a {
 .topics {
     font-size: 4rem;
 }
-#forms{
+
+#forms {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
-#guideID,#guideName,#guideAddress,#guideAge,#guideGender,#guideContact,#guideImage,#guideExperience,#guideManDayValue,#guideRemarks{
+
+#guideID, #guideName, #guideAddress, #guideAge, #guideGender, #guideContact, #guideImage, #guideExperience, #guideManDayValue, #guideRemarks {
     width: 30vw;
 }
 
-.marginAdder{
-     margin: 5rem;
- }
+.marginAdder {
+    margin: 5rem;
+}
+
