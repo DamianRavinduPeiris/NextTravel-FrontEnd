@@ -378,26 +378,27 @@ $("#tableView").on("click", () => {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
         }, success: (res) => {
 
-
+console.log(res.me)
             res.data.map((vehicle) => {
 
 
+
                 let row = "<tr>"+
-                    "<td>"+vehicle.data.vehicleId+"</td>"+
-                    "<td>"+vehicle.data.packageId+"</td>"+
-                    "<td>"+vehicle.data.vehicleBrand+"</td>"+
-                    "<td>"+vehicle.data.vehicleCategory+"</td>"+
-                    "<td>"+vehicle.data.fuelType+"</td>"+
-                    "<td>"+vehicle.data.isHybrid+"</td>"+
-                    "<td>"+vehicle.data.fuelUsage+"</td>"+
-                    "<td>"+vehicle.data.vehicleImageLocation+"</td>"+
-                    "<td>"+vehicle.data.seatCapacity+"</td>"+
-                    "<td>"+vehicle.data.vehicleType+"</td>"+
-                    "<td>"+vehicle.data.transmissionType+"</td>"+
-                    "<td>"+vehicle.data.driversName+"</td>"+
-                    "<td>"+vehicle.data.driversContactNumber+"</td>"+
-                    "<td>"+vehicle.data.driversLicenseImageLocation+"</td>"+
-                    "<td>"+vehicle.data.remarks+"</td>"+
+                    "<td>"+vehicle.vehicleId+"</td>"+
+                    "<td>"+vehicle.packageId+"</td>"+
+                    "<td>"+vehicle.vehicleBrand+"</td>"+
+                    "<td>"+vehicle.vehicleCategory+"</td>"+
+                    "<td>"+vehicle.fuelType+"</td>"+
+                    "<td>"+vehicle.isHybrid+"</td>"+
+                    "<td>"+vehicle.fuelUsage+"</td>"+
+                    "<td>"+vehicle.vehicleImageLocation+"</td>"+
+                    "<td>"+vehicle.seatCapacity+"</td>"+
+                    "<td>"+vehicle.vehicleType+"</td>"+
+                    "<td>"+vehicle.transmissionType+"</td>"+
+                    "<td>"+vehicle.driversName+"</td>"+
+                    "<td>"+vehicle.driversContactNumber+"</td>"+
+                    "<td>"+vehicle.driversLicenseImageLocation+"</td>"+
+                    "<td>"+vehicle.remarks+"</td>"+
 
 
 
