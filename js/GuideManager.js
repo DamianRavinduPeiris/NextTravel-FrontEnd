@@ -1,4 +1,4 @@
-localStorage.setItem("adminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6Imd1aWRlQWRtaW4iLCJzdWIiOiJzZXh5cGVpcmlzIiwiaWF0IjoxNjk3ODI1MjgyLCJleHAiOjQ4NTE0MjUyODJ9.L_UXXCFPAEXZsFExkbBf2QBTeyGbIzdiZiaGR9p6rXE"));
+localStorage.setItem("guideAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6Imd1aWRlQWRtaW4iLCJzdWIiOiJzZXh5cGVpcmlzIiwiaWF0IjoxNjk3ODI1MjgyLCJleHAiOjQ4NTE0MjUyODJ9.L_UXXCFPAEXZsFExkbBf2QBTeyGbIzdiZiaGR9p6rXE"));
 
 function changeTitle(title) {
     if (title === 'Home.') {
@@ -60,7 +60,7 @@ $(document).ready(() => {
             $.ajax({
                 url: "http://localhost:8084/saveGuide", method: "POST", headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("guideAdminAuthToken"))
                 }, data: JSON.stringify(guide), success: (response) => {
                     if (response.statusCode === 200 || response.statusCode === 201) {
                         swal("Done!", response.message, "success")
@@ -161,7 +161,7 @@ $(document).ready(() => {
             $.ajax({
                 url: "http://localhost:8084/updateGuide", method: "PUT", headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("guideAdminAuthToken"))
                 }, data: JSON.stringify(guide), success: (response) => {
                     if (response.statusCode === 200 || response.statusCode === 201) {
                         swal("Done!", response.message, "success")
@@ -194,7 +194,7 @@ $(document).ready(() => {
                 url: "http://localhost:8084/getGuideByGuideName?guideName=" + $("#guideName").val(),
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("guideAdminAuthToken"))
                 },
                 success: (res) => {
                     console.log(res.data)
@@ -240,7 +240,7 @@ $(document).ready(() => {
             url: "http://localhost:8084/deleteGuide?guideID=" + $("#guideID").val(),
             method: "DELETE",
             headers: {
-                "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                "Authorization": "Bearer " + JSON.parse(localStorage.getItem("guideAdminAuthToken"))
             },
             success: (res) => {
                 console.log(res.data)
@@ -279,7 +279,7 @@ $("#tableView").on("click", () => {
 
     $.ajax({
         url: "http://localhost:8084/getAllGuides", method: "GET", headers: {
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("guideAdminAuthToken"))
         }, success: (res) => {
 
 
