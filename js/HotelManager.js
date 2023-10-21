@@ -154,9 +154,16 @@ function saveImage() {
     formData.append('imageFile', file);
 
     $.ajax({
-        url: 'http://localhost:8090/upload', type: 'POST', data: formData, headers: {
+        url: 'http://localhost:8090/upload',
+        type: 'POST',
+        data: formData,
+        headers: {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
-        }, cache: false, contentType: false, processData: false, success: function (data) {
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
 
             hcl = data;
             console.log("IMG : " + hcl)

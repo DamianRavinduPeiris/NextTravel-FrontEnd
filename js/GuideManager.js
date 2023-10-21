@@ -1,4 +1,4 @@
-localStorage.setItem("adminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huZG9lODEwIiwiaWF0IjoxNjk3MzQ5OTAzLCJleHAiOjQ4NTA5NDk5MDN9.gj2KHG8cbsU6alm28tXeaPkiu-pKbdZr2a2PS2FEzAE"));
+localStorage.setItem("adminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6Imd1aWRlQWRtaW4iLCJzdWIiOiJzZXh5cGVpcmlzIiwiaWF0IjoxNjk3ODI1MjgyLCJleHAiOjQ4NTE0MjUyODJ9.L_UXXCFPAEXZsFExkbBf2QBTeyGbIzdiZiaGR9p6rXE"));
 
 function changeTitle(title) {
     if (title === 'Home.') {
@@ -16,7 +16,7 @@ var isTableVisible = false;
 $("#guideManager").on("click", () => {
 
     $(".mainContent").css("display", "none");
-    if(!isFormsVisible){
+    if (!isFormsVisible) {
         $("body").append("<div id='forms' class='flexContainer  marginAdder'>" + "<div class=\"mb-3\">\n" + "  <label for=\"guideID\" class=\"form-label\">Guide ID.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideID\" placeholder=\"G001\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideName\" class=\"form-label\">Guide Name.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideName\" placeholder=\"John Doe.  [Type name and press enter to search.]\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideAddress\" class=\"form-label\">Guide Address.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideAddress\" placeholder=\"Colombo.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideAge\" class=\"form-label\">Age.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideAge\" placeholder=\"30\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideGender\" class=\"form-label\">Gender.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideGender\" placeholder=\"MALE / FEMALE.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideContact.\" class=\"form-label\">Guide Contact.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideContact\" placeholder=\"0774519629\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideImage\" class=\"form-label\">Guide Image.</label>\n" + "  <input type=\"file\" class=\"form-control\" id=\"guideImage\" placeholder=\"\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideExperience\" class=\"form-label\">Guide Experience.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideExperience\" placeholder=\"\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideManDayValue\" class=\"form-label\">Man Day Value.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideManDayValue\" placeholder=\"Enter amount in LKR.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideRemarks\" class=\"form-label\">Remarks.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideRemarks\" placeholder=\"\">\n" + "</div>\n" + "<button type=\"button\" id='saveGuide' class=\"btn btn-success\">Save Guide.</button>\n" + "<button type=\"button\" id='updateGuide' class=\"btn btn-primary\">Update Guide.</button>\n" + "" + "<button type=\"button\" id='deleteGuide' class=\"btn btn-danger\">Delete Guide.</button>\n" + "<button type=\"button\" id='clearButton' class=\"btn btn-info\">Clear.</button>\n" +
 
 
@@ -25,10 +25,6 @@ $("#guideManager").on("click", () => {
         $("#guideTable").css("display", "none");
         isTableVisible = false;
     }
-
-
-
-
 
 
 });
@@ -62,7 +58,7 @@ $(document).ready(() => {
             console.log("Guide Remarks : " + guide.guideRemarks)
             console.log("Man Day Value : " + guide.guideManDayValue)
             $.ajax({
-                url: "http://localhost:8080/api/v1/guide/saveGuide", method: "POST", headers: {
+                url: "http://localhost:8084/saveGuide", method: "POST", headers: {
                     "content-type": "application/json",
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
                 }, data: JSON.stringify(guide), success: (response) => {
@@ -97,9 +93,9 @@ function saveImage() {
     formData.append('imageFile', file);
 
     $.ajax({
-        url: 'http://localhost:8090/upload', type: 'POST', data: formData, headers: {
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
-        }, cache: false, contentType: false, processData: false, success: function (data) {
+        url: 'http://localhost:8090/upload', type: 'POST', data: formData,
+
+        cache: false, contentType: false, processData: false, success: function (data) {
             return guideImageLocation = data;
 
         }, error: function () {
@@ -163,7 +159,7 @@ $(document).ready(() => {
             }
             console.log(guide)
             $.ajax({
-                url: "http://localhost:8080/api/v1/guide/updateGuide", method: "PUT", headers: {
+                url: "http://localhost:8084/updateGuide", method: "PUT", headers: {
                     "content-type": "application/json",
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
                 }, data: JSON.stringify(guide), success: (response) => {
@@ -195,7 +191,7 @@ $(document).ready(() => {
         if (event.key === 'Enter') {
             console.log($("#guideName").val())
             $.ajax({
-                url: "http://localhost:8080/api/v1/guide/getByName?guideName=" + $("#guideName").val(),
+                url: "http://localhost:8084/getGuideByGuideName?guideName=" + $("#guideName").val(),
                 method: "GET",
                 headers: {
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
@@ -241,7 +237,7 @@ $(document).ready(() => {
         }
 
         $.ajax({
-            url: "http://localhost:8080/api/v1/guide/deleteGuide?guideID=" + $("#guideID").val(),
+            url: "http://localhost:8084/deleteGuide?guideID=" + $("#guideID").val(),
             method: "DELETE",
             headers: {
                 "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
@@ -271,7 +267,7 @@ $(document).ready(() => {
 
 $("#tableView").on("click", () => {
     $(".mainContent").css("display", "none");
-    if(!isTableVisible){
+    if (!isTableVisible) {
         $("body").append("<table data-aos='zoom-in' id='guideTable' class=\"table table-dark\">\n" + "  <thead>\n" + "    <tr>\n" + "      <th scope=\"col\">Guide ID.</th>\n" + "      <th scope=\"col\">Guide Name.</th>\n" + "      <th scope=\"col\">Guide Address.</th>\n" + "      <th scope=\"col\">Guide Age.</th>\n" + "      <th scope=\"col\">Guide Gender.</th>\n" + "      <th scope=\"col\">Guide Contact.</th>\n" + "      <th scope=\"col\">Guide Image Location.</th>\n" + "      <th scope=\"col\">Guide Experience.</th>\n" + "      <th scope=\"col\">Guide Man Day Value.</th>\n" + "      <th scope=\"col\">Guide Remarks.</th>\n" + "    </tr>\n" + "  </thead>\n" +
 
             "  <tbody></tbody>" + "</table>");
@@ -281,11 +277,8 @@ $("#tableView").on("click", () => {
     }
 
 
-
-
-
     $.ajax({
-        url: "http://localhost:8080/api/v1/guide/getAllGuides", method: "GET", headers: {
+        url: "http://localhost:8084/getAllGuides", method: "GET", headers: {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
         }, success: (res) => {
 

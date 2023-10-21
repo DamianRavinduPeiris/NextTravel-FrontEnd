@@ -1,0 +1,24 @@
+.text{
+    text-align: center;
+    font-size: 3rem;
+}
+.flexBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem;
+}
+.smallFont{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+.mainImage{
+    border-radius: 50px;
+    width: 800px;
+}
+.desc{
+    font-family: "Tilt Warp", serif;
+}
+.fdc{
+    flex-direction: column;
+}
