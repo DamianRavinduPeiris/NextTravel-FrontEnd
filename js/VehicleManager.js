@@ -117,9 +117,8 @@ $(document).ready(() => {
                     }
 
 
-                }, error: (error) => {
-                    swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
-
+                },  error: (xhr,textStatus,errorThrown) => {
+                    swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
                 },
 
 
@@ -146,8 +145,8 @@ function saveImages(file) {
             imageData.push(data)
 
 
-        }, error: function () {
-            swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
+        },  error: (xhr,textStatus,errorThrown) => {
+            swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
         }
     });
 
@@ -238,9 +237,8 @@ $(document).ready(() => {
                     }
 
 
-                }, error: (error) => {
-                    swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
-
+                },  error: (xhr,textStatus,errorThrown) => {
+                    swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
                 },
 
 
@@ -286,8 +284,8 @@ $(document).ready(() => {
                     swal("OOPS!", res.message, "error");
 
                 },
-                error: (error) => {
-                    swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
+                error: (xhr,textStatus,errorThrown) => {
+                    swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
                 }
 
 
@@ -318,8 +316,8 @@ $(document).ready(() => {
                 }
                 swal("OOPS!", res.message, "error");
 
-            }, error: (error) => {
-                swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
+            },  error: (xhr,textStatus,errorThrown) => {
+                swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
             }
 
 
@@ -352,7 +350,7 @@ $("#tableView").on("click", () => {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAdminAuthToken"))
         }, success: (res) => {
             if (!res.data) {
-                swal("OOPS!", "No data found!", "error")
+               return  swal("OOPS!", "No data found!", "error")
 
             }
 
@@ -368,9 +366,8 @@ $("#tableView").on("click", () => {
             })
 
 
-        }, error: (error) => {
-            swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
-
+        },  error: (xhr,textStatus,errorThrown) => {
+            swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
         }
 
 
