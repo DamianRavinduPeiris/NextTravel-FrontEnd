@@ -14,6 +14,9 @@
     width: 500px;
     height: auto;
 }
+.dText{
+    color: white;
+}
 
 :root {
     --primary-color: #2c3855;
@@ -108,7 +111,27 @@ nav {
     background-repeat: no-repeat;
     border-radius: 2rem;
 }
+.regularPackage{
+    position: relative;
+    min-height: 500px;
+    background-image:
+    url("https://cdn.shopify.com/s/files/1/0080/0984/2786/files/shutterstock_1181523733.jpg?v=1655221599");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
 
+}
+#mlPackage{
+    background: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/99474398.jpg?k=2550993d8238a28ca43d6c3606f3b2b6958f3853124c13536408b43cbe67c103&o=&hp=1");
+
+}
+#lPackage{
+    background:  url("https://skift.com/wp-content/uploads/2017/02/luxury-retreats-airbnb--1024x683.jpg");
+}
+#slPackage{
+    background: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/91760779.jpg?k=8b763c38a9a91a992fd018b89b3fd30c63f6aa5262e63eabb7cf2af570141687&o=&hp=1");
+}
 .header__content {
     max-width: 600px;
     padding: 5rem 2rem;
@@ -119,11 +142,11 @@ nav {
     font-size: 3.5rem;
     line-height: 4rem;
     font-weight: 600;
-    color: var(--white);
+    color: white;
 }
 
 .header__content p {
-    color: var(--extra-light);
+    color: white;
 }
 
 .booking__container {
