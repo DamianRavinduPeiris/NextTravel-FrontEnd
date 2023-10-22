@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
+.text{
+  margin-top: 3rem;
+  text-align: center;
+}
+
 :root {
   --primary-color: #2c3855;
   --primary-color-dark: #435681;

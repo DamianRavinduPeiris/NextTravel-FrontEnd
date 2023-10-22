@@ -7,8 +7,10 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Web Design Mastery | WDM&Co</title>
+    <link rel="stylesheet" href="landingPageStyles.css" />
+    <title>NextTravel.</title>
+    <!--AOS - Animate on scroll library.(CCS.)(https://github.com/michalsnik/aos) or (https://michalsnik.github.io/aos/)-->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet"/>
   </head>
   <body>
     <nav>
@@ -34,7 +36,7 @@
       <h2 class="section__header">Our Services.</h2>
       <div class="popular__grid">
         <div class="popular__card">
-          <img src="https://images.trvl-media.com/lodging/96000000/95710000/95708300/95708242/678251e4.jpg?impolicy=fcrop&w=455&h=235&p=1&q=medium" alt="popular hotel" />
+          <h1 class="text">🛎️</h1>
           <div class="popular__content">
             <div class="popular__card__header">
               <h4>Exquisite Accommodations.</h4>
@@ -44,53 +46,49 @@
           </div>
         </div>
         <div class="popular__card">
-          <img src="landingPageAssets/hotel-2.jpg" alt="popular hotel" />
+          <h1 class="text">🔖</h1>
           <div class="popular__content">
             <div class="popular__card__header">
-              <h4>Ritz Paris</h4>
-              <h4>$549</h4>
+              <h4>Effortless Planning.</h4>
             </div>
-            <p>Paris, France</p>
+            <p>Our seamless booking process ensures a hassle-free experience, allowing you to focus on creating lasting memories.</p>
           </div>
         </div>
         <div class="popular__card">
-          <img src="landingPageAssets/hotel-3.jpg" alt="popular hotel" />
+          <h1 class="text">🍉</h1>
           <div class="popular__content">
             <div class="popular__card__header">
-              <h4>The Peninsula</h4>
-              <h4>$599</h4>
+              <h4>Gourmet Delights.</h4>
             </div>
-            <p>Hong Kong</p>
+            <p>Savor culinary delights at our partner restaurants and cafes, where every dish tells a story of local flavors and culinary expertise.</p>
           </div>
         </div>
         <div class="popular__card">
-          <img src="landingPageAssets/hotel-4.jpg" alt="popular hotel" />
+          <h1 class="text">✨</h1>
           <div class="popular__content">
             <div class="popular__card__header">
-              <h4>Atlantis The Palm</h4>
-              <h4>$449</h4>
+              <h4>Personalized Getaways.</h4>
+
             </div>
-            <p>Dubai, United Arab Emirates</p>
+            <p>Tailor your stay to perfection with our personalized options, ensuring every moment is crafted just for you.</p>
           </div>
         </div>
         <div class="popular__card">
-          <img src="landingPageAssets/hotel-5.jpg" alt="popular hotel" />
+          <h1 class="text">🍃</h1>
           <div class="popular__content">
             <div class="popular__card__header">
-              <h4>The Ritz-Carlton</h4>
-              <h4>$649</h4>
+              <h4>Tranquil Retreats.</h4>
             </div>
-            <p>Tokyo, Japan</p>
+            <p>Indulge in our handpicked retreats, each offering a serene escape for a truly rejuvenating experience.</p>
           </div>
         </div>
         <div class="popular__card">
-          <img src="landingPageAssets/hotel-6.jpg" alt="popular hotel" />
+          <h1 class="text">🎧</h1>
           <div class="popular__content">
             <div class="popular__card__header">
-              <h4>Marina Bay Sands</h4>
-              <h4>$549</h4>
+              <h4>Round-the-Clock Assistance.</h4>
             </div>
-            <p>Singapore</p>
+            <p>Rest easy knowing our dedicated support team is always at your service, ready to assist you at any time of the day or night.</p>
           </div>
         </div>
       </div>
@@ -172,5 +170,10 @@
         Copyright © 2023 Web Design Mastery. All rights reserved.
       </div>
     </footer>
+    <!--AOS.-->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
