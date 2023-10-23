@@ -1,5 +1,4 @@
-localStorage.setItem("hotelAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImhvdGVsQWRtaW4iLCJzdWIiOiJyYXZpbmR1IiwiaWF0IjoxNjk3ODc2MzAxLCJleHAiOjQ4NTE0NzYzMDF9.mSeL9OwXzPb1jDYdVFTpSfzBkjdKG-4fZuoe8LYqi5U"));
-
+localStorage.setItem("userAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXJBZG1pbiIsInN1YiI6ImJlbjEwIiwiaWF0IjoxNjk4MDQxNjYzLCJleHAiOjQ4NTE2NDE2NjN9.0cP_J0MYphSFbHiigVueRtyDF7O1wWSVIHi4_CgVEfk"));
 
 
 function changeTitle(title) {
@@ -24,150 +23,65 @@ $("#guideManager").on("click", () => {
 
     $(".mainContent").css("display", "none");
     if (!isFormsVisible) {
-        $("body").append("<div id='forms' class='flexContainer marginAdder'>" +
-            "<div class='mb-3'>" +
-            "<label for='userRole' class='form-label'>User Role.</label>" +
-            "<select class='form-select' id='userRole'>" +
-            "<option value='user'>USER</option>" +
-            "<option value='hotelAdmin'>HOTEL ADMIN</option>" +
-            "<option value='vehicleAdmin'>VEHICLE ADMIN</option>" +
-            "<option value='guideAdmin'>GUIDE ADMIN</option>" +
-            "<option value='packageAdmin'>PACKAGE ADMIN</option>" +
-            "<option value='packageDetailsAdmin'>PACKAGE DETAILS ADMIN</option>" +
-            "<option value='paymentsAdmin'>PAYMENTS ADMIN</option>" +
-            "</select>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userId' class='form-label'>User ID.</label>" +
-            "<input type='text' class='form-control' id='userId' placeholder='12345.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='name' class='form-label'>Name.</label>" +
-            "<input type='text' class='form-control' id='name' placeholder='John Doe.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userName' class='form-label'>User Name.</label>" +
-            "<input type='text' class='form-control' id='userName' placeholder='johndoe123.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userPassword' class='form-label'>User Password.</label>" +
-            "<input type='password' class='form-control' id='userPassword' placeholder='Password123.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userNIC' class='form-label'>User NIC.</label>" +
-            "<input type='file' class='form-control' id='userNIC'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userAge' class='form-label'>User Age.</label>" +
-            "<input type='number' class='form-control' id='userAge' placeholder='25.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='gender' class='form-label'>Gender.</label>" +
-            "<select class='form-select' id='gender'>" +
-            "<option value='MALE'>Male.</option>" +
-            "<option value='FEMALE'>Female.</option>" +
-            "<option value='OTHER'>Other.</option>" +
-            "</select>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userEmail' class='form-label'>User Email.</label>" +
-            "<input type='email' class='form-control' id='userEmail' placeholder='john.doe@example.com.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userPhone' class='form-label'>User Phone.</label>" +
-            "<input type='text' class='form-control' id='userPhone' placeholder='1234567890.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userAddress' class='form-label'>User Address.</label>" +
-            "<input type='text' class='form-control' id='userAddress' placeholder='123 Main St.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='remarks' class='form-label'>Remarks.</label>" +
-            "<input type='text' class='form-control' id='remarks' placeholder='Additional information.'>" +
-            "</div>" +
-            "<div class='mb-3'>" +
-            "<label for='userImageLocation' class='form-label'>User Image Location.</label>" +
-            "<input type='file' class='form-control' id='userImageLocation'>" +
-            "</div>" +
-            "<button type='button' id='saveUser' class='btn btn-success'>Save User</button>" +
-            "<button type='button' id='updateUser' class='btn btn-primary'>Update User</button>" +
-            "<button type='button' id='deleteUser' class='btn btn-danger'>Delete User</button>" +
-            "<button type='button' id='clearButton' class='btn btn-info'>Clear</button>" +
-            "</div>");
+        $("body").append("<div id='forms' class='flexContainer marginAdder'>" + "<div class='mb-3'>" + "<label for='userRole' class='form-label'>User Role.</label>" + "<select class='form-select' id='userRole'>" + "<option value='user'>USER</option>" + "<option value='hotelAdmin'>HOTEL ADMIN</option>" + "<option value='vehicleAdmin'>VEHICLE ADMIN</option>" + "<option value='guideAdmin'>GUIDE ADMIN</option>" + "<option value='packageAdmin'>PACKAGE ADMIN</option>" + "<option value='packageDetailsAdmin'>PACKAGE DETAILS ADMIN</option>" + "<option value='paymentsAdmin'>PAYMENTS ADMIN</option>" + "</select>" + "</div>" + "<div class='mb-3'>" + "<label for='userId' class='form-label'>User ID.</label>" + "<input type='text' class='form-control' id='userId' placeholder='12345.'>" + "</div>" + "<div class='mb-3'>" + "<label for='name' class='form-label'>Name.</label>" + "<input type='text' class='form-control' id='name' placeholder='Press Enter to Search! '>" + "</div>" + "<div class='mb-3'>" + "<label for='userName' class='form-label'>User Name.</label>" + "<input type='text' class='form-control' id='userName' placeholder='johndoe123.'>" + "</div>" + "<div class='mb-3'>" + "<label for='userPassword' class='form-label'>User Password.</label>" + "<input type='password' class='form-control' id='userPassword' placeholder='Password123.'>" + "</div>" + "<div class='mb-3'>" + "<label for='userNIC' class='form-label'>User NIC.</label>" + "<input type='file' class='form-control' id='userNIC'>" + "</div>" + "<div class='mb-3'>" + "<label for='userAge' class='form-label'>User Age.</label>" + "<input type='number' class='form-control' id='userAge' placeholder='25.'>" + "</div>" + "<div class='mb-3'>" + "<label for='gender' class='form-label'>Gender.</label>" + "<select class='form-select' id='gender'>" + "<option value='MALE'>Male.</option>" + "<option value='FEMALE'>Female.</option>" + "<option value='OTHER'>Other.</option>" + "</select>" + "</div>" + "<div class='mb-3'>" + "<label for='userEmail' class='form-label'>User Email.</label>" + "<input type='email' class='form-control' id='userEmail' placeholder='john.doe@example.com.'>" + "</div>" + "<div class='mb-3'>" + "<label for='userPhone' class='form-label'>User Phone.</label>" + "<input type='text' class='form-control' id='userPhone' placeholder='1234567890.'>" + "</div>" + "<div class='mb-3'>" + "<label for='userAddress' class='form-label'>User Address.</label>" + "<input type='text' class='form-control' id='userAddress' placeholder='123 Main St.'>" + "</div>" + "<div class='mb-3'>" + "<label for='remarks' class='form-label'>Remarks.</label>" + "<input type='text' class='form-control' id='remarks' placeholder='Additional information.'>" + "</div>" + "<div class='mb-3'>" + "<label for='userImageLocation' class='form-label'>User Image Location.</label>" + "<input type='file' class='form-control' id='userImageLocation'>" + "</div>" + "<button type='button' id='saveUser' class='btn btn-success'>Save User</button>" + "<button type='button' id='updateUser' class='btn btn-primary'>Update User</button>" + "<button type='button' id='deleteUser' class='btn btn-danger'>Delete User</button>" + "<button type='button' id='clearButton' class='btn btn-info'>Clear</button>" + "</div>");
 
 
         isFormsVisible = true;
-        $("#hotelTable").css("display", "none");
+        $("#userTable").css("display", "none");
         isTableVisible = false;
 
 
     }
-    setPackageIDs();
-    $("#hotelId").prop("disabled", true);
+
+    $("#userId").prop("disabled", true);
 
 
 });
-var hCategory = '';
-var isPetsAllowedOrNot = '';
-var pId = '';
-$(document).ready(() => {
-    $(document).on("click", "#hotelCategory", () => {
-        hCategory = $("#hotelCategory").val();
 
-    })
-    $(document).on("click", "#isPetsAllowed", () => {
-        console.log($("#isPetsAllowed").val())
-        hCategory = $("#isPetsAllowed").val();
-
-    })
-    $(document).on("click", "#packageId", () => {
-        pId = $("#packageId").val();
-        console.log($("#packageId").val())
-        console.log("package id clicked" + $("#packageId").val())
-
-
-    })
-});
-var hcl = '';
+var imageLocations = [];
 $(document).ready(() => {
 
-    $(document).on("click", "#saveHotel", () => {
+    $(document).on("click", "#saveUser", () => {
         if (!validator()) {
             return swal("Operation failed!", "Please fill all the fields!", "error")
 
 
         }
 
-        saveImage();
+        saveImage("#userNIC");
         setTimeout(() => {
-            let hotel = {
-                hotelId: "",
-                packageId: $("#packageId").val(),
-                hotelName: $("#hotelName").val(),
-                hotelCategory: $("#hotelCategory").val(),
-                hotelLocation: $("#hotelLocation").val(),
-                hotelLocationWithCoordinates: $("#hotelLocationWithCoordinates").val(),
-                hotelImageLocation: hcl,
-                hotelContactEmail: $("#hotelEmail").val(),
-                hotelContact1: $("#hotelContact1").val(),
-                hotelContact2: $("#hotelContact2").val(),
-                fullBoardWithACLuxuryRoomDouble: $("#fullBoardWithACLuxuryRoomDouble").val(),
-                halfBoardWithACLuxuryRoomDouble: $("#halfBoardWithACLuxuryRoomDouble").val(),
-                fullBoardWithACLuxuryRoomTriple: $("#fullBoardWithACLuxuryRoomTriple").val(),
-                halfBoardWithACLuxuryRoomTriple: $("#halfBoardWithACLuxuryRoomTriple").val(),
-                petsAllowed: $("#isPetsAllowed").val(),
-                hotelFee: $("#hotelFee").val(),
-                cancellationCriteria: $("#cancellationCriteria").val(),
-                remarks: $("#remarks").val()
+            saveImage("#userImageLocation");
+
+
+        }, 1000)
+        setTimeout(() => {
+            let user = {
+                userRole: $("#userRole").val(),
+                userId: $("#userId").val(),
+                name: $("#name").val(),
+                userName: $("#userName").val(),
+                userPassword: $("#userPassword").val(),
+                userNIC: $("#userNIC").val(),
+                userNICImageLocation: imageLocations[0],
+                userAge: $("#userAge").val(),
+                gender: $("#gender").val(),
+                userEmail: $("#userEmail").val(),
+                userPhone: $("#userPhone").val(),
+                userAddress: $("#userAddress").val(),
+                remarks: $("#remarks").val(),
+                userImageLocation: imageLocations[1],
+                isAuthorized: false
+
 
             }
 
             $.ajax({
-                url: "http://localhost:8081/saveHotel", method: "POST", headers: {
+                url: "http://localhost:8080/api/v1/user/saveUser", method: "POST", headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAdminAuthToken"))
-                }, data: JSON.stringify(hotel), success: (response) => {
-                    if (response.statusCode === 200 || response.statusCode === 201) {
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("userAdminAuthToken"))
+                }, data: JSON.stringify(user), success: (response) => {
+                    console.log(response)
+                    if (response.statusCode === 0) {
                         swal("Done!", response.message, "success")
                         return clearFields();
 
@@ -177,8 +91,8 @@ $(document).ready(() => {
                     }
 
 
-                },  error: (xhr,textStatus,errorThrown) => {
-                    swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
+                }, error: (xhr, textStatus, errorThrown) => {
+                    swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
                 },
 
 
@@ -191,50 +105,48 @@ $(document).ready(() => {
 
 });
 
-function saveImage() {
+function saveImage(imageID) {
+    console.log("image id : " + imageID)
     var formData = new FormData();
-    var file = $('#hotelImageLocation')[0].files[0];
+    var file = $(imageID)[0].files[0];
     formData.append('imageFile', file);
 
     $.ajax({
         url: 'http://localhost:8090/upload', type: 'POST', data: formData, headers: {
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAdminAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("userAdminAuthToken"))
         }, cache: false, contentType: false, processData: false, success: function (data) {
 
-            hcl = data;
-            console.log("IMG : " + hcl)
+            imageLocations.push(data);
 
 
-        },  error: (xhr,textStatus,errorThrown) => {
-            swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
+        }, error: (xhr, textStatus, errorThrown) => {
+            swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
         }
     });
 
 }
 
 function clearFields() {
-    $("#hotelId").val("");
-    $("#packageId").val("");
-    $("#hotelName").val("");
-    $("#hotelCategory").val("");
-    $("#hotelLocation").val("");
-    $("#hotelLocationWithCoordinates").val("");
-    $("#hotelImageLocation").val("");
-    $("#hotelEmail").val("");
-    $("#hotelContact1").val("");
-    $("#hotelContact2").val("");
-    $("#fullBoardWithACLuxuryRoomDouble").val("");
-    $("#halfBoardWithACLuxuryRoomDouble").val("");
-    $("#fullBoardWithACLuxuryRoomTriple").val("");
-    $("#halfBoardWithACLuxuryRoomTriple").val("");
-    $("#isPetsAllowed").val("");
-    $("#hotelFee").val("");
-    $("#cancellationCriteria").val("");
+    $("#userId").prop("disabled", false);
+    $("#userId").val("");
+    $("#name").val("");
+    $("#userName").val("");
+    $("#userPassword").val("");
+    $("#userNIC").val("");
+    $("#userAge").val("");
+    $("#gender").val("");
+    $("#userEmail").val("");
+    $("#userPhone").val("");
+    $("#userAddress").val("");
     $("#remarks").val("");
+    $("#userImageLocation").val("");
+
+    $("#userRole").val("user");
+    $("#userId").prop("disabled", true);
 }
 
 function validator() {
-    if ($("#packageId").val() === "" || $("#hotelName").val() === "" || $("#hotelCategory").val() === "" || $("#hotelLocation").val() === "" || $("#hotelLocationWithCoordinates").val() === "" || $("#hotelImageLocation").val() === "" || $("#hotelEmail").val() === "" || $("#hotelContact1").val() === "" || $("#hotelContact2").val() === "" || $("#fullBoardWithACLuxuryRoomDouble").val() === "" || $("#halfBoardWithACLuxuryRoomDouble").val() === "" || $("#fullBoardWithACLuxuryRoomTriple").val() === "" || $("#halfBoardWithACLuxuryRoomTriple").val() === "" || $("#isPetsAllowed").val() === "" || $("#hotelFee").val() === "" || $("#cancellationCriteria").val() === "" || $("#remarks").val() === "") {
+    if ($("#userRole").val() === "" || $("#userId").val() === "" || $("#name").val() === "" || $("#userName").val() === "" || $("#userPassword").val() === "" || $("#userNIC").val() === "" || $("#userAge").val() === "" || $("#gender").val() === "" || $("#userEmail").val() === "" || $("#userPhone").val() === "" || $("#userAddress").val() === "" || $("#remarks").val() === "" || $("#userImageLocation").val() === "" || $("#userNIC").val() === "") {
         return false;
     }
     return true;
@@ -250,53 +162,49 @@ $(document).ready(() => {
     })
 })
 $(document).ready(() => {
-    $(document).on("click", "#updateHotel", () => {
+    $(document).on("click", "#updateUser", () => {
         if (!validator()) {
             return swal("Operation failed!", "Please fill all the fields!", "error")
 
         }
-        saveImage();
+        saveImage("#userNIC");
         setTimeout(() => {
-            console.log("Is pets allowed : "+$("#isPetsAllowed").val())
-            let hotel = {
-                hotelId: $("#hotelId").val(),
-                packageId: $("#packageId").val(),
-                hotelName: $("#hotelName").val(),
-                hotelCategory: $("#hotelCategory").val(),
-                hotelLocation: $("#hotelLocation").val(),
-                hotelLocationWithCoordinates: $("#hotelLocationWithCoordinates").val(),
-                hotelImageLocation: hcl,
-                hotelContactEmail: $("#hotelEmail").val(),
-                hotelContact1: $("#hotelContact1").val(),
-                hotelContact2: $("#hotelContact2").val(),
-                fullBoardWithACLuxuryRoomDouble: $("#fullBoardWithACLuxuryRoomDouble").val(),
-                halfBoardWithACLuxuryRoomDouble: $("#halfBoardWithACLuxuryRoomDouble").val(),
-                fullBoardWithACLuxuryRoomTriple: $("#fullBoardWithACLuxuryRoomTriple").val(),
-                halfBoardWithACLuxuryRoomTriple: $("#halfBoardWithACLuxuryRoomTriple").val(),
-                petsAllowed: $("#isPetsAllowed").val(),
-                hotelFee: $("#hotelFee").val(),
-                cancellationCriteria: $("#cancellationCriteria").val(),
-                remarks: $("#remarks").val()
+            saveImage("#userImageLocation");
+
+
+        }, 1000)
+        setTimeout(() => {
+            let user = {
+                userRole: $("#userRole").val(),
+                userId: $("#userId").val(),
+                name: $("#name").val(),
+                userName: $("#userName").val(),
+                userPassword: $("#userPassword").val(),
+                userNIC: $("#userNIC").val(),
+                userNICImageLocation: imageLocations[0],
+                userAge: $("#userAge").val(),
+                gender: $("#gender").val(),
+                userEmail: $("#userEmail").val(),
+                userPhone: $("#userPhone").val(),
+                userAddress: $("#userAddress").val(),
+                remarks: $("#remarks").val(),
+                userImageLocation: imageLocations[1],
+                isAuthorized: false
+
 
             }
-            console.log(hotel)
             $.ajax({
-                url: "http://localhost:8081/updateHotel", method: "PUT", headers: {
+                url: "http://localhost:8080/api/v1/user/updateUser", method: "PUT", headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAdminAuthToken"))
-                }, data: JSON.stringify(hotel), success: (response) => {
-                    if (response.statusCode === 200 || response.statusCode === 201) {
-                        swal("Done!", response.message, "success")
-                        return clearFields();
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("userAdminAuthToken"))
+                }, data: JSON.stringify(user), success: (response) => {
 
-                    } else {
-                        return swal("OOPS!", response.message, "error")
-
-                    }
+                    swal("Done!", response.message, "success")
+                    return clearFields();
 
 
-                },  error: (xhr,textStatus,errorThrown) => {
-                    swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
+                }, error: (xhr, textStatus, errorThrown) => {
+                    swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
                 },
 
 
@@ -307,62 +215,40 @@ $(document).ready(() => {
     })
 })
 $(document).ready(() => {
-    $(document).on("keydown", "#hotelName", (event) => {
+    $(document).on("keydown", "#name", (event) => {
 
         if (event.key === 'Enter') {
             $.ajax({
-                url: "http://localhost:8081/getHotelByHotelName?hotelName=" + $("#hotelName").val(),
-                method: "GET",
-                headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAdminAuthToken"))
-                },
-                success: (res) => {
+                url: "http://localhost:8080/api/v1/user/getByName?name=" + $("#name").val(), method: "GET", headers: {
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("userAdminAuthToken"))
+                }, success: (res) => {
+                    console.log("RD : " + res.data)
+                    console.log("SC : " + res.data.data)
+                    $("#userRole").val(res.data.userRole)
+                    $("#userId").val(res.data.userId);
+                    $("#name").val(res.data.name)
+                    $("#userName").val(res.data.userName);
+
+                    $("#userPassword").val(res.data.userPassword);
+                    $("#userAge").val(res.data.userAge);
+                    $(document).ready(function () {
+                        $("#gender").val(res.data.gender)
+                    });
+                    $("#userEmail").val(res.data.userEmail);
+                    $("#userPhone").val(res.data.userPhone);
+                    $("#userAddress").val(res.data.userAddress);
+                    $("#remarks").val(res.data.remarks);
+                    $("#isAuthenticated").val(res.data.authenticated);
 
 
-                    if (res.statusCode === 200 || res.statusCode === 201) {
-                       /* if(!res.data){
-                            return swal("OOPS!", res.message, "error");
-
-                        }*/
-                        $("#hotelId").prop("disabled", false);
-                        $("#hotelId").val(res.data.hotelId);
-                        $("#hotelId").prop("disabled", true);
-                        $("#packageId").val(res.data.packageId);
-                        $("#hotelName").val(res.data.hotelName);
-                        $(document).ready(function () {
-                            $("#hotelCategory option[value='" + res.data.hotelCategory + "']").remove();
-                            $("#hotelCategory").append("<option value='" + res.data.hotelCategory + "'>" + res.data.hotelCategory + "</option>");
-                            $("#hotelCategory option[value='" + res.data.hotelCategory + "']").attr('selected', 'selected');
-                        });
-
-                        $("#hotelLocation").val(res.data.hotelLocation);
-                        $("#hotelLocationWithCoordinates").val(res.data.hotelLocationWithCoordinates);
-                        $("#hotelEmail").val(res.data.hotelContactEmail);
-                        $("#hotelContact1").val(res.data.hotelContact1);
-                        $("#hotelContact2").val(res.data.hotelContact2);
-                        $("#fullBoardWithACLuxuryRoomDouble").val(res.data.fullBoardWithACLuxuryRoomDouble);
-                        $("#halfBoardWithACLuxuryRoomDouble").val(res.data.halfBoardWithACLuxuryRoomDouble);
-                        $("#fullBoardWithACLuxuryRoomTriple").val(res.data.fullBoardWithACLuxuryRoomTriple);
-                        $("#halfBoardWithACLuxuryRoomTriple").val(res.data.halfBoardWithACLuxuryRoomTriple);
-                        $(document).ready(() => {
-                            $("#isPetsAllowed option[value='" + res.data.petsAllowed + "']").remove();
-                            $("#isPetsAllowed").append("<option value='" + res.data.petsAllowed + "'>" + res.data.petsAllowed + "</option>");
-                            $("#isPetsAllowed option[value='" + res.data.petsAllowed + "']").attr('selected', 'selected');
-                        })
-
-                        $("#hotelFee").val(res.data.hotelFee);
-                        $("#cancellationCriteria").val(res.data.cancellationCriteria);
-                        $("#remarks").val(res.data.remarks);
+                    $("#userId").prop("disabled", true);
 
 
-                        return swal("Done!", res.message, "success");
-
-                    }
+                    return swal("Done!", res.message, "success");
 
 
-                },
-                error: (xhr,textStatus,errorThrown) => {
-                    swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
+                }, error: (xhr, textStatus, errorThrown) => {
+                    swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
                 }
 
 
@@ -376,25 +262,26 @@ $(document).ready(() => {
 
 });
 $(document).ready(() => {
-    $(document).on("click", "#deleteHotel", () => {
-        if ($("#hotelId").val() === "") {
+    $(document).on("click", "#deleteUser", () => {
+        if ($("#userId").val() === "") {
             return swal("OOPS!", "Please enter a Hotel name to delete!", "error");
         }
 
         $.ajax({
-            url: "http://localhost:8081/deleteHotel?hotelID=" + $("#hotelId").val(), method: "DELETE", headers: {
-                "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAdminAuthToken"))
-            }, success: (res) => {
-                if (res.statusCode === 200 || res.statusCode === 201) {
+            url: "http://localhost:8080/api/v1/user/deleteUser?userId=" + $("#userId").val(),
+            method: "DELETE",
+            headers: {
+                "Authorization": "Bearer " + JSON.parse(localStorage.getItem("userAdminAuthToken"))
+            },
+            success: (res) => {
 
                     return swal("Done!", res.message, "success");
 
-                }
-                console.log(res.data)
-                swal("OOPS!", res.message, "error");
 
-            },  error: (xhr,textStatus,errorThrown) => {
-                swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
+
+            },
+            error: (xhr, textStatus, errorThrown) => {
+                swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
             }
 
 
@@ -411,7 +298,7 @@ $("#tableView").on("click", () => {
 
     $(".mainContent").css("display", "none");
     if (!isTableVisible) {
-        $("body").append("<table data-aos='zoom-in' id='hotelTable' class=\"table table-dark\">\n" + "  <thead>\n" + "    <tr>\n" + "      <th scope=\"col\">Hotel ID.</th>\n" + "      <th scope=\"col\">Package ID.</th>\n" + "      <th scope=\"col\">Hotel Name</th>\n" + "      <th scope=\"col\">Hotel Category.</th>\n" + "      <th scope=\"col\">Hotel Location.</th>\n" + "      <th scope=\"col\">Location (With Coordinates).</th>\n" + "      <th scope=\"col\">Image Location.</th>\n" + "      <th scope=\"col\">Hotel Email.</th>\n" + "      <th scope=\"col\">Hotel Contact 1.</th>\n" + "      <th scope=\"col\">Hotel Contact 2.</th>\n" + "      <th scope=\"col\">Full Board With AC Luxury Room Double.</th>\n" + "      <th scope=\"col\">Half Board With AC Luxury Room Double.</th>\n" + "      <th scope=\"col\">Full Board With AC Luxury Room Triple.</th>\n" + "      <th scope=\"col\">Half Board With AC Luxury Room Triple.</th>\n" + "      <th scope=\"col\">Is Pets Allowed?.</th>\n" + "      <th scope=\"col\">Hotel Fee.</th>\n" + "      <th scope=\"col\">Remarks.</th>\n" + "    </tr>\n" + "  </thead>\n" + "  <tbody></tbody>" + "</table>");
+        $("body").append("<table data-aos='zoom-in' id='userTable' class='table table-dark'>" + "<thead>" + "<tr>" + "<th scope='col'>User Role.</th>" + "<th scope='col'>User ID.</th>" + "<th scope='col'>Name.</th>" + "<th scope='col'>User Name.</th>" + "<th scope='col'>User Password.</th>" + "<th scope='col'>User NIC.</th>" + "<th scope='col'>User Age.</th>" + "<th scope='col'>Gender.</th>" + "<th scope='col'>User Email.</th>" + "<th scope='col'>User Phone.</th>" + "<th scope='col'>User Address.</th>" + "<th scope='col'>Remarks.</th>" + "<th scope='col'>User Image Location.</th>" + "</tr>" + "</thead>" + "<tbody></tbody>" + "</table>");
 
         isTableVisible = true;
         $("#forms").css("display", "none");
@@ -420,23 +307,43 @@ $("#tableView").on("click", () => {
 
 
     $.ajax({
-        url: "http://localhost:8081/getAllHotels", method: "GET", headers: {
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAdminAuthToken"))
-        }, success: (res) => {
+        url: "http://localhost:8080/api/v1/user/getAllUsers",
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("userAdminAuthToken"))
+        },
+        success: (res) => {
+            console.log(res.data)
+            res.data.map((user) => {
+                let row = "<tr>"+
+                    "<td>"+user.userRole+"</td>"+
+                    "<td>"+user.userId+"</td>"+
+                    "<td>"+user.name+"</td>"+
+                    "<td>"+user.userName+"</td>"+
+                    "<td>"+user.userPassword+"</td>"+
+                    "<td>"+user.userNIC+"</td>"+
+                    "<td>"+user.userAge+"</td>"+
+                    "<td>"+user.gender+"</td>"+
+                    "<td>"+user.userEmail+"</td>"+
+                    "<td>"+user.userPhone+"</td>"+
+                    "<td>"+user.userAddress+"</td>"+
+                    "<td>"+user.remarks+"</td>"+
+                    "<td>"+user.userImageLocation+"</td>"+
 
 
-            res.data.map((hotel) => {
 
 
-                let row = "<tr>\n" + "      <th scope=\"row\">" + hotel.hotelId + "</th>\n" + "      <td>" + hotel.packageId + "</td>\n" + "      <td>" + hotel.hotelName + "</td>\n" + "      <td>" + hotel.hotelCategory + "</td>\n" + "      <td>" + hotel.hotelLocation + "</td>\n" + "      <td>" + hotel.hotelLocationWithCoordinates + "</td>\n" + "      <td>" + hotel.hotelImageLocation + "</td>\n" + "      <td>" + hotel.hotelContactEmail + "</td>\n" + "      <td>" + hotel.hotelContact1 + "</td>\n" + "      <td>" + hotel.hotelContact2 + "</td>\n" + "      <td>" + hotel.fullBoardWithACLuxuryRoomDouble + "</td>\n" + "      <td>" + hotel.halfBoardWithACLuxuryRoomDouble + "</td>\n" + "      <td>" + hotel.fullBoardWithACLuxuryRoomTriple + "</td>\n" + "      <td>" + hotel.halfBoardWithACLuxuryRoomTriple + "</td>\n" + "      <td>" + hotel.petsAllowed + "</td>\n" + "      <td>" + hotel.hotelFee + "</td>\n" + "      <td>" + hotel.remarks + "</td>\n" + "    </tr>";
+                    "</tr>"
 
-                $("#hotelTable tbody").append(row);
+
+
+                $("#userTable tbody").append(row);
 
             })
 
 
-        },  error: (xhr,textStatus,errorThrown) => {
-            swal("OOPS!", "Server threw an exception : "+xhr.responseJSON.message, "error");
+        }, error: (xhr, textStatus, errorThrown) => {
+            swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
         }
 
 
@@ -445,9 +352,3 @@ $("#tableView").on("click", () => {
 
 });
 
-function setPackageIDs() {
-    packageIDs.forEach((pID) => {
-        $("#packageId").append("<option value='" + pID + "'>" + pID + "</option>")
-    })
-
-}
