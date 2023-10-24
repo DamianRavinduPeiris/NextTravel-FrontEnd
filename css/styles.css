@@ -24,8 +24,11 @@ body {
     font-size: 1rem;
 
 }
+#signUpHeading{
 
+}
 .headings {
+    text-align: center;
     font-size: 1.5rem;
     margin-bottom: 2rem;
 }
