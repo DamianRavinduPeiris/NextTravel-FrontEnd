@@ -1,13 +1,35 @@
+body{
+    overflow: hidden;
+}
+
 .flexBox{
-    margin-top: 5rem;
+    margin-top: 1rem;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.overlay-text {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    margin-bottom: 5rem;
+    transform: translateX(-50%);
+    color: white;
+    font-family: "Tilt Warp", serif;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.flexBox>img{
+
+    border-radius: 50px;
+    width: 1300px;
+    height: 90vh;
+
+}
 .text{
     font-family: "Tilt Warp", serif;
-    margin-top: 3rem;
-    text-align: center;
+    font-size: 1.5rem;
 }
 #logo{
     width: 500px;
@@ -19,11 +41,13 @@
 #username,#password{
     width: 20vw;
     border-radius: 10px;
+    margin-top: 2rem;
 
 }
 .formContainer{
     margin-top: 3rem;
 }
+
 #loginButton{
     margin-top: 2rem;;
     height: 3rem;

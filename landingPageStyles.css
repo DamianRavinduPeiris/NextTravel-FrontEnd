@@ -114,8 +114,12 @@ nav {
 .regularPackage{
     position: relative;
     min-height: 500px;
-    background-image:
-    url("https://cdn.shopify.com/s/files/1/0080/0984/2786/files/shutterstock_1181523733.jpg?v=1655221599");
+    background-image:linear-gradient(
+            to right,
+            rgba(77, 73, 73, 0.9),
+            rgba(162, 164, 166, 0.1)
+    ),
+    url("assets/h1.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -123,11 +127,26 @@ nav {
 
 }
 #mlPackage{
-    background: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/99474398.jpg?k=2550993d8238a28ca43d6c3606f3b2b6958f3853124c13536408b43cbe67c103&o=&hp=1");
+    background-image:linear-gradient(
+            to right,
+            rgba(77, 73, 73, 0.9),
+            rgba(162, 164, 166, 0.1)
+    ),url("assets/h2.jpg");
 
 }
 #lPackage{
-    background:  url("https://skift.com/wp-content/uploads/2017/02/luxury-retreats-airbnb--1024x683.jpg");
+    background-image:linear-gradient(
+            to right,
+            rgba(77, 73, 73, 0.9),
+            rgba(162, 164, 166, 0.1)
+    ),url("assets/h3.jpg");
+}
+#slPackage{
+    background-image:linear-gradient(
+            to right,
+            rgba(77, 73, 73, 0.9),
+            rgba(162, 164, 166, 0.1)
+    ),url("assets/h4.jpg");
 }
 .header__content {
     max-width: 600px;
@@ -300,9 +319,10 @@ nav {
 }
 
 .reward__container p {
+    text-align: center;
     margin-bottom: 1rem;
     font-weight: 600;
-    color: var(--text-light);
+    color: white;
 }
 
 .reward__container h4 {
