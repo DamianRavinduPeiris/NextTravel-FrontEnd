@@ -14,7 +14,7 @@
     align-items: center;
     margin-left: 2rem;
 }
-#name,#userName,#userPassword,#userNIC,#userNICImageLocation,#userAge,#gender,#userEmail,#userPhone,#userAddress,#userImageLocation{
+#name,#userName,#userPassword,#userNIC,#userNICImageLocation,#userAge,#gender,#userEmail,#userPhone,#userAddress,#userImageLocation,#userOTP{
     width: 40vw;
 }
 #signUpButton{

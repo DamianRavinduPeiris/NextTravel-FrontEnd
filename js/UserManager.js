@@ -146,7 +146,7 @@ function clearFields() {
 }
 
 function validator() {
-    if ($("#userRole").val() === "" || $("#userId").val() === "" || $("#name").val() === "" || $("#userName").val() === "" || $("#userPassword").val() === "" || $("#userNIC").val() === "" || $("#userAge").val() === "" || $("#gender").val() === "" || $("#userEmail").val() === "" || $("#userPhone").val() === "" || $("#userAddress").val() === "" || $("#remarks").val() === "" || $("#userImageLocation").val() === "" || $("#userNIC").val() === "") {
+    if ($("#userRole").val() === "" || $("#name").val() === "" || $("#userName").val() === "" || $("#userPassword").val() === "" || $("#userNIC").val() === "" || $("#userAge").val() === "" || $("#gender").val() === "" || $("#userEmail").val() === "" || $("#userPhone").val() === "" || $("#userAddress").val() === "" || $("#remarks").val() === "" || $("#userImageLocation").val() === "" || $("#userNIC").val() === "") {
         return false;
     }
     return true;
