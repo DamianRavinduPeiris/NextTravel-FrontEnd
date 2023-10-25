@@ -1,4 +1,6 @@
-localStorage.setItem("packageAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VBZG1pbiIsInN1YiI6Im5pcm1hbCIsImlhdCI6MTY5Nzg3NjMzMywiZXhwIjo0ODUxNDc2MzMzfQ.HxD1Qv0CMsWmjgyna9JTP6Nlfn-_zC3_Fey9dN60-G8"));
+
+localStorage.setItem("packageAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VBZG1pbiIsInN1YiI6InBhY2thZG1pbiIsImlhdCI6MTY5ODIzMDY5MSwiZXhwIjo0ODUxODMwNjkxfQ._20D3ZqwMDd5JtV7mi_7K1QpjbIiyTee3sw-LC_p6GI"))
+
 var packageIDs = [];
 
 

@@ -1,4 +1,4 @@
-localStorage.setItem("userAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXJBZG1pbiIsInN1YiI6ImJlbjEwIiwiaWF0IjoxNjk4MDQxNjYzLCJleHAiOjQ4NTE2NDE2NjN9.0cP_J0MYphSFbHiigVueRtyDF7O1wWSVIHi4_CgVEfk"));
+localStorage.setItem("userAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXJBZG1pbiIsInN1YiI6InVzZXJhZG1pbiIsImlhdCI6MTY5ODIzMDgyNywiZXhwIjo0ODUxODMwODI3fQ.RAetq0walF2yfDA-OJHC7iHG7bAZNFYlPQnCYR7XRbk"))
 
 
 function changeTitle(title) {

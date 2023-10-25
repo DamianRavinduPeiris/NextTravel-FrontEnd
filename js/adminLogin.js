@@ -1,56 +1,106 @@
 var selectedService = '';
-$(document).ready(function(){
-    $('#roleMenu .dropdown-item').click(function(){
-        $("#loginButton").css("display","none")
-        selectedService = $(this).text();
+
+$(document).ready(() => {
+    localStorage.setItem("guideAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6Imd1aWRlQWRtaW4iLCJzdWIiOiJndWlkZWFkbWluIiwiaWF0IjoxNjk4MjMwNTgwLCJleHAiOjQ4NTE4MzA1ODB9.EvPx0eLysnae_jz4GIFrEcq8ED7p9Yt9pr0K-hUXyU8"));
+    localStorage.setItem("hotelAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImhvdGVsQWRtaW4iLCJzdWIiOiJob3RlbGFkbWluIiwiaWF0IjoxNjk4MjMwNjMwLCJleHAiOjQ4NTE4MzA2MzB9.miSJLscg-rgKac48IXHVCoHAEqzmyjYkCC-4pvS_xoM"));
+    localStorage.setItem("packageAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VBZG1pbiIsInN1YiI6InBhY2thZG1pbiIsImlhdCI6MTY5ODIzMDY5MSwiZXhwIjo0ODUxODMwNjkxfQ._20D3ZqwMDd5JtV7mi_7K1QpjbIiyTee3sw-LC_p6GI"))
+    localStorage.setItem("vehicleAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InZlaGljbGVBZG1pbiIsInN1YiI6InZlaGFkbWluIiwiaWF0IjoxNjk4MjMwNzUzLCJleHAiOjQ4NTE4MzA3NTN9.Cq0FEBlvx6UPMeLXTABpDaDApnpYSf5-aZx63TX-3-I"))
+    localStorage.setItem("userAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXJBZG1pbiIsInN1YiI6InVzZXJhZG1pbiIsImlhdCI6MTY5ODIzMDgyNywiZXhwIjo0ODUxODMwODI3fQ.RAetq0walF2yfDA-OJHC7iHG7bAZNFYlPQnCYR7XRbk"))
+
+})
+$(document).ready(function () {
+    $('#roleMenu .dropdown-item').click(function () {
+        $("#loginButton").css("display", "none")
+        selectedService = $(this).data('value');
+        console.log(selectedService, "Token ", getToken(selectedService));
         $('#roleMenu .btn').text(selectedService);
-        $("#loginButton").css("display","block")
-        console.log(selectedService);
-        switch (selectedService) {
-            case "Guide Service." : window.location.href = "GuideManager.html";
-                break;
-        }
+        $("#loginButton").css("display", "block")
+
 
     });
 });
-$("#loginButton").on("click",()=>{
-    if($("#username").val()=="" || $("#password").val()==""){
-        return swal("Please fill in all the fields!","OOPS!","error");
+$("#loginButton").on("click", () => {
+    if ($("#username").val() == "" || $("#password").val() == "") {
+        return swal("Please fill in all the fields!", "OOPS!", "error");
 
     }
     $.ajax({
-        url : "http://localhost:8080/api/v1/user/getUserByUserName?username="+$("#username").val()+"&password="+$("#password").val(),
-        method:"GET",
-        async :true,
-        headers : {
-            "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
+        url: "http://localhost:8080/api/v1/user/getUserByUserName?username=" + $("#username").val() + "&password=" + $("#password").val(),
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + getToken(selectedService)
 
         },
-        success : (res)=>{
-            if(res.data.authenticated){
-                 swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
-                 switch (selectedService) {
-                     case "Guide Service" : window.location.href = "GuideManager.html";
-                     break;
-                     case "Hotel Service" : window.location.href = "HotelManager.html";
-                         break;
-                 }
+        success: (res) => {
+            console.log(res);
+            if (res.data.authenticated) {
+                if (res.data.userRole === selectedService) {
+                    swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
+                    redirector(res.data.userRole)
 
+                } else {
+                    return swal("Invalid Role!", "Your role is " + res.data.role + "!", "error")
+                }
+
+
+            } else {
+                return swal("Login Failed!", "Please check your username and password!", "error");
             }
-            return swal("Bad Credentials!","OOPS!","error")
+
 
         },
-        error:(error)=>{
-            return swal("An error occurred while authenticating with the server : ","","error")
-
+        error: (xhr, textStatus, errorThrown) => {
+            swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
         }
-
-
-
 
 
     })
 
 
-
 });
+
+function getToken(role) {
+    switch (role) {
+        case "guideAdmin" :
+            return JSON.parse(localStorage.getItem("guideAdminAuthToken"));
+            break;
+        case "hotelAdmin" :
+            return JSON.parse(localStorage.getItem("hotelAdminAuthToken"));
+            break;
+        case "packageAdmin" :
+            return JSON.parse(localStorage.getItem("packageAdminAuthToken"));
+            break;
+        case "vehicleAdmin" :
+            return JSON.parse(localStorage.getItem("vehicleAdminAuthToken"));
+            break;
+        case "userAdmin" :
+            return JSON.parse(localStorage.getItem("userAdminAuthToken"));
+            break;
+
+    }
+
+}
+
+function redirector(role) {
+    console.log("passed role"+role);
+    switch (role) {
+        case "guideAdmin" :
+            window.location.href = "GuideManager.html";
+            break;
+        case "hotelAdmin" :
+            window.location.href = "HotelManager.html";
+            break;
+        case "packageAdmin" :
+            window.location.href = "PackageManager.html";
+            break;
+        case "userAdmin" :
+            window.location.href = "UserManager.html";
+            break;
+        default:
+            swal("OOPS!", "Invalid role!", "error");
+            break;
+
+
+    }
+
+}

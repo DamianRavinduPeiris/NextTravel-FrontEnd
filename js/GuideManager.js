@@ -1,4 +1,5 @@
-localStorage.setItem("guideAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6Imd1aWRlQWRtaW4iLCJzdWIiOiJzZXh5cGVpcmlzIiwiaWF0IjoxNjk3ODI1MjgyLCJleHAiOjQ4NTE0MjUyODJ9.L_UXXCFPAEXZsFExkbBf2QBTeyGbIzdiZiaGR9p6rXE"));
+localStorage.setItem("guideAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6Imd1aWRlQWRtaW4iLCJzdWIiOiJndWlkZWFkbWluIiwiaWF0IjoxNjk4MjMwNTgwLCJleHAiOjQ4NTE4MzA1ODB9.EvPx0eLysnae_jz4GIFrEcq8ED7p9Yt9pr0K-hUXyU8"));
+
 
 function changeTitle(title) {
     if (title === 'Home.') {
