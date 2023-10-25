@@ -105,13 +105,15 @@ li:hover a {
     font-size: 4rem;
 }
 
+
+
 #forms {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
-#paymentId,#userId,#packageDetailsId,#paymentDate,#paymentAmount,#paymentImageLocation{
+#packageDetailsId, #packageId, #packageCategory, #hotelId, #vehicleId, #startDate, #endDate, #noOfDays, #travelArea, #noOfAdults, #noOfChildren, #totalHeadCount, #petsStatus, #guideStatus, #guideId, #totalPackageValue, #userId, #paidValue, #remarks {
     width: 30vw;
 }
 
