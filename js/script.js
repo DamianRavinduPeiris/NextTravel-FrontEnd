@@ -69,6 +69,7 @@ $(document).ready(()=>{
     $(document).on("click",".detailsButton",()=>{
 
         console.log($(event.target).attr("id"));
+        localStorage.setItem("packageStatus",JSON.stringify($(event.target).attr("id")));
 
 
     })

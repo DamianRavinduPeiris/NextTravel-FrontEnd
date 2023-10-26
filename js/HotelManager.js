@@ -170,9 +170,16 @@ function saveImage() {
     formData.append('imageFile', file);
 
     $.ajax({
-        url: 'http://localhost:8090/upload', type: 'POST', data: formData, headers: {
+        url: 'http://localhost:8090/upload',
+        type: 'POST',
+        data: formData,
+        headers: {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAdminAuthToken"))
-        }, cache: false, contentType: false, processData: false, success: function (data) {
+        },
+        cache: false,
+        contentType:false,
+        processData: false,
+        success: function (data) {
 
             hcl = data;
             console.log("IMG : " + hcl)
@@ -458,5 +465,37 @@ function getIndex(packageName) {
 
     })
     return i;
+
+}
+$(document).ready(()=>{
+
+
+    $(document).on("mouseleave","#hotelName",()=>{
+        getCoordinates();
+
+
+    })
+
+
+})
+
+
+function getCoordinates(){
+    axios.get("https://geocode.maps.co/search?q="+$("#hotelName").val())
+    .then((res)=>{
+
+        $("#hotelLocationWithCoordinates").val("Latitude : "+res.data[0].lat+', Longitude : '+res.data[0].lon)
+
+
+
+    })
+        .catch((err)=>{
+            console.log(err)
+            swal("OOPS! ","Coordinates Cannot be found!","error");
+
+
+        })
+
+
 
 }
