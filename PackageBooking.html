@@ -61,18 +61,57 @@
 
     </div>
 </header>
-<div class="flexBox fdc" id="bookNow">
-    <h1 class="text">Let's get you on board!</h1>
+<h1 class="text">Let's get you on board!</h1>
+<div class="flexBox " id="bookNow">
 
-    <div data-aos="zoom-in">
-        <label for="startDate" class="form-label ">Start Date.</label>
-        <input class="form-control form-control-lg" id="startDate" type="date">
+    <div class="flexBox fdc">
+        <div data-aos="zoom-in">
+            <label for="startDate" class="form-label ">Start Date.</label>
+            <input class="form-control form-control-lg" id="startDate" type="date">
+        </div>
+        <div data-aos="zoom-in">
+            <label for="endDate" class="form-label">End Date.</label>
+            <input class="form-control form-control-lg" id="endDate" type="date">
+        </div>
+
+
+
+
+        <div class="mb-3" data-aos="zoom-in">
+            <label for="totalNoOfDays" class="form-label">Total Number Of Days.</label>
+            <input type="text" class="form-control" id="totalNoOfDays" placeholder="Total Number Of Days.">
+        </div>
+        <div class="mb-3" data-aos="zoom-in">
+            <label for="totalNoOfAdults" class="form-label">Total Number Of Adults.</label>
+            <input type="number" class="form-control" id="totalNoOfAdults" placeholder="Total Number Of Adults.">
+        </div>
+        <div class="mb-3" data-aos="zoom-in">
+            <label for="totalNoOfChildren" class="form-label">Total Number Of Children.</label>
+            <input type="number" class="form-control" id="totalNoOfChildren" placeholder="Total Number Of Children.">
+        </div>
+
+        <div class="mb-3" data-aos="zoom-in">
+            <label for="hotelPrice" class="form-label">Hotel Price.</label>
+            <input type="text" class="form-control" id="hotelPrice" placeholder="Travel duration * Hotel Price Per Day.">
+        </div>
+        <div class="mb-3" data-aos="zoom-in">
+            <label for="vehiclePrice" class="form-label">Vehicle Price.</label>
+            <input type="text" class="form-control" id="vehiclePrice" placeholder="Travel duration * Vehicle Per Day Price.">
+        </div>
+        <div class="mb-3" data-aos="zoom-in">
+            <label for="totalPrice" class="form-label">Total Price.</label>
+            <input type="text" class="form-control" id="totalPrice" placeholder="Total Price in LKR.">
+        </div>
+        <div class="mb-3" data-aos="zoom-in">
+            <label for="paymentSlipLocation" class="form-label">Upload your Payment Slip.</label>
+            <input type="file" class="form-control" id="paymentSlipLocation" placeholder="Upload your payment slip!.">
+        </div>
+
+
+
     </div>
-    <div data-aos="zoom-in">
-        <label for="endDate" class="form-label">End Date.</label>
-        <input class="form-control form-control-lg" id="endDate" type="date">
-    </div>
-    <div class="flexBox" data-aos="zoom-in" id="dropDowns">
+
+    <div class="flexBox fdc" data-aos="zoom-in" id="dropDowns">
         <div class="mb-3">
             <label for="hotels" class="form-label specialLabels" >Available Hotels:</label>
             <select class="form-select" id="hotels" name="hotels" required>
@@ -143,43 +182,12 @@
 
 
 
-    <div class="mb-3" data-aos="zoom-in">
-        <label for="totalNoOfDays" class="form-label">Total Number Of Days.</label>
-        <input type="text" class="form-control" id="totalNoOfDays" placeholder="Total Number Of Days.">
-    </div>
-    <div class="mb-3" data-aos="zoom-in">
-        <label for="totalNoOfAdults" class="form-label">Total Number Of Adults.</label>
-        <input type="number" class="form-control" id="totalNoOfAdults" placeholder="Total Number Of Adults.">
-    </div>
-    <div class="mb-3" data-aos="zoom-in">
-        <label for="totalNoOfChildren" class="form-label">Total Number Of Children.</label>
-        <input type="number" class="form-control" id="totalNoOfChildren" placeholder="Total Number Of Children.">
-    </div>
-
-    <div class="mb-3" data-aos="zoom-in">
-        <label for="hotelPrice" class="form-label">Hotel Price.</label>
-        <input type="text" class="form-control" id="hotelPrice" placeholder="Travel duration * Hotel Price Per Day.">
-    </div>
-    <div class="mb-3" data-aos="zoom-in">
-        <label for="vehiclePrice" class="form-label">Vehicle Price.</label>
-        <input type="text" class="form-control" id="vehiclePrice" placeholder="Travel duration * Vehicle Per Day Price.">
-    </div>
-    <div class="mb-3" data-aos="zoom-in">
-        <label for="totalPrice" class="form-label">Total Price.</label>
-        <input type="text" class="form-control" id="totalPrice" placeholder="Total Price in LKR.">
-    </div>
-    <div class="mb-3" data-aos="zoom-in">
-        <label for="paymentSlipLocation" class="form-label">Upload your Payment Slip.</label>
-        <input type="file" class="form-control" id="paymentSlipLocation" placeholder="Upload your payment slip!.">
-    </div>
-
-
-
-
 
 
 
 </div>
+<button type="button" class="btn btn-success" id="bnButton">Book Now!</button>
+
 
 
 

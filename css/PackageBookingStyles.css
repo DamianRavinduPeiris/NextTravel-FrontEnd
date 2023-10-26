@@ -43,9 +43,9 @@
     margin: 4rem;
 }
 .flexBox{
-    margin-left: 2rem;
     display:  flex;
-    justify-content: space-between;
+
+    justify-content: center;
 
 
 
@@ -55,6 +55,20 @@
     flex-direction:  column;
 
 
+}
+#bnButton{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 31.25rem;
+    height: 3.125rem;
+    border-radius: 40px;
+    font-family: "Tilt Warp", serif;
+    margin-bottom: 1rem;
+}
+#bnButton:hover{
+    background-color: #435681;
+    color: white;
 }
 
 
@@ -66,8 +80,7 @@
     font-family: "Tilt Warp", serif;
 }
 #hotels,#vehicles,#destination,#pets,#guide,#hotelPackages{
-    margin-top: 3rem;
-    margin-right: 3rem;
+
     padding: 10px;
 
 }

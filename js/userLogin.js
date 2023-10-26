@@ -41,7 +41,10 @@ $("#loginButton").on("click",()=>{
         success : (res)=>{
            console.log(res);
            if(res.data.authenticated && res.data.userRole === 'user'){
-               return swal("Success!", "Login Successfull!", "success");
+                swal("Success!", "Login Successfull redirecting.... !", "success");
+                setTimeout(()=>{
+                    window.location.href ='PackageBooking.html'
+                },2000)
 
            }else{
                return  swal("OOPS!", "Bad Credentials!", "error");

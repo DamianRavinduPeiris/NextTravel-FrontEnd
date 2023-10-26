@@ -114,7 +114,11 @@ nav {
 .regularPackage{
     position: relative;
     min-height: 500px;
-    background-image:
+    background-image:linear-gradient(
+            to right,
+            rgba(58, 59, 65, 0.9),
+            rgba(100, 125, 187, 0.1)
+    ),
     url("assets/h1.jpg");
     background-position: center center;
     background-size: cover;
@@ -123,14 +127,26 @@ nav {
 
 }
 #mlPackage{
-    background-image:url("assets/h2.jpg");
+    background-image:linear-gradient(
+            to right,
+            rgba(58, 59, 65, 0.9),
+            rgba(100, 125, 187, 0.1)
+    ),url("assets/h2.jpg");
 
 }
 #lPackage{
-    background-image:url("assets/h3.jpg");
+    background-image:linear-gradient(
+            to right,
+            rgba(58, 59, 65, 0.9),
+            rgba(100, 125, 187, 0.1)
+    ),url("assets/h3.jpg");
 }
 #slPackage{
-    background-image:url("assets/h4.jpg");
+    background-image:linear-gradient(
+            to right,
+            rgba(58, 59, 65, 0.9),
+            rgba(100, 125, 187, 0.1)
+    ),url("assets/h4.jpg");
 }
 .header__content {
     max-width: 600px;

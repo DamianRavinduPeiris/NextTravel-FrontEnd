@@ -32,7 +32,11 @@ $(document).ready(()=>{
     if(JSON.parse(localStorage.getItem("packageName")) === "slb"){
         $("#packageName").text("Super Luxury Package.");
         $("#packageDescription").text("These are the epitome of luxury in the hospitality industry. Super luxury 5-star hotels offer an extraordinary level of opulence, with the finest amenities, exceptional services, and a truly lavish experience. They are often frequented by discerning travelers seeking the utmost in comfort and sophistication.");
-        $(".header__image__container").css("background-image","url('assets/h4.jpg')");
+        $(".header__image__container").css("background-image","linear-gradient(\n" +
+            "            to right,\n" +
+            "            rgba(58, 59, 65, 0.9),\n" +
+            "            rgba(100, 125, 187, 0.1)\n" +
+            "    ),url('assets/h4.jpg')");
         return superLuxuryPackageLoader();
 
     }
