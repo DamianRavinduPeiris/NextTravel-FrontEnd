@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-    localStorage.setItem("userAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXIiLCJzdWIiOiJkYW1pYW4iLCJpYXQiOjE2OTgyMzA0OTIsImV4cCI6NDg1MTgzMDQ5Mn0.OSKuJa8hUpsSwrY2ITEZWmCjeaOpk3_Lic69ZYcb588"))
+    localStorage.setItem("userAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXIiLCJzdWIiOiJkYW1pYW4iLCJpYXQiOjE2OTgzNDAzNTAsImV4cCI6NDg1MTk0MDM1MH0.TX4hCO5UhCAKFDya_RlxVTz3DMVkf7pMY7-raV6y4ps"))
 })
 
 
@@ -41,6 +41,7 @@ $("#loginButton").on("click",()=>{
         success : (res)=>{
            console.log(res);
            if(res.data.authenticated && res.data.userRole === 'user'){
+               localStorage.setItem("userDetails",JSON.stringify(res.data))
                 swal("Success!", "Login Successfull redirecting.... !", "success");
                 setTimeout(()=>{
                     window.location.href ='PackageBooking.html'
@@ -54,7 +55,8 @@ $("#loginButton").on("click",()=>{
 
         },
         error: (xhr, textStatus, errorThrown) => {
-            swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
+            console.log("error");
+            /*swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");*/
         },
 
 

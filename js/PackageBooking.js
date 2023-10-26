@@ -71,3 +71,56 @@ function superLuxuryPackageLoader(){
 
 }
 
+$("#updateButton").on("click",()=>{
+    let auth = {
+        Authorization : "Bearer "+JSON.parse(localStorage.getItem("userAuthToken"))
+    }
+    let user = JSON.parse(localStorage.getItem("userDetails"));
+    saveImage();
+    user.userImageLocation = imageLocation;
+    user.password = $("#password").val();
+    console.log(user)
+    localStorage.setItem("userDetails",JSON.stringify(user))
+    setTimeout(()=>{
+        console.log("img" +imageLocation)
+        let user  = {
+            userID : JSON.parse(localStorage.getItem("userDetails")).userId,
+            password : $("#password").val(),
+            userImageLocation : imageLocation,
+        }
+        axios.put("http://localhost:8080/api/v1/user/customUpdater",user,{headers:auth})
+            .then((res)=>{
+                console.log(res);
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+
+
+    },5000)
+})
+var imageLocation;
+function saveImage() {
+
+    var formData = new FormData();
+    var file = $("#userImageLocation")[0].files[0];
+    formData.append('imageFile', file);
+
+    $.ajax({
+        url: 'http://localhost:8090/upload',
+        type: 'POST',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+
+            imageLocation = data;
+
+
+        }, error: (xhr, textStatus, errorThrown) => {
+            swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
+        }
+    });
+
+}

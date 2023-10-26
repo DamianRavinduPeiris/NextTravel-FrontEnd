@@ -70,12 +70,24 @@
     background-color: #435681;
     color: white;
 }
+.pfp{
+    border-radius: 40px;
+    width: 50px;
+    height: 50px;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+#updateButton,#closeButton{
+
+}
 
 
 #totalNoOfDays,#startDate,#endDate,#totalNoOfAdults,#totalNoOfChildren,#hotelPrice,#vehiclePrice,#totalPrice,#paymentSlipLocation{
     width: 30vw;
 }
-
+#exampleModal{
+    border-radius: 40px;
+}
 .text{
     font-family: "Tilt Warp", serif;
 }
