@@ -42,7 +42,7 @@ $("#loginButton").on("click",()=>{
            console.log(res);
            if(res.data.authenticated && res.data.userRole === 'user'){
                localStorage.setItem("userDetails",JSON.stringify(res.data))
-                swal("Success!", "Login Successfull redirecting.... !", "success");
+                swal("Success!", "Login Successfull!", "success");
                 setTimeout(()=>{
                     window.location.href ='PackageBooking.html'
                 },2000)
