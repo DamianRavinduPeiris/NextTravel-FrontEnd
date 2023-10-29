@@ -13,7 +13,7 @@ var auth = {
 }
 
 $(document).ready(() => {
-    $.ajax({
+  /*  $.ajax({
         url : "http://localhost:8090/getImage?imagePath=" + JSON.parse(localStorage.getItem("userDetails")).userImageLocation,
         responseType : "blob",
         success : (res)=>{
@@ -46,7 +46,7 @@ $(document).ready(() => {
         }
 
 
-    })
+    })*/
     $("#totalNoOfDays").prop("disabled", true);
     $("#hotelPrice").prop("disabled", true);
     $("#vehiclePrice").prop("disabled", true);
@@ -125,6 +125,7 @@ var vID = '';
 
 $(document).ready(function () {
 
+
     $('#hotels').on('change', function () {
         if ($("#totalNoOfDays").val() === '') {
             return swal("OOPS!", "Select a valid date range!", "error");
@@ -137,6 +138,9 @@ $(document).ready(function () {
         hotelData.forEach(function (hotel) {
             if (selectedHotelName === hotel.hotelName) {
                 hID = hotel.hotelId;
+                $(".header__image__container").css("background-image", "url('" + hotel.hotelImageLocation + "')");
+                $('html, body').animate({scrollTop: '0px'}, "slow");
+
                 $("#hotelPackages").empty();
                 $("#hotelPackages").append("<option value='" + hotel.fullBoardWithACLuxuryRoomDouble + "'>" + "Full Board With AC Luxury Room Double  : " + hotel.fullBoardWithACLuxuryRoomDouble + " LKR.</option>");
 

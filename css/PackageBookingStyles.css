@@ -88,6 +88,11 @@
 #exampleModal{
     border-radius: 40px;
 }
+#hotelImage{
+    width: 600px;
+    height: 500px;
+    border-radius: 40px;
+}
 .text{
     font-family: "Tilt Warp", serif;
 }
