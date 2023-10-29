@@ -94,10 +94,13 @@ function saveImage() {
     formData.append('imageFile', file);
 
     $.ajax({
-        url: 'http://localhost:8090/upload', type: 'POST', data: formData,
-
-        cache: false, contentType: false, processData: false, success: function (data) {
-            return guideImageLocation = data;
+        url: 'http://localhost:8090/uploadToDrive',
+        type: 'POST',
+        data: formData,
+        async : false,
+        cache: false, contentType: false, processData: false, success:
+            function (data) {
+            return guideImageLocation = data.data;
 
         }, error: function () {
             console.error('Error uploading file');

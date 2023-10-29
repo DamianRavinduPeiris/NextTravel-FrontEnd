@@ -170,18 +170,19 @@ function saveImage() {
     formData.append('imageFile', file);
 
     $.ajax({
-        url: 'http://localhost:8090/upload',
+        url: 'http://localhost:8090/uploadToDrive',
         type: 'POST',
         data: formData,
         headers: {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAdminAuthToken"))
         },
+        async : false,
         cache: false,
         contentType:false,
         processData: false,
         success: function (data) {
 
-            hcl = data;
+            hcl = data.data;
             console.log("IMG : " + hcl)
 
 
