@@ -112,11 +112,15 @@ function saveImage(imageID) {
     formData.append('imageFile', file);
 
     $.ajax({
-        url: 'http://localhost:8090/upload', type: 'POST', data: formData, headers: {
+        url: 'http://localhost:8090/uploadToDrive',
+        type: 'POST',
+        data: formData,
+        async: false,
+        headers: {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("userAdminAuthToken"))
         }, cache: false, contentType: false, processData: false, success: function (data) {
-
-            imageLocations.push(data);
+            console.log("LINK : ",data.data)
+            imageLocations.push(data.data);
 
 
         }, error: (xhr, textStatus, errorThrown) => {
@@ -172,7 +176,7 @@ $(document).ready(() => {
             saveImage("#userImageLocation");
 
 
-        }, 1000)
+        }, 3000)
         setTimeout(() => {
             let user = {
                 userRole: $("#userRole").val(),
@@ -193,6 +197,7 @@ $(document).ready(() => {
 
 
             }
+            console.log("User : ",user)
             $.ajax({
                 url: "http://localhost:8080/api/v1/user/updateUser", method: "PUT", headers: {
                     "content-type": "application/json",
