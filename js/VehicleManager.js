@@ -121,7 +121,9 @@ $(document).ready(() => {
             console.log(vehicle)
 
             $.ajax({
-                url: "http://localhost:8082/saveVehicle", method: "POST", headers: {
+                url: "http://localhost:8082/saveVehicle",
+                method: "POST",
+                headers: {
                     "content-type": "application/json",
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAdminAuthToken"))
                 }, data: JSON.stringify(vehicle), success: (response) => {
@@ -154,13 +156,20 @@ var imageData = [];
 function saveImages(file) {
     var formData = new FormData();
     formData.append('imageFile', file);
+    console.log("Form data : " + formData)
 
     $.ajax({
-        url: 'http://localhost:8090/upload', type: 'POST', data: formData, headers: {
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
-        }, cache: false, contentType: false, processData: false, success: function (data) {
+        url: 'http://localhost:8090/uploadToDrive',
+        type: 'POST',
+        data: formData,
+        async : false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            console.log("Link : "+data.data)
 
-            imageData.push(data)
+            imageData.push(data.data)
 
 
         }, error: (xhr, textStatus, errorThrown) => {
@@ -242,11 +251,15 @@ $(document).ready(() => {
             }
 
             $.ajax({
-                url: "http://localhost:8082/updateVehicle", method: "PUT", headers: {
+                url: "http://localhost:8082/updateVehicle",
+                method: "PUT",
+                headers: {
                     "content-type": "application/json",
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAdminAuthToken"))
 
-                }, data: JSON.stringify(vehicle), success: (response) => {
+                },
+                data: JSON.stringify(vehicle),
+                success: (response) => {
                     if (response.statusCode === 200 || response.statusCode === 201) {
                         swal("Done!", response.message, "success")
                         return clearFields();

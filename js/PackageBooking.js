@@ -133,7 +133,8 @@ $(document).ready(function () {
         }
         console.log('Selected Hotel Name:', $(this).val());
         var selectedHotelName = $(this).val();
-        var hotelData = JSON.parse(localStorage.getItem("hotelData"));
+        var hotelData = JSON.parse
+        (localStorage.getItem("hotelData"));
 
         hotelData.forEach(function (hotel) {
             if (selectedHotelName === hotel.hotelName) {
