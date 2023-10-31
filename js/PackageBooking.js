@@ -13,16 +13,16 @@ var auth = {
 }
 
 $(document).ready(() => {
-  /*  $.ajax({
-        url : "http://localhost:8090/getImage?imagePath=" + JSON.parse(localStorage.getItem("userDetails")).userImageLocation,
-        responseType : "blob",
-        success : (res)=>{
-            //handle the response which is a spring resource
-            var reader = new FileReader();
-            reader.onload = function(event){
-                var res = event.target.result;
-                $(".pfp").attr("src",res);
-            };
+    /*  $.ajax({
+          url : "http://localhost:8090/getImage?imagePath=" + JSON.parse(localStorage.getItem("userDetails")).userImageLocation,
+          responseType : "blob",
+          success : (res)=>{
+              //handle the response which is a spring resource
+              var reader = new FileReader();
+              reader.onload = function(event){
+                  var res = event.target.result;
+                  $(".pfp").attr("src",res);
+              };
 
 
 
@@ -39,14 +39,14 @@ $(document).ready(() => {
 
 
 
-        },
-        error : (er)=>{
-            swal("OOPS!", "Server threw an exception : " + er.responseJSON.message, "error");
+          },
+          error : (er)=>{
+              swal("OOPS!", "Server threw an exception : " + er.responseJSON.message, "error");
 
-        }
+          }
 
 
-    })*/
+      })*/
     $("#totalNoOfDays").prop("disabled", true);
     $("#hotelPrice").prop("disabled", true);
     $("#vehiclePrice").prop("disabled", true);
@@ -120,6 +120,7 @@ function packageLoader(pID) {
 
 
 }
+
 var hID = '';
 var vID = '';
 
@@ -133,8 +134,7 @@ $(document).ready(function () {
         }
         console.log('Selected Hotel Name:', $(this).val());
         var selectedHotelName = $(this).val();
-        var hotelData = JSON.parse
-        (localStorage.getItem("hotelData"));
+        var hotelData = JSON.parse(localStorage.getItem("hotelData"));
 
         hotelData.forEach(function (hotel) {
             if (selectedHotelName === hotel.hotelName) {
@@ -162,29 +162,28 @@ $(document).ready(function () {
 });
 $(document).ready(() => {
     $("#hotelPackages").on("change", () => {
-         $("#hotelPrice").val(parseInt($("#hotelPackages").val()) * parseInt($("#totalNoOfDays").val()));
-         return $("#serviceCharge").val(parseInt($("#hotelPrice").val()) * 5 / 100);
+        $("#hotelPrice").val(parseInt($("#hotelPackages").val()) * parseInt($("#totalNoOfDays").val()));
+        return $("#serviceCharge").val(parseInt($("#hotelPrice").val()) * 5 / 100);
 
 
     });
-    $("#vehicles").on("change",()=>{
+    $("#vehicles").on("change", () => {
         let vd = JSON.parse(localStorage.getItem("vehicleData"))
-        vd.forEach((v)=>{
-            if(v.vehicleId === $("#vehicles").val()){
-                return   vehiclePrice = v.feeForADay;
+        vd.forEach((v) => {
+            if (v.vehicleId === $("#vehicles").val()) {
+                return vehiclePrice = v.feeForADay;
 
             }
 
         })
 
 
-      return  $("#vehiclePrice").val(parseInt($("#totalNoOfDays").val())*vehiclePrice);
+        return $("#vehiclePrice").val(parseInt($("#totalNoOfDays").val()) * vehiclePrice);
 
     });
 
 })
 var vehiclePrice = 0;
-
 
 
 $("#updateButton").on("click", () => {
@@ -218,67 +217,58 @@ $("#updateButton").on("click", () => {
 var imageLocation;
 
 
-
 var guideData = [];
 var guidePrice = 0;
 $(document).ready(function () {
-    $("#guide").on("change",()=>{
-        if($("#guide").val() !== "false"){
-            axios.get("http://localhost:8084/getAllGuides",{headers:auth})
-                .then((res)=>{
+    $("#guide").on("change", () => {
+        if ($("#guide").val() !== "false") {
+            axios.get("http://localhost:8084/getAllGuides", {headers: auth})
+                .then((res) => {
                     guideData = res.data.data;
 
 
                 })
-                .catch((er)=>{
+                .catch((er) => {
                     swal("OOPS!", "Server threw an exception : " + er.responseJSON.message, "error");
 
                 })
 
 
-            setTimeout(()=>{
-                $(".form").append("<div id='guideHolder'data-aos='zoom-in' class=\"mb-3\">\n" +
-                    "            <label for=\"availableGuides\" class=\"form-label specialLabels\">Available Guides :</label>\n" +
-                    "            <select class=\"form-select\" id=\"availableGuides\" name=\"pets\" required>\n" +
-                    "                 \n" +
-                    "            </select>\n" +
-                    "        </div>");
+            setTimeout(() => {
+                $(".form").append("<div id='guideHolder'data-aos='zoom-in' class=\"mb-3\">\n" + "            <label for=\"availableGuides\" class=\"form-label specialLabels\">Available Guides :</label>\n" + "            <select class=\"form-select\" id=\"availableGuides\" name=\"pets\" required>\n" + "                 \n" + "            </select>\n" + "        </div>");
 
-                guideData.forEach((guide)=>{
+                guideData.forEach((guide) => {
                     $('#availableGuides').append('<option  value="' + guide.guideId + '">' + guide.guideName + ' : ' + guide.manDayValue + ' LKR Per Day.' + '</option>');
-
 
 
                 })
 
-            },1000)
+            }, 1000)
 
 
-
-
-        }else{
+        } else {
             $("#guideHolder").remove();
         }
 
 
     })
-        $(document).ready(()=>{
-            $("body").on("change","#availableGuides",()=>{
-                console.log($("#availableGuides").val())
-                guideData.forEach((g)=>{
-                    if(g.guideId === $("#availableGuides").val()){
-                        guidePrice = g.manDayValue;
+    $(document).ready(() => {
+        $("body").on("change", "#availableGuides", () => {
+            console.log($("#availableGuides").val())
+            guideData.forEach((g) => {
+                if (g.guideId === $("#availableGuides").val()) {
+                    guidePrice = g.manDayValue;
 
-                    }
-
-                })
-
-                $("#guidePrice").val(parseInt($("#totalNoOfDays").val())*guidePrice);
-                $("#totalPrice").val(parseInt($("#hotelPrice").val())+parseInt($("#vehiclePrice").val())+parseInt($("#guidePrice").val())+parseInt($("#serviceCharge").val()));
-
+                }
 
             })
+
+            $("#guidePrice").val(parseInt($("#totalNoOfDays").val()) * guidePrice);
+            $("#totalPrice").val(parseInt($("#hotelPrice").val()) + parseInt($("#vehiclePrice").val()) + parseInt($("#guidePrice").val()) + parseInt($("#serviceCharge").val()));
+
+
         })
+    })
 
 
     $('#startDate, #endDate').change(() => {
@@ -316,6 +306,7 @@ $("#totalNoOfAdults,#totalNoOfChildren").on("mouseleave", () => {
 
 
 var piLocation = '';
+
 function saveImage(id) {
     var formData = new FormData();
     var file = $(id)[0].files[0];
@@ -326,7 +317,7 @@ function saveImage(id) {
         type: 'POST',
         data: formData,
         cache: false,
-        contentType:false,
+        contentType: false,
         processData: false,
         success: function (data) {
 
@@ -334,103 +325,42 @@ function saveImage(id) {
             console.log("IMG : " + piLocation)
 
 
-        }, error: (xhr, textStatus, errorThrown) => {
+        },
+        error: (xhr, textStatus, errorThrown) => {
             swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
         }
     });
 
 }
 
-$("#bnButton").on("click",()=>{
-    saveImage("#paymentSlipLocation");
+$("#bnButton").on("click", () => {
 
-    setTimeout(()=>{
-        let pd = {
-            packageDetailsId : "",
-            packageId : pID,
-            packageCategory :pC,
-            hotelId :hID,
-            vehicleId : $("#vehicles").val(),
-            startDate : $("#startDate").val(),
-            endDate : $("#endDate").val(),
-            noOfDays : parseInt($("#totalNoOfDays").val()),
-            travelArea : $("#destination").val(),
-            noOfAdults : parseInt($("#totalNoOfAdults").val()),
-            noOfChildren : parseInt($("#totalNoOfChildren").val()),
-            totalHeadCount : parseInt($("#totalNoOfAdults").val())+parseInt($("#totalNoOfChildren").val()),
-            petStatus : $("#pets").val(),
-            guideStatus : $("#guide").val(),
-            guideId : $("#availableGuides").val(),
-            totalPackageValue : parseInt($("#totalPrice").val()),
-            userId : JSON.parse(localStorage.getItem("userDetails")).userId,
-            paidValue : 0,
-            paymentImageLocation : piLocation,
-            remarks : "Initial Booking!"
-        }
-        console.log(pd)
-
-
-        $.ajax({
-            url : "http://localhost:8087/savePackageDetails",
-            method : "POST",
-            data : JSON.stringify(pd),
-            headers : {
-                "content-type" : "application/json",
-                "Authorization" : "Bearer " + JSON.parse(localStorage.getItem("userAuthToken"))
-
-            },
-            success : (res)=>{
-                if(res.statusCode === 200 || res.statusCode === 201){
-                    let ud = JSON.parse(localStorage.getItem("userDetails"))
-                    let epd = {
-                        packageDetailsId : "",
-                        packageId : pID,
-                        packageCategory :pC,
-                        hotelId :hID,
-                        vehicleId : $("#vehicles").val(),
-                        startDate : $("#startDate").val(),
-                        endDate : $("#endDate").val(),
-                        noOfDays : parseInt($("#totalNoOfDays").val()),
-                        travelArea : $("#destination").val(),
-                        noOfAdults : parseInt($("#totalNoOfAdults").val()),
-                        noOfChildren : parseInt($("#totalNoOfChildren").val()),
-                        totalHeadCount : parseInt($("#totalNoOfAdults").val())+parseInt($("#totalNoOfChildren").val()),
-                        petStatus : $("#pets").val(),
-                        guideStatus : $("#guide").val(),
-                        guideId : $("#availableGuides").val(),
-                        totalPackageValue : parseInt($("#totalPrice").val()),
-                        userId : JSON.parse(localStorage.getItem("userDetails")).userId,
-                        paidValue : 0,
-                        paymentImageLocation : piLocation,
-                        remarks : "Initial Booking!",
-                        name : ud.name,
-                        email : "drpeiris3@gmail.com",
-                    }
-
-                    axios.post("http://localhost:8093/sendPackageDetails",epd,{headers : auth})
-                        .then((res)=>{
-                            return swal("Success!", "Package booking successful ,  check your mailbox!!", "success");
-
-                        })
-                        .catch((er)=>{
-                            return swal("OOPS!", "Server threw an exception : ", "error");
-
-                        })
-
-
-                }
-
-            },
-            error : (xhr,textStatus,errorThrown)=>{
-                swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
-            }
-
-        })
-
-
-    },2000)
-
-
+    let pd = {
+        packageDetailsId: "",
+        packageId: pID,
+        packageCategory: pC,
+        hotelId: hID,
+        vehicleId: $("#vehicles").val(),
+        startDate: $("#startDate").val(),
+        endDate: $("#endDate").val(),
+        noOfDays: parseInt($("#totalNoOfDays").val()),
+        travelArea: $("#destination").val(),
+        noOfAdults: parseInt($("#totalNoOfAdults").val()),
+        noOfChildren: parseInt($("#totalNoOfChildren").val()),
+        totalHeadCount: parseInt($("#totalNoOfAdults").val()) + parseInt($("#totalNoOfChildren").val()),
+        petStatus: $("#pets").val(),
+        guideStatus: $("#guide").val(),
+        guideId: $("#availableGuides").val(),
+        totalPackageValue: parseInt($("#totalPrice").val()),
+        userId: JSON.parse(localStorage.getItem("userDetails")).userId,
+        paidValue: 0,
+        paymentImageLocation: "",
+        remarks: "Initial Booking!"
+    }
+    console.log(pd)
+    localStorage.setItem("packageDetails", JSON.stringify(pd))
+    localStorage.setItem("amount", parseInt($("#totalPrice").val()))
+    window.location.href = 'PaymentPortal.html'
 
 
 })
