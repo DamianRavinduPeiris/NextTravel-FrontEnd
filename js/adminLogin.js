@@ -6,6 +6,8 @@ $(document).ready(() => {
     localStorage.setItem("packageAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VBZG1pbiIsInN1YiI6InBhY2thZG1pbiIsImlhdCI6MTY5ODIzMDY5MSwiZXhwIjo0ODUxODMwNjkxfQ._20D3ZqwMDd5JtV7mi_7K1QpjbIiyTee3sw-LC_p6GI"))
     localStorage.setItem("vehicleAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InZlaGljbGVBZG1pbiIsInN1YiI6InZlaGFkbWluIiwiaWF0IjoxNjk4MjMwNzUzLCJleHAiOjQ4NTE4MzA3NTN9.Cq0FEBlvx6UPMeLXTABpDaDApnpYSf5-aZx63TX-3-I"))
     localStorage.setItem("userAdminAuthToken", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXJBZG1pbiIsInN1YiI6InVzZXJhZG1pbiIsImlhdCI6MTY5ODIzMDgyNywiZXhwIjo0ODUxODMwODI3fQ.RAetq0walF2yfDA-OJHC7iHG7bAZNFYlPQnCYR7XRbk"))
+    localStorage.setItem("paymentsAdminAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBheW1lbnRzQWRtaW4iLCJzdWIiOiJwYXlhZG1pbiIsImlhdCI6MTY5ODI0NTY2MSwiZXhwIjo0ODUxODQ1NjYxfQ.kMmhlmNQC6bfAriMgBZwyqpe-5tIL6l5_id1I4_dLOY"))
+    localStorage.setItem("packageDetailsAdminAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VEZXRhaWxzQWRtaW4iLCJzdWIiOiJwY2RhZG1pbiIsImlhdCI6MTY5ODI0NTc2NywiZXhwIjo0ODUxODQ1NzY3fQ.u2NCi_WQhF0GvP4s852lfLc-Ve_JRnskJ6RqFMIuW9Q"))
 
 })
 $(document).ready(function () {
@@ -39,7 +41,7 @@ $("#loginButton").on("click", () => {
                     redirector(res.data.userRole)
 
                 } else {
-                    return swal("Invalid Role!", "Your role is " + res.data.role + "!", "error")
+                    return swal("Invalid Role!", "Your role is " + res.data.userRole + "!", "error")
                 }
 
 
@@ -76,6 +78,15 @@ function getToken(role) {
         case "userAdmin" :
             return JSON.parse(localStorage.getItem("userAdminAuthToken"));
             break;
+        case "packageDetailsAdmin":
+            return JSON.parse(localStorage.getItem("packageDetailsAdminAuthToken"));
+            break;
+        case  "paymentsAdmin":
+            return JSON.parse(localStorage.getItem("paymentsAdminAuthToken"));
+            break;
+            default :
+                swal("OOPS!", "Invalid role!", "error");
+            return null;
 
     }
 
@@ -96,6 +107,16 @@ function redirector(role) {
         case "userAdmin" :
             window.location.href = "UserManager.html";
             break;
+        case "vehicleAdmin" :
+            window.location.href = "VehicleManager.html";
+            break;
+           case "paymentsAdmin" :
+            window.location.href = "PaymentManager.html";
+            break;
+        case "packageDetailsAdmin":
+            window.location.href = "PackageDetailsManager.html";
+            break;
+
         default:
             swal("OOPS!", "Invalid role!", "error");
             break;
