@@ -113,7 +113,7 @@ li:hover a {
     transform: translateX(-50%);
 }
 
-#packageDetailsId, #packageId, #packageCategory, #hotelId, #vehicleId, #startDate, #endDate, #noOfDays, #travelArea, #noOfAdults, #noOfChildren, #totalHeadCount, #petsStatus, #guideStatus, #guideId, #totalPackageValue, #userId, #paidValue, #remarks {
+#packageDetailsId, #packageId, #packageCategory, #hotelId, #vehicleId, #startDate, #endDate, #noOfDays, #travelArea, #noOfAdults, #noOfChildren, #totalHeadCount, #petsStatus, #guideStatus, #guideId, #totalPackageValue, #userId, #paidValue, #remarks,#petsStatus,#paymentSlip {
     width: 30vw;
 }
 

@@ -303,10 +303,6 @@ $(document).ready(() => {
 
 
                     if (res.statusCode === 200 || res.statusCode === 201) {
-                        /* if(!res.data){
-                             return swal("OOPS!", res.message, "error");
-
-                         }*/
                         $("#hotelId").prop("disabled", false);
                         $("#hotelId").val(res.data.hotelId);
                         $("#hotelId").prop("disabled", true);

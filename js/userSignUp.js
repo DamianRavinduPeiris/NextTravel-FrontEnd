@@ -4,9 +4,9 @@ $(document).ready(() => {
 
 })
 $("#signUpButton").on("click", () => {
-    console.log($("#name").val());
-    console.log($("#userEmail").val());
 
+    saveImage("#userNICImageLocation");
+    saveImage("#userImageLocation");
 
     let user = {
         userRole: "user",
@@ -27,14 +27,15 @@ $("#signUpButton").on("click", () => {
 
 
     }
-    console.log(user);
-    saveImage("#userNICImageLocation");
-    saveImage("#userImageLocation");
-    setTimeout(() => {
+    console.log(user)
         $.ajax({
-            url: "http://localhost:8080/api/v1/auth/getAuth", method: "POST", headers: {
+            url: "http://localhost:8080/api/v1/auth/getAuth",
+            method: "POST",
+            headers: {
                 "content-type": "application/json"
-            }, data: JSON.stringify(user), success: (res) => {
+            },
+            data: JSON.stringify(user),
+            success: (res) => {
                 console.log(res);
                 if (res.statusCode === 200 || res.statusCode === 201) {
                     localStorage.setItem("userAuthToken", JSON.stringify(res.data))
@@ -48,7 +49,7 @@ $("#signUpButton").on("click", () => {
             }, error: (xhr, textStatus, errorThrown) => {
                 swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
             },
-        }, 2000)
+
 
 
     })
@@ -62,15 +63,17 @@ function saveImage(imageID) {
     formData.append('imageFile', file);
 
     $.ajax({
-        url: 'http://localhost:8090/upload',
+        url: 'http://localhost:8090/uploadToDrive',
         type: 'POST',
         data: formData,
+        async: false,
         cache: false,
         contentType: false,
         processData: false,
         success: function (data) {
+            console.log("Image Location : ", data.data)
 
-            imageLocations.push(data);
+            imageLocations.push(data.data);
 
 
         },
@@ -94,8 +97,7 @@ function sendEmail() {
         name: $("#name").val(), toEmail: $("#userEmail").val(),
 
     }
-    console.log("ED : ", emailDetails);
-    console.log("Auth : ", auth);
+
     axios.post("http://localhost:8093/sendEmail", emailDetails, {headers: auth})
         .then((res) => {
             console.log("8093 : ", res.data);
@@ -118,7 +120,13 @@ $("#userOTP").on("mouseleave", () => {
 
 
     if ($("#userOTP").val() === otp) {
-        return swal("Success!", "User Registered Successfully!", "success");
+         swal("Success!", "User Registered Successfully!", "success");
+        return  setTimeout(()=>{
+            window.location.href = "PackageBooking.html";
+
+
+
+        },2000)
 
     } else {
         console.log("OTP : ", otp);

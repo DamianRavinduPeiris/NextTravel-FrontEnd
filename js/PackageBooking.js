@@ -13,40 +13,7 @@ var auth = {
 }
 
 $(document).ready(() => {
-    /*  $.ajax({
-          url : "http://localhost:8090/getImage?imagePath=" + JSON.parse(localStorage.getItem("userDetails")).userImageLocation,
-          responseType : "blob",
-          success : (res)=>{
-              //handle the response which is a spring resource
-              var reader = new FileReader();
-              reader.onload = function(event){
-                  var res = event.target.result;
-                  $(".pfp").attr("src",res);
-              };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          },
-          error : (er)=>{
-              swal("OOPS!", "Server threw an exception : " + er.responseJSON.message, "error");
-
-          }
-
-
-      })*/
+    $(".pfp").attr("src", JSON.parse(localStorage.getItem("userDetails")).userImageLocation);
     $("#totalNoOfDays").prop("disabled", true);
     $("#hotelPrice").prop("disabled", true);
     $("#vehiclePrice").prop("disabled", true);
