@@ -93,8 +93,8 @@ $("#guideManager").on("click", () => {
       <input type="number" class="form-control" id="paidValue">
     </div>
     <div class="mb-3">
-      <label for="paymentSlip" class="form-label">Upload the Payment Slip.</label>
-      <input type="file" class="form-control" id="paymentSlip">
+      <label for="paymentSlip" class="form-label">Payment Slip Location.</label>
+      <input type="text" class="form-control" id="paymentSlip">
     </div>
     <div class="mb-3">
       <label for="remarks" class="form-label">Remarks.</label>
@@ -107,18 +107,38 @@ $("#guideManager").on("click", () => {
   </div>
 `);
 
-
-
+        disableProps();
         isFormsVisible = true;
-        $("#paymentId").prop("disabled", true);
-        $("#guideTable").css("display", "none");
+
+        $("#packageDetailsTable").css("display", "none");
         isTableVisible = false;
     }
 
 
 });
 
-
+function  disableProps(){
+    $("#packageId").prop("disabled", true);
+    $("#packageCategory").prop("disabled", true);
+    $("#hotelId").prop("disabled", true);
+    $("#vehicleId").prop("disabled", true);
+    $("#startDate").prop("disabled", true);
+    $("#endDate").prop("disabled", true);
+    $("#noOfDays").prop("disabled", true);
+    $("#travelArea").prop("disabled", true);
+    $("#noOfAdults").prop("disabled", true);
+    $("#noOfChildren").prop("disabled", true);
+    $("#totalHeadCount").prop("disabled", true);
+    $("#petStatus").prop("disabled", true);
+    $("#guideStatus").prop("disabled", true);
+    $("#guideId").prop("disabled", true);
+    $("#totalPackageValue").prop("disabled", true);
+    $("#userId").prop("disabled", true);
+    $("#paidValue").prop("disabled", true);
+    $("#paymentSlip").prop("disabled", true);
+    $("#remarks").prop("disabled", true);
+    $("#paymentId").prop("disabled", true);
+}
 
 function clearFields() {
     $("#packageDetailsId").val("");
@@ -174,6 +194,7 @@ $(document).ready(() => {
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageDetailsAdminAuthToken"))
                 },
                 success: (res) => {
+                    console.log(res.data)
 
                     $("#packageId").val(res.data.packageId);
                     $("#packageCategory").val(res.data.packageCategory);
@@ -189,11 +210,12 @@ $(document).ready(() => {
                     $(".petStatus").val(res.data.petStatus);
                     $("#guideStatus").val(res.data.guideStatus);
                     $("#guideId").val(res.data.guideId);
+                    $("#paymentSlip").val(res.data.paymentImageLocation);
                     $("#totalPackageValue").val(res.data.totalPackageValue);
                     $("#userId").val(res.data.userId);
                     $("#paidValue").val(res.data.paidValue);
                     $("#remarks").val(res.data.remarks);
-                    $("#packageDetailsId").prop("disabled", true);
+                    disableProps();
 
 
 
@@ -227,6 +249,7 @@ $(document).ready(() => {
                 console.log(res.data)
                 if (res.statusCode === 200 || res.statusCode === 201) {
                     clearFields();
+                    disableProps();
 
                     return swal("Done!", res.message, "success");
 
@@ -270,6 +293,12 @@ $("#tableView").on("click", () => {
             "<th scope=\"col\">Paid Value.</th>\n" + "      " +
             "<th scope=\"col\">Remarks.</th>\n" + "      " +
             "  </tr>\n" + "  </thead>\n" + "  <tbody></tbody>\n" + "</table>");
+
+
+
+
+
+
         isTableVisible = true;
         $("#forms").css("display", "none");
         isFormsVisible = false;

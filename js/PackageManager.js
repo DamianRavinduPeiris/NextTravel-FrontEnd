@@ -63,10 +63,13 @@ $(document).ready(() => {
 
 
         $.ajax({
-            url: "http://localhost:8083/savePackage", method: "POST", headers: {
+            url: "http://localhost:8083/savePackage",
+            method: "POST",
+            headers: {
                 "content-type": "application/json",
                 "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAdminAuthToken"))
-            }, data: JSON.stringify(packageInfo), success: (response) => {
+            },
+            data: JSON.stringify(packageInfo), success: (response) => {
                 if (response.statusCode === 200 || response.statusCode === 201) {
                     swal("Done!", response.message, "success")
                     return clearFields();

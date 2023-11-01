@@ -184,7 +184,7 @@ function isValidLength(length) {
 }
 
 function isExceedingLength(length) {
-    return length > 16;
+    return length > 10;
 }
 
 function isNegative(value) {
@@ -194,6 +194,10 @@ function isNegative(value) {
 
 function isZero(value) {
     return value === 0;
+
+}
+function isValidPassword(value){
+    return value <= 8 && value >=  16;
 
 }
 
@@ -249,7 +253,7 @@ $("#userName").on("mouseleave", () => {
 
 
 $("#userPassword").on("mouseleave", () => {
-    if ($("#userPassword").val().length < 8 || $("#userPassword").val().length > 16) {
+    if (!isValidPassword($("#userPassword").val().length)) {
         swal("OOPS!", "Password should be between 8 and 16 characters!", "error");
 
     }

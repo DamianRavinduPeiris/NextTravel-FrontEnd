@@ -99,6 +99,9 @@ $(document).ready(function () {
             return swal("OOPS!", "Select a valid date range!", "error");
 
         }
+        $("#hotelPrice").val("");
+        $("#serviceCharge").val("");
+        $("#totalPrice").val("");
         console.log('Selected Hotel Name:', $(this).val());
         var selectedHotelName = $(this).val();
         var hotelData = JSON.parse(localStorage.getItem("hotelData"));
@@ -106,6 +109,7 @@ $(document).ready(function () {
         hotelData.forEach(function (hotel) {
             if (selectedHotelName === hotel.hotelName) {
                 hID = hotel.hotelId;
+                $("#packageName").text(hotel.hotelName);
                 $(".header__image__container").css("background-image", "url('" + hotel.hotelImageLocation + "')");
                 $('html, body').animate({scrollTop: '0px'}, "slow");
 
@@ -135,6 +139,8 @@ $(document).ready(() => {
 
     });
     $("#vehicles").on("change", () => {
+        $("#vehiclePrice").val("");
+        $("#totalPrice").val("");
         let vd = JSON.parse(localStorage.getItem("vehicleData"))
         vd.forEach((v) => {
             if (v.vehicleId === $("#vehicles").val()) {
@@ -222,6 +228,8 @@ $(document).ready(function () {
     $(document).ready(() => {
         $("body").on("change", "#availableGuides", () => {
             console.log($("#availableGuides").val())
+            $("#guidePrice").val("");
+            $("#totalPrice").val("");
             guideData.forEach((g) => {
                 if (g.guideId === $("#availableGuides").val()) {
                     guidePrice = g.manDayValue;
