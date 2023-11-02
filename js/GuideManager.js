@@ -18,7 +18,7 @@ $("#guideManager").on("click", () => {
 
     $(".mainContent").css("display", "none");
     if (!isFormsVisible) {
-        $("body").append("<div id='forms' class='flexContainer  marginAdder'>" + "<div class=\"mb-3\">\n" + "  <label for=\"guideID\" class=\"form-label\">Guide ID.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideID\" placeholder=\"G001\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideName\" class=\"form-label\">Guide Name.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideName\" placeholder=\"John Doe.  [Type name and press enter to search.]\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideAddress\" class=\"form-label\">Guide Address.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideAddress\" placeholder=\"Colombo.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideAge\" class=\"form-label\">Age.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideAge\" placeholder=\"30\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideGender\" class=\"form-label\">Gender.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideGender\" placeholder=\"MALE / FEMALE.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideContact.\" class=\"form-label\">Guide Contact.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideContact\" placeholder=\"0774519629\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideImage\" class=\"form-label\">Guide Image.</label>\n" + "  <input type=\"file\" class=\"form-control\" id=\"guideImage\" placeholder=\"\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideExperience\" class=\"form-label\">Guide Experience.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideExperience\" placeholder=\"\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideManDayValue\" class=\"form-label\">Man Day Value.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideManDayValue\" placeholder=\"Enter amount in LKR.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideRemarks\" class=\"form-label\">Remarks.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideRemarks\" placeholder=\"\">\n" + "</div>\n" + "<button type=\"button\" id='saveGuide' class=\"btn btn-success\">Save Guide.</button>\n" + "<button type=\"button\" id='updateGuide' class=\"btn btn-primary\">Update Guide.</button>\n" + "" + "<button type=\"button\" id='deleteGuide' class=\"btn btn-danger\">Delete Guide.</button>\n" + "<button type=\"button\" id='clearButton' class=\"btn btn-info\">Clear.</button>\n" +
+        $("body").append("<div id='forms' class='flexContainer  marginAdder'>" + "<div class=\"mb-3\">\n" + "  <label for=\"guideID\" class=\"form-label\">Guide ID.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideID\" placeholder=\"G001\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideName\" class=\"form-label\">Guide Name.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideName\" placeholder=\"John Doe.  [Type name and press enter to search.]\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideAddress\" class=\"form-label\">Guide Address.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideAddress\" placeholder=\"Colombo.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideAge\" class=\"form-label\">Age.</label>\n" + "  <input type=\"number\" class=\"form-control\" id=\"guideAge\" placeholder=\"30\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideGender\" class=\"form-label\">Gender.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideGender\" placeholder=\"MALE / FEMALE.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideContact.\" class=\"form-label\">Guide Contact.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideContact\" placeholder=\"0774519629\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideImage\" class=\"form-label\">Guide Image.</label>\n" + "  <input type=\"file\" class=\"form-control\" id=\"guideImage\" placeholder=\"\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideExperience\" class=\"form-label\">Guide Experience.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideExperience\" placeholder=\"\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideManDayValue\" class=\"form-label\">Man Day Value.</label>\n" + "  <input type=\"number\" class=\"form-control\" id=\"guideManDayValue\" placeholder=\"Enter amount in LKR.\">\n" + "</div>\n" + "<div class=\"mb-3\">\n" + "  <label for=\"guideRemarks\" class=\"form-label\">Remarks.</label>\n" + "  <input type=\"text\" class=\"form-control\" id=\"guideRemarks\" placeholder=\"\">\n" + "</div>\n" + "<button type=\"button\" id='saveGuide' class=\"btn btn-success\">Save Guide.</button>\n" + "<button type=\"button\" id='updateGuide' class=\"btn btn-primary\">Update Guide.</button>\n" + "" + "<button type=\"button\" id='deleteGuide' class=\"btn btn-danger\">Delete Guide.</button>\n" + "<button type=\"button\" id='clearButton' class=\"btn btn-info\">Clear.</button>\n" +
 
 
             "</div>")
@@ -87,6 +87,193 @@ $(document).ready(() => {
     })
 
 });
+/*Validation - Start.*/
+$(document).ready(function (){
+    $(document).on("mouseleave","#guideID",function (){
+        var gv = $("#guideID").val()
+
+        if(isEmpty(gv)){
+            return swal("OOPS!","Please enter a guide ID!","error");
+
+        }
+        if(isZero(parseInt(gv)) || isNegative(gv)){
+            return swal("OOPS!","Please enter a valid guide ID!","error");
+
+        }
+        if(!isValidLength(parseInt(gv.length))){
+            return swal("OOPS!","Please enter a valid guide ID!","error");
+
+        }
+        if(isExceedingLength(gv.length)){
+            return swal("OOPS!","Please enter a valid guide ID!","error");
+
+        }
+    })
+    $(document).on("mouseleave","#guideName",function (){
+        var gn = $("#guideName").val()
+
+        if(isEmpty(gn)){
+            return swal("OOPS!","Please enter a guide Name!","error");
+
+        }
+        if(isZero(parseInt(gn)) || isNegative(gn)){
+            return swal("OOPS!","Please enter a valid guide Name!","error");
+
+        }
+        if(!isValidLength(parseInt(gn.length))){
+            return swal("OOPS!","Please enter a valid guide Name!","error");
+
+        }
+        if(isExceedingLength(gn.length)){
+            return swal("OOPS!","Please enter a valid guide Name!","error");
+
+        }
+    })
+    $(document).on("mouseleave","#guideAddress",function (){
+        var ga = $("#guideAddress").val()
+
+        if(isEmpty(ga)){
+            return swal("OOPS!","Please enter a guide address!","error");
+
+        }
+        if(isZero(parseInt(ga)) || isNegative(ga)){
+            return swal("OOPS!","Please enter a valid guide address!","error");
+
+        }
+        if(!isValidLength(parseInt(ga.length))){
+            return swal("OOPS!","Please enter a valid guide address!","error");
+
+        }
+        if(isExceedingLength(ga.length)){
+            return swal("OOPS!","Please enter a valid guide address!","error");
+
+        }
+    })
+    $(document).on("mouseleave","#guideAge",function (){
+        var ga = $("#guideAge").val()
+
+        if(isEmpty(ga)){
+            return swal("OOPS!","Please enter a guide age!","error");
+
+        }
+        if(isZero(parseInt(ga)) || isNegative(ga)){
+            return swal("OOPS!","Please enter a valid guide age!","error");
+
+        }
+        if(parseInt(ga) < 18 || isNegative(ga)){
+            return swal("OOPS!","Guide age should be greater than 18!","error");
+
+        }
+        if(ga.length >= 3){
+            return swal("OOPS!","Guide Age should be 2 characters!","error");
+
+        }
+
+    })
+    $(document).on("mouseleave","#guideGender",function (){
+        var gg = $("#guideGender").val()
+
+        if(isEmpty(gg)){
+
+            return swal("OOPS!","Gender should be either MALE or FEMALE","error");
+
+        }
+        if(isZero(parseInt(gg)) || isNegative(gg)){
+            return swal("OOPS!","Please enter a valid guide age!","error");
+
+        }
+        if(gg !== 'MALE' &&  gg !== 'FEMALE'){
+            return swal("OOPS!","Gender should be either MALE or FEMALE","error");
+
+
+        }
+
+
+    })
+    $(document).on("mouseleave","#guideContact",function (){
+        var gc = $("#guideContact").val()
+
+        if(isEmpty(gc)){
+
+            return swal("OOPS!","Contact Number cannot be empty!","error");
+
+        }
+        if(isZero(parseInt(gc)) || isNegative(gc) || gc.length > 10){
+            return swal("OOPS!","Please enter a valid contact number!","error");
+
+        }
+        if(!isContainingNumbers(gc)){
+            return swal("OOPS!","Please enter a valid contact number!","error");
+
+        }
+
+
+    })
+    $(document).on("mouseleave","#guideExperience",function (){
+        var ge = $("#guideExperience").val()
+
+        if(isEmpty(ge)){
+            return swal("OOPS!","Please enter a guide experience!","error");
+
+        }
+        if(isZero(parseInt(ge)) || isNegative(ge) ){
+            return swal("OOPS!","Please enter a valid guide experience!","error");
+
+        }
+        if(!isValidLength(parseInt(ge.length))){
+            return swal("OOPS!","Please enter a valid guide experience!","error");
+
+        }
+
+
+
+    })
+    $(document).on("mouseleave","#guideManDayValue",function (){
+        var gmv = $("#guideManDayValue").val()
+
+        if(isEmpty(gmv)){
+            return swal("OOPS!","Please enter a valid Man Day Value for Guide!","error");
+
+        }
+        if(isZero(parseInt(gmv)) || isNegative(gmv) ){
+            return swal("OOPS!","Guide Man Day Value cannot be 0 or a negative!","error");
+
+
+        }
+        if(gmv.length > 5){
+           return swal("OOPS!","Guide Man day value cannot exceed 5 digits!","error")
+
+        }
+
+
+
+    })
+    $(document).on("mouseleave","#guideRemarks",function (){
+        var gr = $("#guideRemarks").val()
+
+        if(isEmpty(gr)){
+            return swal("OOPS!","Please enter remarks for Guide!","error");
+
+        }
+        if(isZero(parseInt(gr)) || isNegative(gr) ){
+            return swal("OOPS!","Guide Remarks Value cannot be 0 or a negative!","error");
+
+
+        }
+        if(gr.length > 100){
+            return swal("OOPS!","Guide Remarks cannot exceed 100 characters!","error")
+
+        }
+
+
+
+    })
+
+
+
+})
+
+/*Validation - End.*/
 
 function saveImage() {
     var formData = new FormData();
@@ -107,6 +294,37 @@ function saveImage() {
         }
     });
 
+}
+function isValidLength(length) {
+    return length >= 3;
+
+
+}
+
+function isExceedingLength(length) {
+    return length > 10;
+}
+
+function isNegative(value) {
+    return value < 0;
+
+}
+
+function isZero(value) {
+    return value === 0;
+
+}
+function isValidPassword(value){
+    return value <= 8 && value >=  16;
+
+}
+
+function isContainingNumbers(value) {
+    return /\d/.test(value)
+}
+
+function isEmpty(value) {
+    return value === "";
 }
 
 function clearFields() {
