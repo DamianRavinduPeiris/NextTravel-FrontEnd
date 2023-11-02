@@ -59,10 +59,14 @@ $(document).ready(() => {
             console.log("Guide Remarks : " + guide.guideRemarks)
             console.log("Man Day Value : " + guide.guideManDayValue)
             $.ajax({
-                url: "http://localhost:8084/saveGuide", method: "POST", headers: {
+                url: "http://localhost:8084/saveGuide",
+                method: "POST",
+                headers: {
                     "content-type": "application/json",
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("guideAdminAuthToken"))
-                }, data: JSON.stringify(guide), success: (response) => {
+                },
+                data: JSON.stringify(guide),
+                success: (response) => {
                     if (response.statusCode === 200 || response.statusCode === 201) {
                         swal("Done!", response.message, "success")
                         return clearFields();
@@ -420,7 +424,7 @@ $(document).ready(() => {
                 },
                 success: (res) => {
                     console.log(res.data)
-                    if (res.statusCode === 200 || res.statusCode === 201) {
+                    if (res.statusCode === 200 || res.statusCode === 201 && !res.data) {
                         $("#guideID").val(res.data.guideId);
                         $("#guideName").val(res.data.guideName);
                         $("#guideAddress").val(res.data.guideAddress);
@@ -435,7 +439,7 @@ $(document).ready(() => {
                         return swal("Done!", res.message, "success");
 
                     }
-                    swal("OOPS!", res.message, "error");
+                   return  swal("OOPS!", res.message, "error");
 
                 },
                 error: (error) => {
