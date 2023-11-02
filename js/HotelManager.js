@@ -870,6 +870,57 @@ $(document).ready(function () {
 
 
     })
+    $(document).on("mouseleave", "#hotelFee", () => {
+        let o5 = $("#hotelFee").val();
+        if (isNegative(o5) || isZero(parseInt(o5))) {
+            $("#hotelFee").css("border", "2px solid red");
+            $("#hotelFee").css("color", "red");
+            $("#hotelFee").attr("placeholder", "Amount cannot be negative or zero!");
+            return swal("OOPS!", "Amount cannot be negative or zero!", "error");
+
+
+
+
+        }
+        if (isEmpty(o5)) {
+            $("#hotelFee").css("border", "2px solid red");
+            $("#hotelFee").css("color", "red");
+            $("#hotelFee").attr("placeholder", "Amount cannot be empty!");
+            return swal("OOPS!", "Amount cannot be empty!", "error");
+
+
+
+        }
+        if(!isValidLength(o5.length)){
+            $("#hotelFee").css("border", "2px solid red");
+            $("#hotelFee").css("color", "red");
+            $("#hotelFee").attr("placeholder", "Amount cannot be less than 5 characters!");
+            return swal("OOPS!", "Amount cannot be exceed 5 characters!", "error");
+
+
+        }
+
+        if (o5.length > 6) {
+            $("#hotelFee").css("border", "2px solid red");
+            $("#hotelFee").css("color", "red");
+            $("#hotelFee").attr("placeholder", "Amount cannot exceed 6 characters!");
+            return swal("OOPS!", "Amount cannot exceed 6 characters!", "error");
+
+
+
+        }
+        if (!isContainingNumbers(o5)) {
+            $("#hotelFee").css("border", "2px solid red");
+            $("#hotelFee").css("color", "red");
+            $("#hotelFee").attr("placeholder", "Amount cannot contain letters!");
+            return swal("OOPS!", "Amount cannot contain letters!", "error");
+
+
+
+        }
+
+
+    })
     $(document).on("mouseleave", "#cancellationCriteria", () => {
         let cc = $("#cancellationCriteria").val();
         if (isNegative(cc) || isZero(parseInt(cc))) {
