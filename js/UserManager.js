@@ -357,3 +357,283 @@ $("#tableView").on("click", () => {
 
 });
 
+/*Validation - Start.*/
+function isValidLength(length) {
+    return length >= 3;
+
+
+}
+
+function isExceedingLength(length) {
+    return length > 10;
+}
+
+function isNegative(value) {
+    return value < 0;
+
+}
+
+function isZero(value) {
+    return value === 0;
+
+}
+
+function isValidPassword(value) {
+    return value <= 8 && value >= 16;
+
+}
+
+function isContainingNumbers(value) {
+    return /\d/.test(value)
+}
+
+function isEmpty(value) {
+    return value === "";
+}
+
+
+$(document).on("mouseleave",'#name',()=>{
+let name = $("#name").val();
+    if(isEmpty(name)){
+        isInvalid("#name");
+        return swal("OOPS!","Name cannot be empty!","error");
+
+    }else{
+        isValid("#name");
+    }
+    if(isNegative(name)){
+        isInvalid("#name");
+        return  swal("OOPS!","Name cannot be negative!","error");
+
+    }else{
+        isValid("#name");
+    }
+    if(isContainingNumbers(name)){
+        isInvalid("#name");
+        return swal("OOPS!","Name cannot contain numbers!","error");
+
+    }else {
+        isValid("#name");
+    }
+    if(isExceedingLength(name.length)){
+        isInvalid("#name");
+        return swal("OOPS!","Name is too lengthy!","error");
+
+    }else{
+        isValid("#name");
+    }
+
+
+})
+$(document).on("mouseleave",'#userName',()=>{
+    let un = $("#userName").val();
+    if(isEmpty(un)){
+        isInvalid("#userName");
+        return swal("OOPS!","User Name cannot be empty!","error");
+
+    }else{
+        isValid("#userName");
+    }
+    if(isNegative(un)){
+        isInvalid("#userName");
+        return  swal("OOPS!","User Name cannot be negative!","error");
+
+    }else{
+        isValid("#userName");
+    }
+
+    if(isExceedingLength(un.length)){
+        isInvalid("#userName");
+        return swal("OOPS!","User Name is too lengthy!","error");
+
+    }else{
+        isValid("#userName");
+    }
+
+
+})
+$(document).on("mouseleave",'#userPassword',()=>{
+    let up = $("#userPassword").val();
+    if(isEmpty(up)){
+        isInvalid("#userPassword");
+        return swal("OOPS!","User Password cannot be empty!","error");
+
+    }else{
+        isValid("#userPassword");
+    }
+    if(isNegative(up)){
+        isInvalid("#userPassword");
+        return  swal("OOPS!","User Password cannot be negative!","error");
+
+    }else{
+        isValid("#userPassword");
+    }
+
+    if(up.length > 16 || up.length < 8){
+        isInvalid("#userPassword");
+        return swal("OOPS!","User Password should be between 8 and 16 characters!","error");
+
+    }else{
+        isValid("#userPassword");
+    }
+
+
+})
+$(document).on("mouseleave",'#userAge',()=>{
+    let ua = $("#userAge").val();
+    if(ua < 18) {
+        isInvalid("#userAge");
+        return swal("OOPS!", "User Age should be greater than 18!", "error");
+
+
+    }else{
+        isValid("#userAge");
+    }
+
+    if(isEmpty(ua)){
+        isInvalid("#userAge");
+        return swal("OOPS!","User Age cannot be empty!","error");
+
+    }else{
+        isValid("#userAge");
+    }
+
+    if(isNegative(ua)){
+        isInvalid("#userAge");
+        return  swal("OOPS!","User Age cannot be negative!","error");
+
+    }else{
+        isValid("#userAge");
+    }
+
+
+
+
+
+})
+$(document).on("mouseleave",'#userEmail',()=>{
+    let ue = $("#userEmail").val();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(ue)){
+        isInvalid("#userEmail");
+        return  swal("OOPS!","User Email is invalid!","error");
+    }else{
+        isValid("#userEmail");
+    }
+
+    if(isEmpty(ue)){
+        isInvalid("#userEmail");
+        return swal("OOPS!","User Email cannot be empty!","error");
+
+    }else{
+        isValid("#userEmail");
+    }
+
+    if(isNegative(ue)){
+        isInvalid("#userEmail");
+        return  swal("OOPS!","User Email cannot be negative!","error");
+
+    }else{
+        isValid("#userEmail");
+    }
+
+
+
+
+
+})
+$(document).on("mouseleave",'#userPhone',()=>{
+    let up = $("#userPhone").val();
+
+
+    if(isEmpty(up)){
+        isInvalid("#userPhone");
+        return swal("OOPS!","User Phone cannot be empty!","error");
+
+    }else{
+        isValid("#userPhone");
+    }
+
+    if(isNegative(up)){
+        isInvalid("#userPhone");
+        return  swal("OOPS!","User Phone cannot be negative!","error");
+
+    }else{
+        isValid("#userPhone");
+    }
+    if(up.length < 10 || up.length > 10){
+        isInvalid("#userPhone");
+        return swal("OOPS!","User Phone should be 10 digits!","error");
+
+    }else{
+        isValid("#userPhone");
+    }
+
+
+
+
+
+})
+$(document).on("mouseleave",'#userAddress',()=>{
+    let ua = $("#userAddress").val();
+
+
+    if(isEmpty(ua)){
+        isInvalid("#userAddress");
+        return swal("OOPS!","User Address cannot be empty!","error");
+
+    }else{
+        isValid("#userAddress");
+    }
+
+    if(isNegative(ua)){
+        isInvalid("#userAddress");
+        return  swal("OOPS!","User Address cannot be negative!","error");
+
+    }else{
+        isValid("#userAddress");
+    }
+
+
+
+
+
+
+})
+$(document).on("mouseleave",'#remarks',()=>{
+    let remarks = $("#remarks").val();
+
+
+    if(isEmpty(remarks)){
+        isInvalid("#remarks");
+        return swal("OOPS!","User Remarks cannot be empty!","error");
+
+    }else{
+        isValid("#remarks");
+    }
+
+    if(isNegative(remarks)){
+        isInvalid("#remarks");
+        return  swal("OOPS!","User Remarks cannot be negative!","error");
+
+    }else{
+        isValid("#remarks");
+    }
+
+
+
+
+
+
+})
+function isValid(id) {
+    $(id).css("border", "2px solid green");
+    $(id).css("color", "green");
+
+}
+
+function isInvalid(id) {
+    $(id).css("border", "2px solid red");
+    $(id).css("color", "red");
+}
+/*Validation - End.*/
