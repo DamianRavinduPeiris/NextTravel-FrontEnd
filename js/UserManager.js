@@ -629,12 +629,14 @@ $(document).on("mouseleave",'#remarks',()=>{
 
 })
 function isValid(id) {
+
     $(id).css("border", "2px solid green");
     $(id).css("color", "green");
 
 }
 
 function isInvalid(id) {
+    $(id).val("")
     $(id).css("border", "2px solid red");
     $(id).css("color", "red");
 }
