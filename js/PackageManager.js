@@ -263,5 +263,181 @@ $("#tableView").on("click", () => {
         }
     })
 });
+/*Validation - Start.*/
+
+function isValidLength(length) {
+    return length >= 3;
 
 
+}
+
+function isExceedingLength(length) {
+    return length > 10;
+}
+
+function isNegative(value) {
+    return value < 0;
+
+}
+
+function isZero(value) {
+    return value === 0;
+
+}
+
+function isValidPassword(value) {
+    return value <= 8 && value >= 16;
+
+}
+
+function isContainingNumbers(value) {
+    return /\d/.test(value)
+}
+
+function isEmpty(value) {
+    return value === "";
+}
+
+
+function isValid(id) {
+    $(id).css("border", "2px solid green");
+    $(id).css("color", "green");
+
+}
+
+function isInvalid(id) {
+    $(id).css("border", "2px solid red");
+    $(id).css("color", "red");
+}
+
+
+$(document).on("mouseleave","",()=>{
+    var pc = $("#packageCategory").val();
+    if(isEmpty(pc)){
+        isInvalid("#packageCategory");
+        return swal("OOPS!","Package category cannot be empty!","error");
+
+    }else{
+        isValid("#packageCategory");
+    }
+    if(isNegative(pc)){
+        isInvalid("#packageCategory");
+        return swal("OOPS!","Package category cannot be negative!","error");
+
+    }else{
+        isValid("#packageCategory");
+    }
+    if(isZero(pc)) {
+        isInvalid("#packageCategory");
+        return swal("OOPS!", "Package category cannot be zero!", "error");
+    }else{
+        isValid("#packageCategory");
+    }
+    if(isContainingNumbers(pc)) {
+        isInvalid("#packageCategory");
+        return swal("OOPS!", "Package category cannot contain numbers!", "error");
+    }else{
+        isValid("#packageCategory");
+
+    }
+    if(isExceedingLength(pc.length)) {
+        isInvalid("#packageCategory");
+        return swal("OOPS!", "Package category cannot exceed 10 characters!", "error");
+    }else {
+        isValid("#packageCategory");
+    }
+    if(!isValidLength(pc.length)) {
+        isInvalid("#packageCategory");
+        return swal("OOPS!", "Package category should contain at least 3 characters!", "error");
+    }else{
+        isValid("#packageCategory");
+
+    }
+})
+$(document).on("mouseleave","",()=>{
+    var hc = $("#hotelCategory").val();
+    if(isEmpty(hc)){
+        isInvalid("#hotelCategory");
+
+        return swal("OOPS!","Hotel category cannot be empty!","error");
+
+    }else{
+        isValid("#hotelCategory");
+    }
+    if(isNegative(hc)){
+        isInvalid("#hotelCategory");
+        return swal("OOPS!","Hotel Category cannot be negative!","error");
+
+    }else{
+        isValid("#hotelCategory");
+    }
+    if(isZero(hc)) {
+        isInvalid("#hotelCategory");
+        return swal("OOPS!", "Hotel Category cannot be zero!", "error");
+    }else{
+        isValid("#hotelCategory");
+    }
+    if(isContainingNumbers(hc)) {
+        isInvalid("#hotelCategory");
+        return swal("OOPS!", "Hotel Category cannot contain numbers!", "error");
+    }else{
+        isValid("#hotelCategory");
+
+    }
+    if(isExceedingLength(hc.length)) {
+        isInvalid("#hotelCategory");
+        return swal("OOPS!", "Hotel Category cannot exceed 10 characters!", "error");
+    }else {
+        isValid("#hotelCategory");
+    }
+    if(!isValidLength(hc.length)) {
+        isInvalid("#hotelCategory");
+        return swal("OOPS!", "Hotel Category should contain at least 3 characters!", "error");
+    }else{
+        isValid("#hotelCategory");
+    }
+})
+$(document).on("mouseleave","",()=>{
+    var vc = $("#vehicleCategory").val();
+    if(isEmpty(vc)){
+        isInvalid("#vehicleCategory");
+
+        return swal("OOPS!","Vehicle Category cannot be empty!","error");
+
+    }else{
+        isValid("#vehicleCategory");
+    }
+    if(isNegative(vc)){
+        isInvalid("#vehicleCategory");
+        return swal("OOPS!","Vehicle Category cannot be negative!","error");
+
+    }else{
+        isValid("#vehicleCategory");
+    }
+    if(isZero(vc)) {
+        isInvalid("#vehicleCategory");
+        return swal("OOPS!", "Vehicle Category cannot be zero!", "error");
+    }else{
+        isValid("#vehicleCategory");
+    }
+    if(isContainingNumbers(vc)) {
+        isInvalid("#Vehicle Category");
+        return swal("OOPS!", "Vehicle Category cannot contain numbers!", "error");
+    }else{
+        isValid("#vehicleCategory");
+
+    }
+    if(isExceedingLength(vc.length)) {
+        isInvalid("#vehicleCategory");
+        return swal("OOPS!", "Vehicle Category cannot exceed 10 characters!", "error");
+    }else {
+        isValid("#vehicleCategory");
+    }
+    if(!isValidLength(vc.length)) {
+        isInvalid("#vehicleCategory");
+        return swal("OOPS!", "Vehicle Category should contain at least 3 characters!", "error");
+    }else{
+        isValid("#vehicleCategory");
+    }
+})
+/*Validation - End.*/
