@@ -298,6 +298,7 @@ $("#userEmail").on("mouseleave", () => {
 })
 
 function isContainingLetters(val) {
+    console.log('val ',val)
     return /[a-zA-Z]/.test(val);
 }
 

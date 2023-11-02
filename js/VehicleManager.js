@@ -458,6 +458,7 @@ function isNegative(value) {
 }
 
 function isZero(value) {
+
     return value === 0;
 
 }
@@ -470,7 +471,10 @@ function isValidPassword(value) {
 function isContainingNumbers(value) {
     return /\d/.test(value)
 }
-
+function isContainingLetters(val) {
+    console.log('val ',val)
+    return /[a-zA-Z]/.test(val);
+}
 function isEmpty(value) {
     return value === "";
 }
@@ -480,19 +484,339 @@ $(document).ready(()=>{
     $(document).on('mouseleave',"#vehicleBrand",()=>{
         let vb = $("#vehicleBrand").val();
         if(isEmpty(vb)){
-            $("#vehicleBrand").css("border", "2px solid red");
-            $("#vehicleBrand").css("color", "red");
-            $("#vehicleBrand").attr("placeholder", "Vehicle Brand cannot be empty!");
+            isInvalid('#vehicleBrand')
             return swal("OOPS!", "Vehicle Brand cannot be empty!", "error");
 
 
 
         }else{
-            $("#vehicleBrand").css("border", "2px solid green");
-            $("#vehicleBrand").css("color", "green");
-            $("#vehicleBrand").attr("placeholder", "Vehicle Brand");
-            return true;
+            isValid('#vehicleBrand')
+
         }
+
+
+
+    })
+    $(document).on('mouseleave',"#fuelUsage",()=>{
+        let fu = $("#fuelUsage").val();
+
+
+        if(isEmpty(fu)){
+            isInvalid('#fuelUsage')
+            return swal("OOPS!", "Fuel Usage cannot be empty or contain letters!", "error");
+
+
+
+        }else{
+            isValid('#fuelUsage')
+
+        }
+
+        if(isZero(parseInt(fu))){
+            isInvalid('#fuelUsage')
+            return swal("OOPS!", "Fuel Usage cannot be zero!", "error");
+
+        }else{
+            isValid('#fuelUsage')
+        }
+        if(isNegative(fu)){
+            isInvalid('#fuelUsage')
+            return swal("OOPS!", "Fuel Usage cannot be negative!", "error");
+
+        }else{
+            isValid('#fuelUsage')
+        }
+        if(fu.length>5){
+            isInvalid('#fuelUsage')
+            return swal("OOPS!", "Fuel Usage cannot exceed 5 digits!", "error");
+
+        }else{
+            isValid('#fuelUsage')
+        }
+
+
+
+    })
+    $(document).on('mouseleave',"#seatCapacity",()=>{
+        let sc = $("#seatCapacity").val();
+        if(isEmpty(sc)){
+            isInvalid('#fseatCapacity')
+            return swal("OOPS!", "Seat Capacity cannot be empty or contain letters!", "error");
+
+
+
+        }else{
+            isValid('#seatCapacity')
+
+        }
+
+        if(isZero(parseInt(sc))){
+            isInvalid('#seatCapacity')
+            return swal("OOPS!", "Seat Capacity cannot be zero!", "error");
+
+        }else{
+            isValid('#seatCapacity')
+        }
+        if(isNegative(sc)){
+            isInvalid('#seatCapacity')
+            return swal("OOPS!", "Seat Capacity cannot be  negative!", "error");
+
+        }else{
+            isValid('#seatCapacity')
+        }
+        if(sc.length>3){
+            isInvalid('#seatCapacity')
+            return swal("OOPS!", "Seat Capacity cannot exceed 3 digits!", "error");
+
+        }else{
+            isValid('#seatCapacity')
+        }
+
+
+
+    })
+    $(document).on('mouseleave',"#vehicleType",()=>{
+        let vt = $("#vehicleType").val();
+        if(isEmpty(vt)){
+            isInvalid('#vehicleType')
+            return swal("OOPS!", "Vehicle Type cannot be empty!", "error");
+
+
+
+        }else{
+            isValid('#vehicleType')
+
+        }
+
+        if(isZero(parseInt(vt))){
+            isInvalid('#vehicleType')
+            return swal("OOPS!", "Vehicle Type cannot be zero!", "error");
+
+        }else{
+            isValid('#vehicleType')
+        }
+        if(isNegative(vt)){
+            isInvalid('#vehicleType')
+            return swal("OOPS!", "Vehicle Type cannot be  negative!", "error");
+
+        }else{
+            isValid('#vehicleType')
+        }
+        if(isContainingNumbers(parseInt(vt))){
+            isInvalid('#vehicleType')
+            return swal("OOPS!", "Vehicle Type cannot contain numbers!", "error");
+
+        }else{
+            isValid('#vehicleType')
+        }
+
+
+
+    })
+    $(document).on('mouseleave',"#transmissionType",()=>{
+        let tt = $("#transmissionType").val();
+        if(isEmpty(tt)){
+            isInvalid('#transmissonType')
+            return swal("OOPS!", "Transmission Type cannot be empty!", "error");
+
+
+
+        }else{
+            isValid('#transmissionType')
+
+        }
+
+        if(isZero(parseInt(tt))){
+            isInvalid('#transmissionType')
+            return swal("OOPS!", "Transmission Type cannot be zero!", "error");
+
+        }else{
+            isValid('#transmissionType')
+        }
+        if(isNegative(tt)){
+            isInvalid('#transmissionType')
+            return swal("OOPS!", "Transmission Type cannot be  negative!", "error");
+
+        }else{
+            isValid('#transmissionType')
+        }
+        if(isContainingNumbers(parseInt(tt))){
+            isInvalid('#transmissionType')
+            return swal("OOPS!", "Transmission Type cannot contain numbers!", "error");
+
+        }else{
+            isValid('#transmissionType')
+        }
+
+
+
+    })
+    $(document).on('mouseleave',"#driversName",()=>{
+        let dn = $("#driversName").val();
+        if(isEmpty(dn)){
+            isInvalid('#driversName')
+            return swal("OOPS!", "Drivers Name cannot be empty!", "error");
+
+
+
+        }else{
+            isValid('#driversName')
+
+        }
+
+        if(isZero(parseInt(dn))){
+            isInvalid('#driversName')
+            return swal("OOPS!", "Drivers Name cannot be zero!", "error");
+
+        }else{
+            isValid('#driversName')
+        }
+        if(isNegative(dn)){
+            isInvalid('#driversName')
+            return swal("OOPS!", "Drivers Name cannot be  negative!", "error");
+
+        }else{
+            isValid('#driversName')
+        }
+        if(isContainingNumbers(parseInt(dn))){
+            isInvalid('#driversName')
+            return swal("OOPS!", "Drivers Name cannot contain numbers!", "error");
+
+        }else{
+            isValid('#driversName')
+        }
+
+
+
+    })
+    $(document).on('mouseleave',"#driversContactNumber",()=>{
+        let dcn = $("#driversContactNumber").val();
+        if(isEmpty(dcn)){
+            isInvalid('#driversContactNumber')
+            return swal("OOPS!", "Drivers Contact number cannot be empty or Contain numbers!", "error");
+
+
+
+        }else{
+            isValid('#driversContactNumber')
+
+        }
+
+        if(isZero(parseInt(dcn))){
+            isInvalid('#driversContactNumber')
+            return swal("OOPS!", "Drivers Contact number cannot be zero!", "error");
+
+        }else{
+            isValid('#driversContactNumber')
+        }
+        if(isNegative(dcn)){
+            isInvalid('#driversContactNumber')
+            return swal("OOPS!", "Drivers Contact Number cannot be  negative!", "error");
+
+        }else{
+            isValid('#driversContactNumber')
+        }
+        if(isContainingLetters(parseInt(dcn))){
+            isInvalid('#driversContactNumber')
+            return swal("OOPS!", "Drivers Contact Number contain letters!", "error");
+
+        }else{
+            isValid('#driversContactNumber')
+        }
+
+        if(dcn.length > 10){
+            isInvalid('#driversContactNumber')
+            return swal("OOPS!", "Drivers Contact Number cannot exceed 10 digits!", "error");
+
+        }else{
+            isValid('#driversContactNumber')
+        }
+
+
+
+
+    })
+    $(document).on('mouseleave',"#remarks",()=>{
+        let remarks = $("#remarks").val();
+        if(isEmpty(remarks)){
+            isInvalid('#remarks')
+            return swal("OOPS!", "Remarks cannot be empty!", "error");
+
+
+
+        }else{
+            isValid('#remarks')
+
+        }
+
+        if(isZero(parseInt(remarks))){
+            isInvalid('#remarks')
+            return swal("OOPS!", "Remarks cannot be zero!", "error");
+
+        }else{
+            isValid('#remarks')
+        }
+        if(isNegative(remarks)){
+            isInvalid('#remarks')
+            return swal("OOPS!", "Remarks cannot be  negative!", "error");
+
+        }else{
+            isValid('#remarks')
+        }
+        if(isContainingNumbers(parseInt(remarks))){
+            isInvalid('#remarks')
+            return swal("OOPS!", "Remarks cannot contain numbers!", "error");
+
+        }else{
+            isValid('#remarks')
+        }
+
+
+
+    })
+    $(document).on('mouseleave',"#feeForADay",()=>{
+        let ffad = $("#feeForADay").val();
+        if(isEmpty(ffad)){
+            isInvalid('#feeForADay')
+            return swal("OOPS!", "Fee for a day cannot be empty or Contain letters!", "error");
+
+
+
+        }else{
+            isValid('#feeForADay')
+
+        }
+
+        if(isZero(parseInt(ffad))){
+            isInvalid('#feeForADay')
+            return swal("OOPS!", "Fee for a day cannot be zero!", "error");
+
+        }else{
+            isValid('#feeForADay')
+        }
+        if(isNegative(ffad)){
+            isInvalid('#feeForADay')
+            return swal("OOPS!", "Fee for a day cannot be  negative!", "error");
+
+        }else{
+            isValid('#feeForADay')
+        }
+        if(isContainingLetters(parseInt(ffad))){
+            isInvalid('#feeForADay')
+            return swal("OOPS!", "Fee for a day cannot contain letters!", "error");
+
+        }else{
+            isValid('#feeForADay')
+        }
+
+        if(ffad.length > 5){
+            isInvalid('#feeForADay')
+            return swal("OOPS!", "Fee for a day cannot exceed 5 digits!", "error");
+
+        }else{
+            isValid('#feeForADay')
+        }
+
 
 
 
@@ -500,5 +824,16 @@ $(document).ready(()=>{
 
 
 })
+
+function isValid(id) {
+    $(id).css("border", "2px solid green");
+    $(id).css("color", "green");
+
+}
+
+function isInvalid(id) {
+    $(id).css("border", "2px solid red");
+    $(id).css("color", "red");
+}
 
 /*Validation - End.*/
