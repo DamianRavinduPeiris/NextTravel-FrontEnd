@@ -385,31 +385,35 @@ $(document).ready(function () {
     $(document).on('mouseleave', "#hotelName", () => {
         var hn = $("#hotelName").val();
         if (isEmpty(hn)) {
-            $("#hotelName").css("border", "2px solid red");
-            $("#hotelName").css("color", "red");
-            $("#hotelName").attr("placeholder", "Hotel Name cannot be empty!");
+           isInvalid("#hotelName");
             return swal("OOPS!", "Hotel Name cannot be empty!", "error");
+
+        }else{
+            isValid("#hotelName");
 
         }
         if (isNegative(hn) || isZero(hn)) {
-            $("#hotelName").css("border", "2px solid red");
-            $("#hotelName").css("color", "red");
-            $("#hotelName").attr("placeholder", "Hotel Name cannot be negative or zero!");
+            isInvalid('#hotelName');
+
             return swal("OOPS!", "Hotel Name cannot be negative or zero!", "error");
 
+        }else{
+            getCoordinates();
+            isValid("#hotelName");
         }
         if (hn.length > 20) {
-            $("#hotelName").css("border", "2px solid red");
-            $("#hotelName").css("color", "red");
-            $("#hotelName").attr("placeholder", "Hotel Name cannot exceed 20 characters!");
+            isInvalid('#hotelName');
             return swal("OOPS!", "Hotel Name cannot exceed 20 characters!", "error");
 
+        }else{
+            isValid("#hotelName");
         }
         if (isContainingNumbers(hn)) {
-            $("#hotelName").css("border", "2px solid red");
-            $("#hotelName").css("color", "red");
-            $("#hotelName").attr("placeholder", "Hotel Name cannot contain numbers!");
+            isInvalid('#hotelName')
             return swal("OOPS!", "Hotel Name cannot contain numbers!", "error");
+
+        }else{
+            isValid("#hotelName");
 
         }
 
@@ -418,27 +422,28 @@ $(document).ready(function () {
     $(document).on('mouseleave', "#hotelLocation", () => {
         var hl = $("#hotelLocation").val();
         if (isEmpty(hl)) {
-            $("#hotelLocation").css("border", "2px solid red");
-            $("#hotelLocation").css("color", "red");
-            $("#hotelLocation").attr("placeholder", "Hotel Location cannot be empty!");
+            isInvalid("#hotelLocation");
             return swal("OOPS!", "Hotel Location cannot be empty!", "error");
 
+        }else{
+             isValid("#hotelLocation");
         }
         if (isNegative(hl) || isZero(hl)) {
-            $("#hotelLocation").css("border", "2px solid red");
-            $("#hotelLocation").css("color", "red");
-            $("#hotelLocation").attr("placeholder", "Hotel Location cannot be negative or zero!");
+            isInvalid("#hotelLocation");
             return swal("OOPS!", "Hotel Location cannot be negative or zero!", "error");
 
 
+
+
+        }else{
+            return isValid("#hotelLocation");
         }
         if (hl.length > 20) {
-            $("#hotelLocation").css("border", "2px solid red");
-            $("#hotelLocation").css("color", "red");
-            $("#hotelLocation").attr("placeholder", "Hotel Location cannot exceed 20 characters!");
+            isInvalid("#hotelLocation");
             return swal("OOPS!", "Hotel Location cannot exceed 20 characters!", "error");
 
-
+        }else{
+             isValid("#hotelLocation");
         }
 
 
@@ -446,20 +451,20 @@ $(document).ready(function () {
     $(document).on('mouseleave', "#hotelLocationWithCoordinates", () => {
         var hlwc = $("#hotelLocationWithCoordinates").val();
         if (isEmpty(hlwc)) {
-            $("#hotelLocationWithCoordinates").css("border", "2px solid red");
-            $("#hotelLocationWithCoordinates").css("color", "red");
-            $("#hotelLocationWithCoordinates").attr("placeholder", "Hotel Location cannot be empty!");
+            isInvalid("#hotelLocationWithCoordinates");
             return swal("OOPS!", "Hotel Location cannot be empty!", "error");
 
 
+        }else{
+           isValid("#hotelLocationWithCoordinates");
         }
         if (isNegative(hlwc) || isZero(hlwc)) {
-            $("#hotelLocationWithCoordinates").css("border", "2px solid red");
-            $("#hotelLocationWithCoordinates").css("color", "red");
-            $("#hotelLocationWithCoordinates").attr("placeholder", "Hotel Location cannot be negative or zero!");
+            isInvalid("#hotelLocationWithCoordinates");
             return swal("OOPS!", "Hotel Location cannot be negative or zero!", "error");
 
 
+        }else{
+             isValid("#hotelLocationWithCoordinates");
         }
 
 
@@ -467,65 +472,65 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#hotelEmail", () => {
         let he = $("#hotelEmail").val();
         if (isEmpty(he)) {
-            $("#hotelEmail").css("border", "2px solid red");
-            $("#hotelEmail").css("color", "red");
-            $("#hotelEmail").attr("placeholder", "Hotel Email cannot be empty!");
+            isInvalid("#hotelEmail");
             return swal("OOPS!", "Hotel Email cannot be empty!", "error");
 
+        }else{
+             isValid("#hotelEmail")
         }
         if (isNegative(he) || isZero(he)) {
-            $("#hotelEmail").css("border", "2px solid red");
-            $("#hotelEmail").css("color", "red");
-            $("#hotelEmail").attr("placeholder", "Hotel Email cannot be negative or zero!");
+            isInvalid('#hotelEmail');
             return swal("OOPS!", "Hotel Email cannot be negative or zero!", "error");
+        }else{
+             isValid("#hotelEmail");
         }
         if (he.length > 20) {
-            $("#hotelEmail").css("border", "2px solid red");
-            $("#hotelEmail").css("color", "red");
-            $("#hotelEmail").attr("placeholder", "Hotel Email cannot exceed 20 characters!");
+            isInvalid("#hotelEmail");
             return swal("OOPS!", "Hotel Email cannot exceed 20 characters!", "error");
+        }else{
+             isValid("#hotelEmail");
         }
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(he)) {
-            $("#hotelEmail").css("border", "2px solid red");
-            $("#hotelEmail").css("color", "red");
-            $("#hotelEmail").attr("placeholder", "Hotel Email is invalid!");
+            isInvalid('#hotelEmail');
             return swal("OOPS!", "Hotel Email is invalid!", "error");
 
+        }else{
+             isValid("#hotelEmail");
         }
 
     })
     $(document).on("mouseleave", "#hotelContact1", () => {
         let hc1 = $("#hotelContact1").val();
         if (isNegative(hc1) || isZero(hc1)) {
-            $("#hotelContact1").css("border", "2px solid red");
-            $("#hotelContact1").css("color", "red");
-            $("#hotelContact1").attr("placeholder", "Hotel Contact cannot be negative or zero!");
+            isInvalid('#hotelContact1');
             return swal("OOPS!", "Hotel Contact cannot be negative or zero!", "error");
 
+        }else{
+             isValid("#hotelContact1");
         }
         if (isEmpty(hc1)) {
-            $("#hotelContact1").css("border", "2px solid red");
-            $("#hotelContact1").css("color", "red");
-            $("#hotelContact1").attr("placeholder", "Hotel Contact cannot be empty!");
+            isInvalid('#hotelContact1');
             return swal("OOPS!", "Hotel Contact cannot be empty!", "error");
 
 
+        }else{
+             isValid("#hotelContact1");
         }
 
         if (hc1.length > 10) {
-            $("#hotelContact1").css("border", "2px solid red");
-            $("#hotelContact1").css("color", "red");
-            $("#hotelContact1").attr("placeholder", "Hotel Contact cannot exceed 10 characters!");
+            isInvalid('#hotelContact1');
             return swal("OOPS!", "Hotel Contact cannot exceed 10 characters!", "error");
 
+        }else{
+             isValid("#hotelContact1");
         }
         if (!isContainingNumbers(hc1)) {
-            $("#hotelContact1").css("border", "2px solid red");
-            $("#hotelContact1").css("color", "red");
-            $("#hotelContact1").attr("placeholder", "Hotel Contact cannot contain letters!");
+            isInvalid('#hotelContact1');
             return swal("OOPS!", "Hotel Contact cannot contain letters!", "error");
 
+        }else{
+            isValid("#hotelContact1");
         }
 
 
@@ -533,82 +538,86 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#hotelContact2", () => {
         let hc2 = $("#hotelContact2").val();
         if (isNegative(hc2) || isZero(hc2)) {
-            $("#hotelContact1").css("border", "2px solid red");
-            $("#hotelContact1").css("color", "red");
-            $("#hotelContact1").attr("placeholder", "Hotel Contact cannot be negative or zero!");
+            isInvalid('#hotelContact2');
             return swal("OOPS!", "Hotel Contact cannot be negative or zero!", "error");
 
+        }else{
+             isValid("#hotelContact2");
         }
         if (isEmpty(hc2)) {
-            $("#hotelContact1").css("border", "2px solid red");
-            $("#hotelContact1").css("color", "red");
-            $("#hotelContact1").attr("placeholder", "Hotel Contact cannot be empty!");
+            isInvalid('#hotelContact2');
             return swal("OOPS!", "Hotel Contact cannot be empty!", "error");
 
 
+        }else{
+            isValid("#hotelContact2");
         }
 
         if (hc2.length > 10) {
-            $("#hotelContact1").css("border", "2px solid red");
-            $("#hotelContact1").css("color", "red");
-            $("#hotelContact1").attr("placeholder", "Hotel Contact cannot exceed 10 characters!");
+            isInvalid('#hotelContact2');
             return swal("OOPS!", "Hotel Contact cannot exceed 10 characters!", "error");
+
+        }else{
+            isValid("#hotelContact2");
 
         }
         if (!isContainingNumbers(hc2)) {
-            $("#hotelContact1").css("border", "2px solid red");
-            $("#hotelContact1").css("color", "red");
-            $("#hotelContact1").attr("placeholder", "Hotel Contact cannot contain letters!");
+            isInvalid('#hotelContact2');
             return swal("OOPS!", "Hotel Contact cannot contain letters!", "error");
 
+        }else{
+             isValid("#hotelContact2");
         }
 
 
     })
 
 
+
+
+
     $(document).on("mouseleave", "#fullBoardWithACLuxuryRoomDouble", () => {
         let o1 = $("#fullBoardWithACLuxuryRoomDouble").val();
         if (isNegative(o1) || isZero(o1)) {
-            $("#fullBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#fullBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot be negative or zero!", "error");
 
 
+        }else{
+             isValid("#fullBoardWithACLuxuryRoomDouble");
         }
         if (isEmpty(o1)) {
-            $("#fullBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot be empty!");
+            isInvalid('#fullBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot be empty!", "error");
 
 
+        }else{
+            isValid("#fullBoardWithACLuxuryRoomDouble");
         }
 
         if (o1.length > 6) {
-            $("#fullBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot exceed 6 characters!");
+            isInvalid('#fullBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot exceed 6 characters!", "error");
 
 
+        }else{
+             isValid("#fullBoardWithACLuxuryRoomDouble");
         }
         if (!isContainingNumbers(o1)) {
-            $("#fullBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot contain letters!");
+            isInvalid('#fullBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot contain letters!", "error");
 
 
+        }else{
+             isValid("#fullBoardWithACLuxuryRoomDouble");
         }
         if(!isValidLength(o1.length)){
-            $("#fullBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot be less than 5 characters!");
+            isInvalid('#fullBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot be less than 5 characters!", "error");
 
 
+        }else{
+            isValid("#fullBoardWithACLuxuryRoomDouble");
         }
 
 
@@ -616,44 +625,44 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#halfBoardWithACLuxuryRoomDouble", () => {
         let o2 = $("#halfBoardWithACLuxuryRoomDouble").val();
         if (isNegative(o2) || isZero(o2)) {
-            $("#halfBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#halfBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot be negative or zero!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomDouble");
         }
         if (isEmpty(o2)) {
-            $("#halfBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot be empty!");
+            isInvalid('#halfBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot be empty!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomDouble");
         }
         if(!isValidLength(o2.length)){
-            $("#halfBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot be less than 5 characters!");
+            isInvalid('#halfBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot be less than 5 characters!", "error");
 
+        }else {
+             isValid("#halfBoardWithACLuxuryRoomDouble");
         }
 
         if (o2.length > 6) {
-            $("#halfBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot exceed 6 characters!");
+            isInvalid('#halfBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot exceed 6 characters!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomDouble");
         }
         if (!isContainingNumbers(o2)) {
-            $("#halfBoardWithACLuxuryRoomDouble").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomDouble").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomDouble").attr("placeholder", "Amount cannot contain letters!");
+            isInvalid('#halfBoardWithACLuxuryRoomDouble');
             return swal("OOPS!", "Amount cannot contain letters!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomDouble");
         }
 
 
@@ -661,44 +670,44 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#fullBoardWithACLuxuryRoomTriple", () => {
         let o4 = $("#fullBoardWithACLuxuryRoomTriple").val();
         if (isNegative(o4) || isZero(o4)) {
-            $("#fullBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#fullBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be negative or zero!", "error");
 
 
+        }else{
+             isValid("#fullBoardWithACLuxuryRoomTriple");
         }
         if (isEmpty(o4)) {
-            $("#fullBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be empty!");
+           isInvalid('#fullBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be empty!", "error");
 
 
+        }else{
+             isValid("#fullBoardWithACLuxuryRoomTriple");
         }
         if(!isValidLength(o4.length)){
-            $("#fullBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be less than 5 characters!");
+            isInvalid('#fullBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be exceed 5 characters!", "error");
 
+        }else{
+             isValid("#fullBoardWithACLuxuryRoomTriple");
         }
 
         if (o4.length > 6) {
-            $("#fullBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot exceed 6 characters!");
+            isInvalid('#fullBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot exceed 6 characters!", "error");
 
 
+        }else{
+             isValid("#fullBoardWithACLuxuryRoomTriple");
         }
         if (!isContainingNumbers(o4)) {
-            $("#fullBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#fullBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#fullBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot contain letters!");
+            isInvalid('#fullBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot contain letters!", "error");
 
 
+        }else{
+             isValid("#fullBoardWithACLuxuryRoomTriple");
         }
 
 
@@ -706,44 +715,45 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#halfBoardWithACLuxuryRoomTriple", () => {
         let o3 = $("#halfBoardWithACLuxuryRoomTriple").val();
         if (isNegative(o3) || isZero(parseInt(o3))) {
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be negative or zero!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomTriple");
         }
         if (isEmpty(o3)) {
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be empty!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be empty!", "error");
 
 
+        }else{
+            isValid("#halfBoardWithACLuxuryRoomTriple");
         }
         if(!isValidLength(o3.length)){
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be less than 5 characters!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be exceed 5 characters!", "error");
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomTriple");
         }
 
+
         if (o3.length > 6) {
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot exceed 6 characters!");
+           isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot exceed 6 characters!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomTriple");
         }
         if (!isContainingNumbers(o3)) {
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot contain letters!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot contain letters!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomTriple");
         }
 
 
@@ -751,33 +761,33 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#cancellationCriteria", () => {
         let cc = $("#cancellationCriteria").val();
         if (isNegative(cc) || isZero(parseInt(cc))) {
-            $("#cancellationCriteria").css("border", "2px solid red");
-            $("#cancellationCriteria").css("color", "red");
-            $("#cancellationCriteria").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#cancellationCriteria');
           return swal("OOPS!", "Cancellation Criteria be negative or zero!", "error");
 
 
 
+        }else{
+             isValid("#cancellationCriteria");
         }
         if (isEmpty(cc)) {
-            $("#cancellationCriteria").css("border", "2px solid red");
-            $("#cancellationCriteria").css("color", "red");
-            $("#cancellationCriteria").attr("placeholder", "Amount cannot be empty!");
+            isInvalid('#cancellationCriteria');
             return swal("OOPS!", "Cancellation Criteria cannot be empty!", "error");
 
 
 
+        }else{
+            isValid("#cancellationCriteria");
         }
 
 
         if (cc.length > 30) {
-            $("#cancellationCriteria").css("border", "2px solid red");
-            $("#cancellationCriteria").css("color", "red");
-            $("#cancellationCriteria").attr("placeholder", "Amount cannot exceed 30 characters!");
+            isInvalid('#cancellationCriteria');
             return swal("OOPS!", "Cancellation Criteria cannot be exceed 30 characters!", "error");
 
 
 
+        }else{
+             isValid("#cancellationCriteria");
         }
 
 
@@ -786,41 +796,41 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#remarks", () => {
         let remarks = $("#remarks").val();
         if (isNegative(remarks) || isZero(parseInt(remarks))) {
-            $("#remarks").css("border", "2px solid red");
-            $("#remarks").css("color", "red");
-            $("#remarks").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#remarks');
             return swal("OOPS!", "Remarks cannot be negative or zero!", "error");
 
 
+        }else{
+             isValid("#remarks");
         }
         if (isEmpty(remarks)) {
-            $("#remarks").css("border", "2px solid red");
-            $("#remarks").css("color", "red");
-            $("#remarks").attr("placeholder", "Amount cannot be empty!");
+            isInvalid('#remarks');
             return swal("OOPS!", "Remarks cannot be empty!", "error");
 
 
 
+        }else{
+             isValid("#remarks");
         }
 
         if(remarks.length > 20){
-            $("#remarks").css("border", "2px solid red");
-            $("#remarks").css("color", "red");
-            $("#remarks").attr("placeholder", "Amount cannot exceed 20 characters!");
+            isInvalid('#remarks');
             return swal("OOPS!", "Remarks cannot exceed 20 characters!", "error");
 
 
 
+        }else{
+             isValid("#remarks");
         }
 
         if (isContainingNumbers(remarks)) {
-            $("#remarks").css("border", "2px solid red");
-            $("#remarks").css("color", "red");
-            $("#remarks").attr("placeholder", "Remarks cannot contain numbers!");
+            isInvalid('#remarks');
             return swal("OOPS!", "Remarks cannot contain numbers!", "error");
 
 
 
+        }else{
+             isValid("#remarks");
         }
 
 
@@ -828,44 +838,44 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#halfBoardWithACLuxuryRoomTriple", () => {
         let o3 = $("#halfBoardWithACLuxuryRoomTriple").val();
         if (isNegative(o3) || isZero(parseInt(o3))) {
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be negative or zero!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomTriple");
         }
         if (isEmpty(o3)) {
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be empty!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be empty!", "error");
 
 
+        }else{
+            isValid("#halfBoardWithACLuxuryRoomTriple");
         }
         if(!isValidLength(o3.length)){
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot be less than 5 characters!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot be exceed 5 characters!", "error");
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomTriple");
         }
 
         if (o3.length > 6) {
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot exceed 6 characters!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot exceed 6 characters!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomTriple");
         }
         if (!isContainingNumbers(o3)) {
-            $("#halfBoardWithACLuxuryRoomTriple").css("border", "2px solid red");
-            $("#halfBoardWithACLuxuryRoomTriple").css("color", "red");
-            $("#halfBoardWithACLuxuryRoomTriple").attr("placeholder", "Amount cannot contain letters!");
+            isInvalid('#halfBoardWithACLuxuryRoomTriple');
             return swal("OOPS!", "Amount cannot contain letters!", "error");
 
 
+        }else{
+             isValid("#halfBoardWithACLuxuryRoomTriple");
         }
 
 
@@ -873,50 +883,50 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#hotelFee", () => {
         let o5 = $("#hotelFee").val();
         if (isNegative(o5) || isZero(parseInt(o5))) {
-            $("#hotelFee").css("border", "2px solid red");
-            $("#hotelFee").css("color", "red");
-            $("#hotelFee").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#hotelFee');
             return swal("OOPS!", "Amount cannot be negative or zero!", "error");
 
 
 
 
+        }else{
+             isValid("#hotelFee");
         }
         if (isEmpty(o5)) {
-            $("#hotelFee").css("border", "2px solid red");
-            $("#hotelFee").css("color", "red");
-            $("#hotelFee").attr("placeholder", "Amount cannot be empty!");
+            isInvalid('#hotelFee');
             return swal("OOPS!", "Amount cannot be empty!", "error");
 
 
 
+        }else{
+             isValid("#hotelFee");
         }
         if(!isValidLength(o5.length)){
-            $("#hotelFee").css("border", "2px solid red");
-            $("#hotelFee").css("color", "red");
-            $("#hotelFee").attr("placeholder", "Amount cannot be less than 5 characters!");
+            isInvalid('#hotelFee');
             return swal("OOPS!", "Amount cannot be exceed 5 characters!", "error");
 
 
+        }else{
+            isValid("#hotelFee");
         }
 
         if (o5.length > 6) {
-            $("#hotelFee").css("border", "2px solid red");
-            $("#hotelFee").css("color", "red");
-            $("#hotelFee").attr("placeholder", "Amount cannot exceed 6 characters!");
+            isInvalid('#hotelFee');
             return swal("OOPS!", "Amount cannot exceed 6 characters!", "error");
 
 
 
+        }else{
+             isValid("#hotelFee");
         }
         if (!isContainingNumbers(o5)) {
-            $("#hotelFee").css("border", "2px solid red");
-            $("#hotelFee").css("color", "red");
-            $("#hotelFee").attr("placeholder", "Amount cannot contain letters!");
+            isInvalid('#hotelFee');
             return swal("OOPS!", "Amount cannot contain letters!", "error");
 
 
 
+        }else{
+             isValid("#hotelFee");
         }
 
 
@@ -924,33 +934,33 @@ $(document).ready(function () {
     $(document).on("mouseleave", "#cancellationCriteria", () => {
         let cc = $("#cancellationCriteria").val();
         if (isNegative(cc) || isZero(parseInt(cc))) {
-            $("#cancellationCriteria").css("border", "2px solid red");
-            $("#cancellationCriteria").css("color", "red");
-            $("#cancellationCriteria").attr("placeholder", "Amount cannot be negative or zero!");
+            isInvalid('#cancellationCriteria')
             return swal("OOPS!", "Cancellation Criteria be negative or zero!", "error");
 
 
 
+        }else{
+            isValid("#cancellationCriteria");
         }
         if (isEmpty(cc)) {
-            $("#cancellationCriteria").css("border", "2px solid red");
-            $("#cancellationCriteria").css("color", "red");
-            $("#cancellationCriteria").attr("placeholder", "Amount cannot be empty!");
+            isInvalid('#cancellationCriteria')
             return swal("OOPS!", "Cancellation Criteria cannot be empty!", "error");
 
 
 
+        }else{
+             isValid("#cancellationCriteria");
         }
 
 
         if (cc.length > 30) {
-            $("#cancellationCriteria").css("border", "2px solid red");
-            $("#cancellationCriteria").css("color", "red");
-            $("#cancellationCriteria").attr("placeholder", "Amount cannot exceed 30 characters!");
+            isInvalid('#cancellationCriteria')
             return swal("OOPS!", "Cancellation Criteria cannot be exceed 30 characters!", "error");
 
 
 
+        }else{
+             isValid("#cancellationCriteria");
         }
 
 
@@ -960,9 +970,7 @@ $(document).ready(function () {
         let sr = $("#starRating").val();
         if (isNegative(sr) || isZero(parseInt(sr))) {
 
-            $("#starRating").css("border", "2px solid red");
-            $("#starRating").css("color", "red");
-            $("#starRating").attr("placeholder", "Star Rating cannot be negative or zero!");
+            isInvalid('#starRating');
             return swal("OOPS!", "Star Rating cannot be negative or zero!", "error");
 
 
@@ -970,28 +978,30 @@ $(document).ready(function () {
 
 
 
+        }else{
+             isValid("#starRating");
         }
         if (isEmpty(sr)) {
-            $("#starRating").css("border", "2px solid red");
-            $("#starRating").css("color", "red");
-            $("#starRating").attr("placeholder", "Star Rating cannot be empty!");
+            isInvalid('#starRating');
             return swal("OOPS!", "Star Rating cannot be empty!", "error");
 
 
 
 
+        }else{
+            isValid("#starRating");
         }
 
 
         if (sr > 5) {
-            $("#starRating").css("border", "2px solid red");
-            $("#starRating").css("color", "red");
-            $("#starRating").attr("placeholder", "Star Rating cannot exceed 5 limit!");
+            isInvalid('#starRating');
             return swal("OOPS!", "Star Rating cannot exceed 5 limit!", "error");
 
 
 
 
+        }else{
+             isValid("#starRating");
         }
 
 
@@ -1000,6 +1010,17 @@ $(document).ready(function () {
 
 
 })
+
+function isValid(id) {
+    $(id).css("border", "2px solid green");
+    $(id).css("color", "green");
+
+}
+
+function isInvalid(id) {
+    $(id).css("border", "2px solid red");
+    $(id).css("color", "red");
+}
 /*Validation - End.*/
 
 
@@ -1113,17 +1134,7 @@ function getIndex(packageName) {
 
 }
 
-$(document).ready(() => {
 
-
-    $(document).on("mouseleave", "#hotelName", () => {
-        getCoordinates();
-
-
-    })
-
-
-})
 
 
 function getCoordinates() {

@@ -441,3 +441,64 @@ function getIndex(packageName) {
     return i;
 
 }
+/*Validation - Start.*/
+function isValidLength(length) {
+    return length >= 5;
+
+
+}
+
+function isExceedingLength(length) {
+    return length > 10;
+}
+
+function isNegative(value) {
+    return value < 0;
+
+}
+
+function isZero(value) {
+    return value === 0;
+
+}
+
+function isValidPassword(value) {
+    return value <= 8 && value >= 16;
+
+}
+
+function isContainingNumbers(value) {
+    return /\d/.test(value)
+}
+
+function isEmpty(value) {
+    return value === "";
+}
+
+$(document).ready(()=>{
+
+    $(document).on('mouseleave',"#vehicleBrand",()=>{
+        let vb = $("#vehicleBrand").val();
+        if(isEmpty(vb)){
+            $("#vehicleBrand").css("border", "2px solid red");
+            $("#vehicleBrand").css("color", "red");
+            $("#vehicleBrand").attr("placeholder", "Vehicle Brand cannot be empty!");
+            return swal("OOPS!", "Vehicle Brand cannot be empty!", "error");
+
+
+
+        }else{
+            $("#vehicleBrand").css("border", "2px solid green");
+            $("#vehicleBrand").css("color", "green");
+            $("#vehicleBrand").attr("placeholder", "Vehicle Brand");
+            return true;
+        }
+
+
+
+    })
+
+
+})
+
+/*Validation - End.*/
