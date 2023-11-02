@@ -76,19 +76,21 @@ $(document).ready(() => {
             }
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/user/saveUser", method: "POST", headers: {
+                url: "http://localhost:8080/api/v1/user/saveUser",
+                method: "POST",
+
+                headers: {
                     "content-type": "application/json",
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("userAdminAuthToken"))
-                }, data: JSON.stringify(user), success: (response) => {
+                },
+                data: JSON.stringify(user),
+                success: (response) => {
                     console.log(response)
-                    if (response.statusCode === 0) {
-                        swal("Done!", response.message, "success")
-                        return clearFields();
 
-                    } else {
-                        return swal("OOPS!", response.message, "error")
 
-                    }
+                            clearFields();
+                        return swal("Done!", response.message, "error")
+
 
 
                 }, error: (xhr, textStatus, errorThrown) => {
