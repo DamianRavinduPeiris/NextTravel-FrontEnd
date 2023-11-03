@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>NextTravel Payment Portal.</title>
     <!--Icon.-->
     <link href="https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-1/305665009_507401131389745_3620587329270147401_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=754033&_nc_eui2=AeHmp4mrxo5AeZY5_vO75y1cWtwozwOFYUJa3CjPA4VhQrSoNOLbrxd5rJs6svH34fv_Z0LIzPM88JgcHqfXbJAt&_nc_ohc=xV3-CM-ZzNwAX841dJs&_nc_oc=AQkOk_mPmQi-xAffuB00MViMAUqouQGsN03pn6cUVJLox2rgIUOTcNkGzKeOci7Q3RU&_nc_ht=scontent-sin6-4.xx&oh=00_AfAyBVEVfQ3RloRULOLUd_eUcgoKbo80RxRN9WH3EKXTTA&oe=6527614B"
@@ -46,48 +45,67 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Tilt+Warp&display=swap"
           rel="stylesheet">
 
-
 </head>
 <body>
-<h1 class="text" data-aos="zoom-in">NextTravel Payment Portal.</h1>
-
-<div class="flexBox" data-aos="zoom-in">
-    <div class="mb-3">
-        <label class="form-label" for="paymentSlip">Upload your payment Slip.</label>
-        <input class="form-control" id="paymentSlip" placeholder="" type="file">
-    </div>
-    <div>
-        <button class="btn btn-success" id="uploadButton" type="button">Upload.</button>
-
-    </div>
-
-    <h1 class="text subText">OR </h1>
-    <button class="btn btn-success" id="stripeButton" type="button">Pay With Stripe.</button>
-
-
-    <form action='http://localhost:8099/charge' id='checkout-form' method='POST'>
-        <input id="amount" name='amount' type='hidden'/>
-        <script
-                class='stripe-button'
-                data-currency='LKR'
-                data-description='NextTravel Payment Portal.'
-
-                data-image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtvJXfHOGQu_Nbco8cqciRhj8NU7y-1oDohw&usqp=CAU'
-                data-key='pk_test_51O5tstEATYZ10rGuNa5iYJep83PANHfVD4tKhbUKyi3dE7MZX4a6yVGvXG1ATSG0DymwMSQJRA6Ty0gHN79AohmS00HEUtTtaV'
-                data-locale='auto'
-                data-name='NextTravel.'
-                data-zip-code='false'
-                src='https://checkout.stripe.com/checkout.js'>
-        </script>
-    </form>
-</div>
-
-<script src="js/PaymentPortal.js"></script>
-<!--AOS.-->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
 <script>
-    AOS.init();
+
+    $(document).ready(()=>{
+
+        showConfetti();
+        swal({
+            title: "Payment Successful!",
+            text: "Thank you for using NextTravel!",
+            icon: "success",
+            button: "Continue",
+        }).then(()=>{
+            window.location.href = "index.html";
+        })
+    })
+
+    function showConfetti(){
+        const count = 200,
+            defaults = {
+                origin: { y: 0.7 },
+            };
+
+        function fire(particleRatio, opts) {
+            confetti(
+                Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio),
+                })
+            );
+        }
+
+        fire(0.25, {
+            spread: 26,
+            startVelocity: 55,
+        });
+
+        fire(0.2, {
+            spread: 60,
+        });
+
+        fire(0.35, {
+            spread: 100,
+            decay: 0.91,
+            scalar: 0.8,
+        });
+
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 25,
+            decay: 0.92,
+            scalar: 1.2,
+        });
+
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 45,
+        });
+    }
 </script>
+<!--Confetti JS.-->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+
 </body>
 </html>
