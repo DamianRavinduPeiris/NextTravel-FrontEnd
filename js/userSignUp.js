@@ -27,7 +27,8 @@ $("#signUpButton").on("click", () => {
 
 
     }
-    console.log(user)
+
+        console.log(user)
         $.ajax({
             url: "http://localhost:8080/api/v1/auth/getAuth",
             method: "POST",
@@ -38,11 +39,14 @@ $("#signUpButton").on("click", () => {
             success: (res) => {
                 console.log(res);
                 if (res.statusCode === 200 || res.statusCode === 201) {
+                    localStorage.setItem("userDetails",JSON.stringify(user))
                     localStorage.setItem("userAuthToken", JSON.stringify(res.data))
 
                     sendEmail();
 
 
+                }else{
+                    swal("OOPS!", "Server threw an exception : " + res.message, "error");
                 }
 
 
@@ -52,7 +56,9 @@ $("#signUpButton").on("click", () => {
 
 
 
-    })
+        })
+
+
 
 })
 var imageLocations = [];
@@ -122,7 +128,7 @@ $("#userOTP").on("mouseleave", () => {
     if ($("#userOTP").val() === otp) {
          swal("Success!", "User Registered Successfully!", "success");
         return  setTimeout(()=>{
-            window.location.href = "PackageBooking.html";
+            window.location.href = "UserLogin.html";
 
 
 
@@ -141,21 +147,33 @@ $("#userOTP").on("mouseleave", () => {
 /*Validation - Start .*/
 
 $("#userAge").on("mouseleave", function () {
-    let id = $(this).attr("id");
-    let value = parseInt($("#" + id).val());
-    if (value < 18) {
-        swal("OOPS!", "User should be at least 18 years old!", "error");
-    }
-    if ($("#" + id).val().length < 2) {
-        swal("OOPS!", "Age should be at least 2 characters!", "error");
 
+    let value = parseInt($("#userAge").val());
+    if (value < 18) {
+        isInvalid("#userAge")
+        swal("OOPS!", "User should be at least 18 years old!", "error");
+    }else{
+        isValid("#userAge")
     }
-    if ($("#" + id).val().length > 2) {
+    if (value.length < 2 || value.length > 2) {
+        isInvalid("#userAge")
+        swal("OOPS!", "Age should be  2 characters!", "error");
+
+    }else{
+        isValid("#userAge")
+    }
+    if (value.length > 2) {
+        isInvalid("#userAge")
         swal("OOPS!", "Age can only be 2 characters!", "error");
 
+    }else{
+        isValid("#userAge")
     }
     if (value < 0) {
+        isInvalid("#userAge")
         swal("OOPS!", "Age cannot be negative !", "error");
+    }else{
+        isValid("#userAge")
     }
 
 
@@ -164,14 +182,23 @@ $("#userNIC").on("mouseleave", () => {
     const userNIC = $("#userNIC").val();
 
     if ($("#userNIC").val().length !== 12) {
+        isInvalid("#userNIC")
         swal("Error!", "Invalid NIC format.", "error");
+    }else{
+        isValid("#userNIC")
     }
 
     if (isEmpty($("#userNIC").val())) {
+        isInvalid("#userNIC")
         swal("Error", "NIC cannot be empty!", "error")
+    }else{
+        isValid("#userNIC")
     }
     if (isNegative(parseInt($("#userNIC").val()))) {
+        isInvalid("#userNIC")
         swal("Error", "NIC Cannot be negative!", "error")
+    }else{
+        isValid("#userNIC")
     }
 
 });
@@ -197,7 +224,7 @@ function isZero(value) {
 
 }
 function isValidPassword(value){
-    return value <= 8 && value >=  16;
+    return value => 8 && value >=  16;
 
 }
 
@@ -211,41 +238,72 @@ function isEmpty(value) {
 
 
 $("#name").on("mouseleave", function () {
+    if (isNegative(parseInt($("#name").val()))) {
+        isInvalid("#name")
+        return swal("OOPS!", "Name cannot contain numbers!", "error");
+    }else{
+        isValid("#name")
+    }
     if (isContainingNumbers($("#name").val())) {
-        swal("OOPS!", "Name cannot contain numbers!", "error");
+        isInvalid("#name")
+        return swal("OOPS!", "Name cannot contain numbers!", "error");
+    }else{
+        isValid("#name")
     }
     if (!isValidLength($("#name").val().length)) {
-        swal("OOPS!", "Name should be at least 3 characters!", "error");
+        isInvalid("#name")
+        return  swal("OOPS!", "Name should be at least 3 characters!", "error");
+    }else{
+        isValid("#name")
     }
     if (isEmpty($("#name").val())) {
-        swal("OOPS!", "Name cannot be empty!", "error");
+        isInvalid("#name")
+       return  swal("OOPS!", "Name cannot be empty!", "error");
 
 
+    }else{
+        isValid("#name")
     }
 })
 $("#userName").on("mouseleave", () => {
     let val = parseInt($("#userName").val());
+    if (isNegative(parseInt(val))) {
+        isInvalid("#userName")
+        return  swal("OOPS!", "User Name cannot be negative!", "error");
+
+
+    }else{
+        isValid("#userName")
+    }
     if (!isValidLength($("#userName").val().length)) {
-        swal("OOPS!", "User Name should be at least 3 characters!", "error");
+        isInvalid("#userName")
+        return swal("OOPS!", "User Name should be at least 3 characters!", "error");
 
+    }else{
+        isValid("#userName")
     }
-    if (isNegative(val)) {
-        swal("OOPS!", "User Name cannot be negative!", "error");
 
-
-    }
     if (isZero(val)) {
-        swal("OOPS!", "User Name cannot be 0!", "error");
+        isInvalid("#userName")
+       return  swal("OOPS!", "User Name cannot be 0!", "error");
 
 
+    }else{
+        isValid("#userName")
     }
     if (isExceedingLength($("#userName").val().length)) {
-        swal("OOPS!", "User Name cannot exceed 10 characters!", "error");
+        isInvalid("#userName")
+      return   swal("OOPS!", "User Name cannot exceed 10 characters!", "error");
 
+    }else{
+        isValid("#userName")
     }
     if (isEmpty($("#userName").val())) {
-        swal("OOPS!", "User Name cannot be empty!", "error");
+        isInvalid("#userName")
+        return swal("OOPS!", "User Name cannot be empty!", "error");
 
+    }else{
+        isValid("#userName")
     }
 
 
@@ -254,24 +312,45 @@ $("#userName").on("mouseleave", () => {
 
 $("#userPassword").on("mouseleave", () => {
     if (!isValidPassword($("#userPassword").val().length)) {
-        swal("OOPS!", "Password should be between 8 and 16 characters!", "error");
+        isInvalid("#userPassword")
+       return  swal("OOPS!", "Password should be between 8 and 16 characters!", "error");
 
+    }else{
+        isValid("#userPassword")
     }
     if (isEmpty($("#userPassword").val())) {
-        swal("OOPS!", "Password cannot be empty!", "error");
+        isInvalid("#userPassword")
+        return  swal("OOPS!", "Password cannot be empty!", "error");
 
 
+    }else{
+        isValid("#userPassword")
     }
 
 
 })
 
 
-$("#userNICImageLocation,#userImageLocation").on("mouseleave", () => {
+$("#userNICImageLocation").on("mouseleave", () => {
+
+    if (isEmpty($("#userNICImageLocation").val())) {
+        isInvalid("#userNICImageLocation")
+       return  swal("Error", "NIC cannot be empty!", "error")
+
+    }else{
+        isValid("#userNicImageLocation")
+    }
+
+
+})
+$("#userImageLocation").on("mouseleave", () => {
 
     if (isEmpty($("#userImageLocation").val())) {
-        swall("Error", "Images cannot be empty!", "error")
+        isInvalid("#userImageLocation")
+        return  swal("Error", "User Image cannot be empty!", "error")
 
+    }else{
+        isValid("#userImageLocation")
     }
 
 
@@ -281,18 +360,27 @@ $("#userNICImageLocation,#userImageLocation").on("mouseleave", () => {
 $("#userEmail").on("mouseleave", () => {
     const emailRegex = /^([a-zA-Z0-9._%+-]+@(gmail|yahoo|hotmail|outlook)\.(com|co\.uk))|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?)$/;
     if (isEmpty($("#userEmail").val())) {
-        swal("Error", "Email cannot be empty!", "error")
+        isInvalid("#userEmail")
+      return   swal("Error", "Email cannot be empty!", "error")
 
 
+    }else{
+        isValid("#userEmail")
     }
     if (isNegative(parseInt($("#userEmail").val()))) {
-        swal("Error", "Email cannot be negative!", "error")
+        isInvalid("#userEmail")
+        return swal("Error", "Email cannot be negative!", "error")
 
+    }else{
+        isValid("#userEmail")
     }
 
     if (!emailRegex.test($("#userEmail").val())) {
-        swal("Error", "Invalid Email Format!", "error")
+        isInvalid("#userEmail")
+        return swal("Error", "Invalid Email Format!", "error")
 
+    }else{
+        isValid("#userEmail")
     }
 
 })
@@ -305,45 +393,87 @@ function isContainingLetters(val) {
 $("#userPhone").on("mouseleave", () => {
 
     if ($("#userPhone").val().length !== 10) {
-        swal("Error", "Invalid Phone Number!", "error")
+        isInvalid("#userPhone")
+      return   swal("Error", "Invalid Phone Number!", "error")
+    }else{
+        isValid("#userPhone")
     }
     if (isNegative(parseInt($("#userPhone").val()))) {
-        swal("Error", "Phone Number cannot be negative!", "error")
+        isInvalid("#userPhone")
+       return  swal("Error", "Phone Number cannot be negative!", "error")
 
+    }else{
+        isValid("#userPhone")
     }
     if (isEmpty($("#userPhone").val())) {
-        swal("Error", "Phone Number cannot be empty!", "error")
+        isInvalid("#userPhone")
+       return  swal("Error", "Phone Number cannot be empty!", "error")
 
+    }else{
+        isValid("#userPhone")
     }
     if(isContainingLetters($("#userPhone").val())){
-        swal("Error", "Phone Number cannot contain letters!", "error")
+        isInvalid("#userPhone")
+       return  swal("Error", "Phone Number cannot contain letters!", "error")
 
+    }else{
+        isValid("#userPhone")
     }
 
 })
 
 $("#userAddress").on("mouseleave", () => {
     if (isEmpty($("#userAddress").val())) {
-        swal("Error", "Address cannot be empty!", "error")
+        isInvalid("#userAddress")
+     return    swal("Error", "Address cannot be empty!", "error")
 
 
+    }else{
+        isValid("#userAddress")
     }
     if (isNegative(parseInt($("#userAddress").val()))) {
-        swal("Error", "Address cannot be negative!", "error")
+        isInvalid("#userAddress")
+       return  swal("Error", "Address cannot be negative!", "error")
 
 
+    }else{
+        isValid("#userAddress")
     }
-    if(isValidLength($("#userAddress").val().length)){
-        swal("Error", "Address should be at least 3 characters!", "error")
+    if(!isValidLength($("#userAddress").val().length)){
+        isInvalid("#userAddress")
+       return  swal("Error", "Address should be at least 3 characters!", "error")
+
+    }else{
+
+    isValid("#userAddress")
 
     }
     if($("#userAddress").val().length > 30){
-        swal("Error", "Address cannot exceed 30 characters!", "error")
+        isInvalid("#userAddress")
+      return   swal("Error", "Address cannot exceed 30 characters!", "error")
 
+    }else{
+        isValid("#userAddress")
     }
 
 
 })
+
+
+
+function isValid(id) {
+    $("#signUpButton").prop("disabled", false);
+    $(id).css("border", "2px solid green");
+    $(id).css("color", "green");
+
+}
+
+function isInvalid(id) {
+    $("#signUpButton").prop("disabled", true);
+    $(id).val('');
+    $(id).css("border", "2px solid red");
+    $(id).css("color", "red");
+}
 
 
 /*Validation - End .*/

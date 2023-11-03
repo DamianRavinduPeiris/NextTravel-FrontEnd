@@ -306,6 +306,7 @@ function isValid(id) {
 }
 
 function isInvalid(id) {
+    $(id).val('');
     $(id).css("border", "2px solid red");
     $(id).css("color", "red");
 }

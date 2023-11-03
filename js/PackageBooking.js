@@ -17,6 +17,7 @@ $(document).ready(() => {
     $("#totalNoOfDays").prop("disabled", true);
     $("#hotelPrice").prop("disabled", true);
     $("#vehiclePrice").prop("disabled", true);
+    $("#totalPrice").val("");
     $("#totalPrice").prop("disabled", true);
     $("#guidePrice").prop("disabled", true);
     $("#serviceCharge").prop("disabled", true);
@@ -91,6 +92,22 @@ function packageLoader(pID) {
 var hID = '';
 var vID = '';
 
+function calculateTotal() {
+    if ($("#guide").val() !== "false" && $("#availableGuides").val() === null) {
+        return swal("OOPS!", "Please Select a Guide!", "error");
+    }
+    if ($("#guidePrice").val()) {
+        return $("#totalPrice").val(parseInt($("#hotelPrice").val()) + parseInt($("#vehiclePrice").val()) + parseInt($("#serviceCharge").val()) + parseInt($("#guidePrice").val()));
+
+
+    } else {
+        return $("#totalPrice").val(parseInt($("#hotelPrice").val()) + parseInt($("#vehiclePrice").val()) + parseInt($("#serviceCharge").val()));
+
+    }
+
+
+}
+
 $(document).ready(function () {
 
 
@@ -99,9 +116,7 @@ $(document).ready(function () {
             return swal("OOPS!", "Select a valid date range!", "error");
 
         }
-        $("#hotelPrice").val("");
-        $("#serviceCharge").val("");
-        $("#totalPrice").val("");
+
         console.log('Selected Hotel Name:', $(this).val());
         var selectedHotelName = $(this).val();
         var hotelData = JSON.parse(localStorage.getItem("hotelData"));
@@ -139,8 +154,7 @@ $(document).ready(() => {
 
     });
     $("#vehicles").on("change", () => {
-        $("#vehiclePrice").val("");
-        $("#totalPrice").val("");
+
         let vd = JSON.parse(localStorage.getItem("vehicleData"))
         vd.forEach((v) => {
             if (v.vehicleId === $("#vehicles").val()) {
@@ -151,7 +165,9 @@ $(document).ready(() => {
         })
 
 
-        return $("#vehiclePrice").val(parseInt($("#totalNoOfDays").val()) * vehiclePrice);
+        $("#vehiclePrice").val(parseInt($("#totalNoOfDays").val()) * vehiclePrice);
+        return calculateTotal();
+
 
     });
 
@@ -220,6 +236,8 @@ $(document).ready(function () {
 
 
         } else {
+            $("#totalPrice").val($("#totalPrice").val() - $("#guidePrice").val());
+            $("#guidePrice").val("");
             $("#guideHolder").remove();
         }
 
@@ -239,7 +257,7 @@ $(document).ready(function () {
             })
 
             $("#guidePrice").val(parseInt($("#totalNoOfDays").val()) * guidePrice);
-            $("#totalPrice").val(parseInt($("#hotelPrice").val()) + parseInt($("#vehiclePrice").val()) + parseInt($("#guidePrice").val()) + parseInt($("#serviceCharge").val()));
+            return calculateTotal();
 
 
         })
@@ -249,6 +267,13 @@ $(document).ready(function () {
     $('#startDate, #endDate').change(() => {
         $("#hotelPrice").val("");
         $("#vehiclePrice").val("");
+        $("#totalPrice").val("");
+        $("#serviceCharge").val("");
+        $("#totalNoOfDays").val("");
+        $("#totalNoOfAdults").val("");
+        $("#totalNoOfChildren").val("");
+        $("#guidePrice").val("");
+
         var startDate = $('#startDate').val();
         var endDate = $('#endDate').val();
 
@@ -309,6 +334,11 @@ function saveImage(id) {
 }
 
 $("#bnButton").on("click", () => {
+    if($("#totalNoOfChildren").val() === "" || $("#totalNoOfAdults").val() === "" || $("#totalNoOfDays").val() === "" || $("#startDate").val() === "" || $("#endDate").val() === "" || $("#destination").val() === "" || $("#pets").val() === "" || $("#guide").val() === "" || $("#totalPrice").val() === ""){
+        return swal("OOPS!", "Please fill all the fields!", "error");
+
+
+    }
 
     let pd = {
         packageDetailsId: "",
@@ -339,5 +369,4 @@ $("#bnButton").on("click", () => {
 
 
 })
-
 
