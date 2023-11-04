@@ -1,9 +1,12 @@
 $(document).ready(() => {
+    $(".loader").css('display', 'none');
 
     $("#otpHolder").css("display", "none");
 
 })
 $("#signUpButton").on("click", () => {
+    $('.loader').css('display', 'block');
+    $('#heading').text('We are signing you up!');
 
     saveImage("#userNICImageLocation");
     saveImage("#userImageLocation");
@@ -29,6 +32,8 @@ $("#signUpButton").on("click", () => {
     }
 
         console.log(user)
+
+
         $.ajax({
             url: "http://localhost:8080/api/v1/auth/getAuth",
             method: "POST",
@@ -51,6 +56,7 @@ $("#signUpButton").on("click", () => {
 
 
             }, error: (xhr, textStatus, errorThrown) => {
+                $('.loader').css('display', 'none');
                 swal("OOPS!", "Server threw an exception : " + xhr.responseJSON.message, "error");
             },
 
@@ -111,11 +117,15 @@ function sendEmail() {
             otp = res.data.data;
 
             $("#otpHolder").css("display", "block");
+            $("#signUpButton").prop("disabled", true);
+            $('#heading').text('We have sent you an OTP to your email!');
             $("#userOTP").val("");
+            $('.loader').css('display', 'none');
 
 
         })
         .catch((err) => {
+            $('.loader').css('display', 'none');
             swal("OOPS!", "Server threw an exception : " + err.responseJSON.message, "error");
 
         })
@@ -338,7 +348,7 @@ $("#userNICImageLocation").on("mouseleave", () => {
        return  swal("Error", "NIC cannot be empty!", "error")
 
     }else{
-        isValid("#userNicImageLocation")
+        isValid("#userNICImageLocation")
     }
 
 

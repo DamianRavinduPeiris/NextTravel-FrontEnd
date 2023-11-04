@@ -17,6 +17,11 @@
 #name,#userName,#userPassword,#userNIC,#userNICImageLocation,#userAge,#gender,#userEmail,#userPhone,#userAddress,#userImageLocation,#userOTP{
     width: 40vw;
 }
+#sText{
+
+    font-size: 2rem;
+
+}
 #signUpButton{
     margin-top: 2rem;;
     height: 3rem;

@@ -45,12 +45,41 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Tilt+Warp&display=swap"
           rel="stylesheet">
+    <style>
+
+        .loader {
+            position: relative;
+            margin: 0 auto;
+            width: 50px;
+            height: 50px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #0e0c0c;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-<h1 class="text" data-aos="zoom-in">Welcome to NextTravel.</h1>
+<h1 class="text" id="heading" data-aos="zoom-in">Welcome to NextTravel.</h1>
+<div class="loader"></div>
 
 <div class="flexBox">
     <div class="flexBox fdc">
+
+
         <div class="mb-3">
             <label for="name" class="form-label animate__animated animate__lightSpeedInRight">Enter Your Name Here.</label>
             <input type="text" class="form-control animate__animated animate__lightSpeedInRight" id="name" placeholder="John Doe.">
@@ -79,6 +108,8 @@
     </div>
     <div class="flexBox fdc">
 
+
+
     <div class="mb-3">
         <label for="gender" class="form-label animate__animated animate__lightSpeedInLeft">Select Your Gender.</label>
         <select class="form-select animate__animated animate__lightSpeedInLeft" id="gender">
@@ -96,6 +127,7 @@
             <input type="text" class="form-control animate__animated animate__lightSpeedInLeft" id="userOTP" placeholder="Check your mailbox for the OTP.">
         </div>
     <div class="mb-3">
+
         <label for="userPhone" class="form-label animate__animated animate__lightSpeedInLeft">Enter Your Phone Number Here.</label>
         <input type="text" class="form-control animate__animated animate__lightSpeedInLeft" id="userPhone" placeholder="0779765241">
     </div>
@@ -107,9 +139,10 @@
         <label for="userImageLocation" class="form-label animate__animated animate__lightSpeedInLeft">Upload a Picture of you.</label>
         <input type="file" class="form-control animate__animated animate__lightSpeedInLeft" id="userImageLocation" placeholder="user.jpg">
     </div>
+
+
         <button type="button" class="btn animate__animated animate__lightSpeedInRight" id="signUpButton">Signup.</button>
     </div>
-
 
 
 
